@@ -7,10 +7,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
-
 <body>
     <form id="login" runat="server">
-        <div>
+        <div class="container">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
                     <input class="input" type="email" placeholder="Email"/>
