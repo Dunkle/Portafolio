@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="login" runat="server">
-        <div class="container">
+        <div class="columns">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
                     <input class="input" type="email" placeholder="Email"/>
