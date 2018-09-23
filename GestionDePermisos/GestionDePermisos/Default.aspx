@@ -25,7 +25,7 @@
                     <form id="login" runat="server">
                         <div class="field">
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="text" id="txtUsuario" placeholder="Usuario" />
+                                <asp:TextBox runat="server" ID="txtUsuario" CssClass="input" placeholder="Usuario" ClientIDMode="Static"></asp:TextBox>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-user"></i>
                                 </span>
@@ -33,18 +33,15 @@
                         </div>
                         <div class="field">
                             <p class="control has-icons-left">
-                                <input class="input" type="password" id="txtContraseña" placeholder="Contraseña" />
+                                <asp:TextBox runat="server" ID="txtContraseña" TextMode="Password" placeholder="Contraseña" ClientIDMode="Static" CssClass="input"></asp:TextBox>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
                                 </span>
                             </p>
                         </div>
-
                         <div class="field">
                             <p class="control">
-                                <button class="button is-success">
-                                    Login
-                                </button>
+                                <asp:Button Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" CssClass="button is-success" OnClick="btnLogin_Click" />
                             </p>
                         </div>
                     </form>

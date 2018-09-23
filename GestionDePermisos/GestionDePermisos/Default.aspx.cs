@@ -13,5 +13,15 @@ namespace GestionDePermisos
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comprobarConexion() {
+            string usuario = txtUsuario.Text;
+            string contraseña = txtContraseña.Text;
+        }
     }
 }
