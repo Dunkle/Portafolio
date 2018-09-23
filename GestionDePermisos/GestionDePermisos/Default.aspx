@@ -9,15 +9,23 @@
 </head>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
 <link rel="stylesheet" href="Content/bulma.css" />
+<script src="Scripts/jquery-1.10.2.js"></script>
+<script src="Scripts/bulma.sass"></script>
 <body>
-    <div class="section is-large">
+    <div class="section is-medium">
         <div class="container">
+            <div class="column is-5 is-offset-one-quarter" style="text-align: center">
+                <h1 class="title is-1">Gestion de Permisos</h1>
+            </div>
+            <div class="column is-4 is-offset-one-quarter">
+            </div>
             <div class="columns">
-                <div class="column is-4 is-offset-one-quarter">
+                <div class="column is-5 is-offset-one-quarter">
+                    <h2 class="subtitle">Favor ingrese sus credenciales</h2>
                     <form id="login" runat="server">
                         <div class="field">
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="text" placeholder="Usuario" />
+                                <input class="input" type="text" id="txtUsuario" placeholder="Usuario" />
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-user"></i>
                                 </span>
@@ -25,7 +33,7 @@
                         </div>
                         <div class="field">
                             <p class="control has-icons-left">
-                                <input class="input" type="password" placeholder="Contraseña" />
+                                <input class="input" type="password" id="txtContraseña" placeholder="Contraseña" />
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
                                 </span>
