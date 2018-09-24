@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
+<link rel="stylesheet" href="Content/font-awesome.css" />
 <link rel="stylesheet" href="Content/bulma.css" />
 <script src="Scripts/jquery-1.10.2.js"></script>
 <script src="Scripts/bulma.sass"></script>
