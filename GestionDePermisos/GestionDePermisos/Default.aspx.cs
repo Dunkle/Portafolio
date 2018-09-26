@@ -27,7 +27,7 @@ namespace GestionDePermisos
             conectar = controladorLogin.comprobarCuenta(usuario, contraseña);
             if (conectar)
             {
-                Server.Transfer("inicio.aspx", true);
+                Response.Redirect("Views/Inicio.aspx");
             }
             else { lblError.Text = "error"; }
         }
