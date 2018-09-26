@@ -1,0 +1,1123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="IDCARGO" />
+          </Key>
+          <Property Name="IDCARGO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRECARGO" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="IDCOMUNA" />
+          </Key>
+          <Property Name="IDCOMUNA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRECOMUNA" Type="varchar2" MaxLength="100" />
+          <Property Name="IDPROVINCIA" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="CUENTA">
+          <Key>
+            <PropertyRef Name="IDCUENTA" />
+          </Key>
+          <Property Name="IDCUENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO" Type="varchar2" MaxLength="100" />
+          <Property Name="CONTRASEÑA" Type="varchar2" MaxLength="100" />
+          <Property Name="FECHAREGISTRO" Type="date" />
+          <Property Name="IDPERFILCUENTA" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IDDEPARTAMENTO" />
+          </Key>
+          <Property Name="IDDEPARTAMENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREDEPARTAMENTO" Type="varchar2" MaxLength="100" />
+          <Property Name="IDUNIDAD" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRES" Type="varchar2" MaxLength="100" />
+          <Property Name="APELLIDOPATERNO" Type="varchar2" MaxLength="100" />
+          <Property Name="APELLIDOMATERNO" Type="varchar2" MaxLength="100" />
+          <Property Name="FECHANACIMIENTO" Type="date" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="100" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="100" />
+          <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" />
+          <Property Name="FECHACONTRATACION" Type="date" />
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDCARGO" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDCOMUNA" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDDEPARTAMENTO" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDCUENTA" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDTIPOCONTRATO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="IDESTADO" />
+          </Key>
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREESTADO" Type="varchar2" MaxLength="100" />
+          <Property Name="TIPO" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="MOTIVO">
+          <Key>
+            <PropertyRef Name="IDMOTIVO" />
+          </Key>
+          <Property Name="IDMOTIVO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREMOTIVO" Type="varchar2" MaxLength="100" />
+          <Property Name="IDTIPOPERMISO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="MUNICIPALIDAD">
+          <Key>
+            <PropertyRef Name="IDMUNICIPALIDAD" />
+          </Key>
+          <Property Name="IDMUNICIPALIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREMUNICIPALIDAD" Type="varchar2" MaxLength="100" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="100" />
+          <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" />
+          <Property Name="CORREO" Type="varchar2" MaxLength="100" />
+          <Property Name="IDCOMUNA" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="PERFILCUENTA">
+          <Key>
+            <PropertyRef Name="IDPERFILCUENTA" />
+          </Key>
+          <Property Name="IDPERFILCUENTA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPERFILCUENTA" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PROVINCIA">
+          <Key>
+            <PropertyRef Name="IDPROVINCIA" />
+          </Key>
+          <Property Name="IDPROVINCIA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPROVINCIA" Type="varchar2" MaxLength="100" />
+          <Property Name="IDREGION" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="IDREGION" />
+          </Key>
+          <Property Name="IDREGION" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREREGION" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="IDSOLICITUD" />
+          </Key>
+          <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" />
+          <Property Name="FECHASOLICITUD" Type="date" />
+          <Property Name="FECHAINICIO" Type="date" />
+          <Property Name="FECHATERMINO" Type="date" />
+          <Property Name="IDTIPOPERMISO" Type="number" Precision="38" Scale="0" />
+          <Property Name="RUT" Type="number" Precision="38" Scale="0" />
+          <Property Name="AUTORIZADOR" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="TIPOCONTRATO">
+          <Key>
+            <PropertyRef Name="IDTIPOCONTRATO" />
+          </Key>
+          <Property Name="IDTIPOCONTRATO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETIPOCONTRATO" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TIPOPERMISO">
+          <Key>
+            <PropertyRef Name="IDTIPOPERMISO" />
+          </Key>
+          <Property Name="IDTIPOPERMISO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETIPOPERMISO" Type="varchar2" MaxLength="100" />
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="UNIDAD">
+          <Key>
+            <PropertyRef Name="IDUNIDAD" />
+          </Key>
+          <Property Name="IDUNIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREUNIDAD" Type="varchar2" MaxLength="100" />
+          <Property Name="IDMUNICIPALIDAD" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <Association Name="COMUNAPROVINCIAFK">
+          <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="0..1" />
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVINCIA">
+              <PropertyRef Name="IDPROVINCIA" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="IDPROVINCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUENTAESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUENTAPERFILCUENTAFK">
+          <End Role="PERFILCUENTA" Type="Self.PERFILCUENTA" Multiplicity="0..1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFILCUENTA">
+              <PropertyRef Name="IDPERFILCUENTA" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IDPERFILCUENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DEPARTAMENTOUNIDADFK">
+          <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="0..1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNIDAD">
+              <PropertyRef Name="IDUNIDAD" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IDUNIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOCARGOFK">
+          <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="IDCARGO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDCARGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOCOMUNAFK">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="IDCOMUNA" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDCOMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOCUENTAFK">
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUENTA">
+              <PropertyRef Name="IDCUENTA" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDCUENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADODEPARTAMENTOFK">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="IDDEPARTAMENTO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDDEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOTIPOCONTRATOFK">
+          <End Role="TIPOCONTRATO" Type="Self.TIPOCONTRATO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOCONTRATO">
+              <PropertyRef Name="IDTIPOCONTRATO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDTIPOCONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MOTIVOTIPOPERMISOFK">
+          <End Role="TIPOPERMISO" Type="Self.TIPOPERMISO" Multiplicity="0..1" />
+          <End Role="MOTIVO" Type="Self.MOTIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPERMISO">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Principal>
+            <Dependent Role="MOTIVO">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MUNICIPALIDADCOMUNAFK">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="0..1" />
+          <End Role="MUNICIPALIDAD" Type="Self.MUNICIPALIDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="IDCOMUNA" />
+            </Principal>
+            <Dependent Role="MUNICIPALIDAD">
+              <PropertyRef Name="IDCOMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVINCIAREGIONFK">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+          <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="IDREGION" />
+            </Principal>
+            <Dependent Role="PROVINCIA">
+              <PropertyRef Name="IDREGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDEMPLEADOFK">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDTIPOPERMISOFK">
+          <End Role="TIPOPERMISO" Type="Self.TIPOPERMISO" Multiplicity="0..1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPERMISO">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIPOPERMISOESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="TIPOPERMISO" Type="Self.TIPOPERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="TIPOPERMISO">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UNIDADMUNICIPALIDADFK">
+          <End Role="MUNICIPALIDAD" Type="Self.MUNICIPALIDAD" Multiplicity="0..1" />
+          <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNICIPALIDAD">
+              <PropertyRef Name="IDMUNICIPALIDAD" />
+            </Principal>
+            <Dependent Role="UNIDAD">
+              <PropertyRef Name="IDMUNICIPALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="CUENTA" EntityType="Self.CUENTA" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="MOTIVO" EntityType="Self.MOTIVO" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="MUNICIPALIDAD" EntityType="Self.MUNICIPALIDAD" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="PERFILCUENTA" EntityType="Self.PERFILCUENTA" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="TIPOCONTRATO" EntityType="Self.TIPOCONTRATO" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="TIPOPERMISO" EntityType="Self.TIPOPERMISO" Schema="PORTAFOLIO" store:Type="Tables" />
+          <EntitySet Name="UNIDAD" EntityType="Self.UNIDAD" Schema="PORTAFOLIO" store:Type="Tables" />
+          <AssociationSet Name="COMUNAPROVINCIAFK" Association="Self.COMUNAPROVINCIAFK">
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="CUENTAESTADOFK" Association="Self.CUENTAESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="CUENTA" EntitySet="CUENTA" />
+          </AssociationSet>
+          <AssociationSet Name="CUENTAPERFILCUENTAFK" Association="Self.CUENTAPERFILCUENTAFK">
+            <End Role="PERFILCUENTA" EntitySet="PERFILCUENTA" />
+            <End Role="CUENTA" EntitySet="CUENTA" />
+          </AssociationSet>
+          <AssociationSet Name="DEPARTAMENTOUNIDADFK" Association="Self.DEPARTAMENTOUNIDADFK">
+            <End Role="UNIDAD" EntitySet="UNIDAD" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOCARGOFK" Association="Self.EMPLEADOCARGOFK">
+            <End Role="CARGO" EntitySet="CARGO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOCOMUNAFK" Association="Self.EMPLEADOCOMUNAFK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOCUENTAFK" Association="Self.EMPLEADOCUENTAFK">
+            <End Role="CUENTA" EntitySet="CUENTA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADODEPARTAMENTOFK" Association="Self.EMPLEADODEPARTAMENTOFK">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOESTADOFK" Association="Self.EMPLEADOESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOTIPOCONTRATOFK" Association="Self.EMPLEADOTIPOCONTRATOFK">
+            <End Role="TIPOCONTRATO" EntitySet="TIPOCONTRATO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="MOTIVOTIPOPERMISOFK" Association="Self.MOTIVOTIPOPERMISOFK">
+            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+            <End Role="MOTIVO" EntitySet="MOTIVO" />
+          </AssociationSet>
+          <AssociationSet Name="MUNICIPALIDADCOMUNAFK" Association="Self.MUNICIPALIDADCOMUNAFK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
+          </AssociationSet>
+          <AssociationSet Name="PROVINCIAREGIONFK" Association="Self.PROVINCIAREGIONFK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDEMPLEADOFK" Association="Self.SOLICITUDEMPLEADOFK">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDESTADOFK" Association="Self.SOLICITUDESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDTIPOPERMISOFK" Association="Self.SOLICITUDTIPOPERMISOFK">
+            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="TIPOPERMISOESTADOFK" Association="Self.TIPOPERMISOESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="UNIDADMUNICIPALIDADFK" Association="Self.UNIDADMUNICIPALIDADFK">
+            <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
+            <End Role="UNIDAD" EntitySet="UNIDAD" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CARGO">
+          <Key>
+            <PropertyRef Name="IDCARGO" />
+          </Key>
+          <Property Name="IDCARGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRECARGO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.EMPLEADOCARGOFK" FromRole="CARGO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="IDCOMUNA" />
+          </Key>
+          <Property Name="IDCOMUNA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRECOMUNA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDPROVINCIA" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="PROVINCIA" Relationship="Self.COMUNAPROVINCIAFK" FromRole="COMUNA" ToRole="PROVINCIA" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.EMPLEADOCOMUNAFK" FromRole="COMUNA" ToRole="EMPLEADO" />
+          <NavigationProperty Name="MUNICIPALIDAD" Relationship="Self.MUNICIPALIDADCOMUNAFK" FromRole="COMUNA" ToRole="MUNICIPALIDAD" />
+        </EntityType>
+        <EntityType Name="CUENTA">
+          <Key>
+            <PropertyRef Name="IDCUENTA" />
+          </Key>
+          <Property Name="IDCUENTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USUARIO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CONTRASEÑA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FECHAREGISTRO" Type="DateTime" />
+          <Property Name="IDPERFILCUENTA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDESTADO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.CUENTAESTADOFK" FromRole="CUENTA" ToRole="ESTADO" />
+          <NavigationProperty Name="PERFILCUENTA" Relationship="Self.CUENTAPERFILCUENTAFK" FromRole="CUENTA" ToRole="PERFILCUENTA" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.EMPLEADOCUENTAFK" FromRole="CUENTA" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="IDDEPARTAMENTO" />
+          </Key>
+          <Property Name="IDDEPARTAMENTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREDEPARTAMENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDUNIDAD" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="UNIDAD" Relationship="Self.DEPARTAMENTOUNIDADFK" FromRole="DEPARTAMENTO" ToRole="UNIDAD" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.EMPLEADODEPARTAMENTOFK" FromRole="DEPARTAMENTO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="RUT" />
+          </Key>
+          <Property Name="RUT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOPATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDOMATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FECHANACIMIENTO" Type="DateTime" />
+          <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FECHACONTRATACION" Type="DateTime" />
+          <Property Name="IDESTADO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDCARGO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDCOMUNA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDDEPARTAMENTO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDCUENTA" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDTIPOCONTRATO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="CARGO" Relationship="Self.EMPLEADOCARGOFK" FromRole="EMPLEADO" ToRole="CARGO" />
+          <NavigationProperty Name="COMUNA" Relationship="Self.EMPLEADOCOMUNAFK" FromRole="EMPLEADO" ToRole="COMUNA" />
+          <NavigationProperty Name="CUENTA" Relationship="Self.EMPLEADOCUENTAFK" FromRole="EMPLEADO" ToRole="CUENTA" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="Self.EMPLEADODEPARTAMENTOFK" FromRole="EMPLEADO" ToRole="DEPARTAMENTO" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.EMPLEADOESTADOFK" FromRole="EMPLEADO" ToRole="ESTADO" />
+          <NavigationProperty Name="TIPOCONTRATO" Relationship="Self.EMPLEADOTIPOCONTRATOFK" FromRole="EMPLEADO" ToRole="TIPOCONTRATO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDEMPLEADOFK" FromRole="EMPLEADO" ToRole="SOLICITUD" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="IDESTADO" />
+          </Key>
+          <Property Name="IDESTADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREESTADO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TIPO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUENTA" Relationship="Self.CUENTAESTADOFK" FromRole="ESTADO" ToRole="CUENTA" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.EMPLEADOESTADOFK" FromRole="ESTADO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDESTADOFK" FromRole="ESTADO" ToRole="SOLICITUD" />
+          <NavigationProperty Name="TIPOPERMISO" Relationship="Self.TIPOPERMISOESTADOFK" FromRole="ESTADO" ToRole="TIPOPERMISO" />
+        </EntityType>
+        <EntityType Name="MOTIVO">
+          <Key>
+            <PropertyRef Name="IDMOTIVO" />
+          </Key>
+          <Property Name="IDMOTIVO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREMOTIVO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDTIPOPERMISO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="TIPOPERMISO" Relationship="Self.MOTIVOTIPOPERMISOFK" FromRole="MOTIVO" ToRole="TIPOPERMISO" />
+        </EntityType>
+        <EntityType Name="MUNICIPALIDAD">
+          <Key>
+            <PropertyRef Name="IDMUNICIPALIDAD" />
+          </Key>
+          <Property Name="IDMUNICIPALIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREMUNICIPALIDAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDCOMUNA" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="COMUNA" Relationship="Self.MUNICIPALIDADCOMUNAFK" FromRole="MUNICIPALIDAD" ToRole="COMUNA" />
+          <NavigationProperty Name="UNIDAD" Relationship="Self.UNIDADMUNICIPALIDADFK" FromRole="MUNICIPALIDAD" ToRole="UNIDAD" />
+        </EntityType>
+        <EntityType Name="PERFILCUENTA">
+          <Key>
+            <PropertyRef Name="IDPERFILCUENTA" />
+          </Key>
+          <Property Name="IDPERFILCUENTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPERFILCUENTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CUENTA" Relationship="Self.CUENTAPERFILCUENTAFK" FromRole="PERFILCUENTA" ToRole="CUENTA" />
+        </EntityType>
+        <EntityType Name="PROVINCIA">
+          <Key>
+            <PropertyRef Name="IDPROVINCIA" />
+          </Key>
+          <Property Name="IDPROVINCIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREPROVINCIA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDREGION" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="COMUNA" Relationship="Self.COMUNAPROVINCIAFK" FromRole="PROVINCIA" ToRole="COMUNA" />
+          <NavigationProperty Name="REGION" Relationship="Self.PROVINCIAREGIONFK" FromRole="PROVINCIA" ToRole="REGION" />
+        </EntityType>
+        <EntityType Name="REGION">
+          <Key>
+            <PropertyRef Name="IDREGION" />
+          </Key>
+          <Property Name="IDREGION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREREGION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROVINCIA" Relationship="Self.PROVINCIAREGIONFK" FromRole="REGION" ToRole="PROVINCIA" />
+        </EntityType>
+        <EntityType Name="SOLICITUD">
+          <Key>
+            <PropertyRef Name="IDSOLICITUD" />
+          </Key>
+          <Property Name="IDSOLICITUD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FECHASOLICITUD" Type="DateTime" />
+          <Property Name="FECHAINICIO" Type="DateTime" />
+          <Property Name="FECHATERMINO" Type="DateTime" />
+          <Property Name="IDTIPOPERMISO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RUT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="AUTORIZADOR" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDESTADO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.SOLICITUDEMPLEADOFK" FromRole="SOLICITUD" ToRole="EMPLEADO" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.SOLICITUDESTADOFK" FromRole="SOLICITUD" ToRole="ESTADO" />
+          <NavigationProperty Name="TIPOPERMISO" Relationship="Self.SOLICITUDTIPOPERMISOFK" FromRole="SOLICITUD" ToRole="TIPOPERMISO" />
+        </EntityType>
+        <EntityType Name="TIPOCONTRATO">
+          <Key>
+            <PropertyRef Name="IDTIPOCONTRATO" />
+          </Key>
+          <Property Name="IDTIPOCONTRATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETIPOCONTRATO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.EMPLEADOTIPOCONTRATOFK" FromRole="TIPOCONTRATO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="TIPOPERMISO">
+          <Key>
+            <PropertyRef Name="IDTIPOPERMISO" />
+          </Key>
+          <Property Name="IDTIPOPERMISO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRETIPOPERMISO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDESTADO" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.TIPOPERMISOESTADOFK" FromRole="TIPOPERMISO" ToRole="ESTADO" />
+          <NavigationProperty Name="MOTIVO" Relationship="Self.MOTIVOTIPOPERMISOFK" FromRole="TIPOPERMISO" ToRole="MOTIVO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDTIPOPERMISOFK" FromRole="TIPOPERMISO" ToRole="SOLICITUD" />
+        </EntityType>
+        <EntityType Name="UNIDAD">
+          <Key>
+            <PropertyRef Name="IDUNIDAD" />
+          </Key>
+          <Property Name="IDUNIDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBREUNIDAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDMUNICIPALIDAD" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="Self.DEPARTAMENTOUNIDADFK" FromRole="UNIDAD" ToRole="DEPARTAMENTO" />
+          <NavigationProperty Name="MUNICIPALIDAD" Relationship="Self.UNIDADMUNICIPALIDADFK" FromRole="UNIDAD" ToRole="MUNICIPALIDAD" />
+        </EntityType>
+        <Association Name="EMPLEADOCARGOFK">
+          <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CARGO">
+              <PropertyRef Name="IDCARGO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDCARGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="COMUNAPROVINCIAFK">
+          <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="0..1" />
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROVINCIA">
+              <PropertyRef Name="IDPROVINCIA" />
+            </Principal>
+            <Dependent Role="COMUNA">
+              <PropertyRef Name="IDPROVINCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOCOMUNAFK">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="IDCOMUNA" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDCOMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MUNICIPALIDADCOMUNAFK">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="0..1" />
+          <End Role="MUNICIPALIDAD" Type="Self.MUNICIPALIDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="IDCOMUNA" />
+            </Principal>
+            <Dependent Role="MUNICIPALIDAD">
+              <PropertyRef Name="IDCOMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUENTAESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CUENTAPERFILCUENTAFK">
+          <End Role="PERFILCUENTA" Type="Self.PERFILCUENTA" Multiplicity="0..1" />
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERFILCUENTA">
+              <PropertyRef Name="IDPERFILCUENTA" />
+            </Principal>
+            <Dependent Role="CUENTA">
+              <PropertyRef Name="IDPERFILCUENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOCUENTAFK">
+          <End Role="CUENTA" Type="Self.CUENTA" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUENTA">
+              <PropertyRef Name="IDCUENTA" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDCUENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DEPARTAMENTOUNIDADFK">
+          <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="0..1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UNIDAD">
+              <PropertyRef Name="IDUNIDAD" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="IDUNIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADODEPARTAMENTOFK">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="IDDEPARTAMENTO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDDEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOTIPOCONTRATOFK">
+          <End Role="TIPOCONTRATO" Type="Self.TIPOCONTRATO" Multiplicity="0..1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOCONTRATO">
+              <PropertyRef Name="IDTIPOCONTRATO" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="IDTIPOCONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDEMPLEADOFK">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="RUT" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="RUT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TIPOPERMISOESTADOFK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="TIPOPERMISO" Type="Self.TIPOPERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="TIPOPERMISO">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MOTIVOTIPOPERMISOFK">
+          <End Role="TIPOPERMISO" Type="Self.TIPOPERMISO" Multiplicity="0..1" />
+          <End Role="MOTIVO" Type="Self.MOTIVO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPERMISO">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Principal>
+            <Dependent Role="MOTIVO">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UNIDADMUNICIPALIDADFK">
+          <End Role="MUNICIPALIDAD" Type="Self.MUNICIPALIDAD" Multiplicity="0..1" />
+          <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MUNICIPALIDAD">
+              <PropertyRef Name="IDMUNICIPALIDAD" />
+            </Principal>
+            <Dependent Role="UNIDAD">
+              <PropertyRef Name="IDMUNICIPALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVINCIAREGIONFK">
+          <End Role="REGION" Type="Self.REGION" Multiplicity="0..1" />
+          <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REGION">
+              <PropertyRef Name="IDREGION" />
+            </Principal>
+            <Dependent Role="PROVINCIA">
+              <PropertyRef Name="IDREGION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SOLICITUDTIPOPERMISOFK">
+          <End Role="TIPOPERMISO" Type="Self.TIPOPERMISO" Multiplicity="0..1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPOPERMISO">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IDTIPOPERMISO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CARGO" EntityType="Self.CARGO" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
+          <EntitySet Name="CUENTA" EntityType="Self.CUENTA" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" />
+          <EntitySet Name="MOTIVO" EntityType="Self.MOTIVO" />
+          <EntitySet Name="MUNICIPALIDAD" EntityType="Self.MUNICIPALIDAD" />
+          <EntitySet Name="PERFILCUENTA" EntityType="Self.PERFILCUENTA" />
+          <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" />
+          <EntitySet Name="REGION" EntityType="Self.REGION" />
+          <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" />
+          <EntitySet Name="TIPOCONTRATO" EntityType="Self.TIPOCONTRATO" />
+          <EntitySet Name="TIPOPERMISO" EntityType="Self.TIPOPERMISO" />
+          <EntitySet Name="UNIDAD" EntityType="Self.UNIDAD" />
+          <AssociationSet Name="EMPLEADOCARGOFK" Association="Self.EMPLEADOCARGOFK">
+            <End Role="CARGO" EntitySet="CARGO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="COMUNAPROVINCIAFK" Association="Self.COMUNAPROVINCIAFK">
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+            <End Role="COMUNA" EntitySet="COMUNA" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOCOMUNAFK" Association="Self.EMPLEADOCOMUNAFK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="MUNICIPALIDADCOMUNAFK" Association="Self.MUNICIPALIDADCOMUNAFK">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
+          </AssociationSet>
+          <AssociationSet Name="CUENTAESTADOFK" Association="Self.CUENTAESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="CUENTA" EntitySet="CUENTA" />
+          </AssociationSet>
+          <AssociationSet Name="CUENTAPERFILCUENTAFK" Association="Self.CUENTAPERFILCUENTAFK">
+            <End Role="PERFILCUENTA" EntitySet="PERFILCUENTA" />
+            <End Role="CUENTA" EntitySet="CUENTA" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOCUENTAFK" Association="Self.EMPLEADOCUENTAFK">
+            <End Role="CUENTA" EntitySet="CUENTA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="DEPARTAMENTOUNIDADFK" Association="Self.DEPARTAMENTOUNIDADFK">
+            <End Role="UNIDAD" EntitySet="UNIDAD" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADODEPARTAMENTOFK" Association="Self.EMPLEADODEPARTAMENTOFK">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOESTADOFK" Association="Self.EMPLEADOESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOTIPOCONTRATOFK" Association="Self.EMPLEADOTIPOCONTRATOFK">
+            <End Role="TIPOCONTRATO" EntitySet="TIPOCONTRATO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDEMPLEADOFK" Association="Self.SOLICITUDEMPLEADOFK">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDESTADOFK" Association="Self.SOLICITUDESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+          <AssociationSet Name="TIPOPERMISOESTADOFK" Association="Self.TIPOPERMISOESTADOFK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="MOTIVOTIPOPERMISOFK" Association="Self.MOTIVOTIPOPERMISOFK">
+            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+            <End Role="MOTIVO" EntitySet="MOTIVO" />
+          </AssociationSet>
+          <AssociationSet Name="UNIDADMUNICIPALIDADFK" Association="Self.UNIDADMUNICIPALIDADFK">
+            <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
+            <End Role="UNIDAD" EntitySet="UNIDAD" />
+          </AssociationSet>
+          <AssociationSet Name="PROVINCIAREGIONFK" Association="Self.PROVINCIAREGIONFK">
+            <End Role="REGION" EntitySet="REGION" />
+            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+          </AssociationSet>
+          <AssociationSet Name="SOLICITUDTIPOPERMISOFK" Association="Self.SOLICITUDTIPOPERMISOFK">
+            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="CARGO">
+            <EntityTypeMapping TypeName="Model.CARGO">
+              <MappingFragment StoreEntitySet="CARGO">
+                <ScalarProperty Name="IDCARGO" ColumnName="IDCARGO" />
+                <ScalarProperty Name="NOMBRECARGO" ColumnName="NOMBRECARGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMUNA">
+            <EntityTypeMapping TypeName="Model.COMUNA">
+              <MappingFragment StoreEntitySet="COMUNA">
+                <ScalarProperty Name="IDCOMUNA" ColumnName="IDCOMUNA" />
+                <ScalarProperty Name="NOMBRECOMUNA" ColumnName="NOMBRECOMUNA" />
+                <ScalarProperty Name="IDPROVINCIA" ColumnName="IDPROVINCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUENTA">
+            <EntityTypeMapping TypeName="Model.CUENTA">
+              <MappingFragment StoreEntitySet="CUENTA">
+                <ScalarProperty Name="IDCUENTA" ColumnName="IDCUENTA" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="CONTRASEÑA" ColumnName="CONTRASEÑA" />
+                <ScalarProperty Name="FECHAREGISTRO" ColumnName="FECHAREGISTRO" />
+                <ScalarProperty Name="IDPERFILCUENTA" ColumnName="IDPERFILCUENTA" />
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTAMENTO">
+            <EntityTypeMapping TypeName="Model.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="IDDEPARTAMENTO" ColumnName="IDDEPARTAMENTO" />
+                <ScalarProperty Name="NOMBREDEPARTAMENTO" ColumnName="NOMBREDEPARTAMENTO" />
+                <ScalarProperty Name="IDUNIDAD" ColumnName="IDUNIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADO">
+            <EntityTypeMapping TypeName="Model.EMPLEADO">
+              <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="APELLIDOPATERNO" ColumnName="APELLIDOPATERNO" />
+                <ScalarProperty Name="APELLIDOMATERNO" ColumnName="APELLIDOMATERNO" />
+                <ScalarProperty Name="FECHANACIMIENTO" ColumnName="FECHANACIMIENTO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="FECHACONTRATACION" ColumnName="FECHACONTRATACION" />
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+                <ScalarProperty Name="IDCARGO" ColumnName="IDCARGO" />
+                <ScalarProperty Name="IDCOMUNA" ColumnName="IDCOMUNA" />
+                <ScalarProperty Name="IDDEPARTAMENTO" ColumnName="IDDEPARTAMENTO" />
+                <ScalarProperty Name="IDCUENTA" ColumnName="IDCUENTA" />
+                <ScalarProperty Name="IDTIPOCONTRATO" ColumnName="IDTIPOCONTRATO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO">
+            <EntityTypeMapping TypeName="Model.ESTADO">
+              <MappingFragment StoreEntitySet="ESTADO">
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+                <ScalarProperty Name="NOMBREESTADO" ColumnName="NOMBREESTADO" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOTIVO">
+            <EntityTypeMapping TypeName="Model.MOTIVO">
+              <MappingFragment StoreEntitySet="MOTIVO">
+                <ScalarProperty Name="IDMOTIVO" ColumnName="IDMOTIVO" />
+                <ScalarProperty Name="NOMBREMOTIVO" ColumnName="NOMBREMOTIVO" />
+                <ScalarProperty Name="IDTIPOPERMISO" ColumnName="IDTIPOPERMISO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MUNICIPALIDAD">
+            <EntityTypeMapping TypeName="Model.MUNICIPALIDAD">
+              <MappingFragment StoreEntitySet="MUNICIPALIDAD">
+                <ScalarProperty Name="IDMUNICIPALIDAD" ColumnName="IDMUNICIPALIDAD" />
+                <ScalarProperty Name="NOMBREMUNICIPALIDAD" ColumnName="NOMBREMUNICIPALIDAD" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="IDCOMUNA" ColumnName="IDCOMUNA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERFILCUENTA">
+            <EntityTypeMapping TypeName="Model.PERFILCUENTA">
+              <MappingFragment StoreEntitySet="PERFILCUENTA">
+                <ScalarProperty Name="IDPERFILCUENTA" ColumnName="IDPERFILCUENTA" />
+                <ScalarProperty Name="NOMBREPERFILCUENTA" ColumnName="NOMBREPERFILCUENTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROVINCIA">
+            <EntityTypeMapping TypeName="Model.PROVINCIA">
+              <MappingFragment StoreEntitySet="PROVINCIA">
+                <ScalarProperty Name="IDPROVINCIA" ColumnName="IDPROVINCIA" />
+                <ScalarProperty Name="NOMBREPROVINCIA" ColumnName="NOMBREPROVINCIA" />
+                <ScalarProperty Name="IDREGION" ColumnName="IDREGION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REGION">
+            <EntityTypeMapping TypeName="Model.REGION">
+              <MappingFragment StoreEntitySet="REGION">
+                <ScalarProperty Name="IDREGION" ColumnName="IDREGION" />
+                <ScalarProperty Name="NOMBREREGION" ColumnName="NOMBREREGION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOLICITUD">
+            <EntityTypeMapping TypeName="Model.SOLICITUD">
+              <MappingFragment StoreEntitySet="SOLICITUD">
+                <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />
+                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
+                <ScalarProperty Name="FECHATERMINO" ColumnName="FECHATERMINO" />
+                <ScalarProperty Name="IDTIPOPERMISO" ColumnName="IDTIPOPERMISO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="AUTORIZADOR" ColumnName="AUTORIZADOR" />
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOCONTRATO">
+            <EntityTypeMapping TypeName="Model.TIPOCONTRATO">
+              <MappingFragment StoreEntitySet="TIPOCONTRATO">
+                <ScalarProperty Name="IDTIPOCONTRATO" ColumnName="IDTIPOCONTRATO" />
+                <ScalarProperty Name="NOMBRETIPOCONTRATO" ColumnName="NOMBRETIPOCONTRATO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOPERMISO">
+            <EntityTypeMapping TypeName="Model.TIPOPERMISO">
+              <MappingFragment StoreEntitySet="TIPOPERMISO">
+                <ScalarProperty Name="IDTIPOPERMISO" ColumnName="IDTIPOPERMISO" />
+                <ScalarProperty Name="NOMBRETIPOPERMISO" ColumnName="NOMBRETIPOPERMISO" />
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNIDAD">
+            <EntityTypeMapping TypeName="Model.UNIDAD">
+              <MappingFragment StoreEntitySet="UNIDAD">
+                <ScalarProperty Name="IDUNIDAD" ColumnName="IDUNIDAD" />
+                <ScalarProperty Name="NOMBREUNIDAD" ColumnName="NOMBREUNIDAD" />
+                <ScalarProperty Name="IDMUNICIPALIDAD" ColumnName="IDMUNICIPALIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

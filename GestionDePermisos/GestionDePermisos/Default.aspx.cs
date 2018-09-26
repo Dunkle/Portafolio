@@ -1,10 +1,10 @@
-﻿using GestionDePermisos.Controllers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using GestionDePermisos.Business;
 
 namespace GestionDePermisos
 {
@@ -14,22 +14,22 @@ namespace GestionDePermisos
         {
 
         }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             comprobarConexion();
         }
-
-        private void comprobarConexion() {
+        private void comprobarConexion()
+        {
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
             bool conectar;
-            ControladorLogin controladorLogin = new ControladorLogin();
-            conectar = controladorLogin.comprobarUsuario(usuario, contraseña);
+            NegocioCuenta controladorLogin = new NegocioCuenta();
+            conectar = controladorLogin.comprobarCuenta(usuario, contraseña);
             if (conectar)
             {
                 Server.Transfer("inicio.aspx", true);
             }
+            else { lblError.Text = "error"; }
         }
     }
 }

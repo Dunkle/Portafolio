@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4ceb84bbe53e47eb8c30c1b0c3ac3351" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.CARGO" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.COMUNA" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CUENTA" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DEPARTAMENTO" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPLEADO" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ESTADO" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MOTIVO" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MUNICIPALIDAD" Width="1.5" PointX="1.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PERFILCUENTA" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PROVINCIA" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REGION" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPOCONTRATO" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPOPERMISO" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UNIDAD" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <AssociationConnector Association="Model.EMPLEADOCARGOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.COMUNAPROVINCIAFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADOCOMUNAFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MUNICIPALIDADCOMUNAFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CUENTAESTADOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CUENTAPERFILCUENTAFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADOCUENTAFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DEPARTAMENTOUNIDADFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADODEPARTAMENTOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADOESTADOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADOTIPOCONTRATOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SOLICITUDEMPLEADOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SOLICITUDESTADOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TIPOPERMISOESTADOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MOTIVOTIPOPERMISOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.UNIDADMUNICIPALIDADFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PROVINCIAREGIONFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SOLICITUDTIPOPERMISOFK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
