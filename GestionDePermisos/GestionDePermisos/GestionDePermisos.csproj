@@ -158,7 +158,6 @@
       <LastGenOutput>PermisosDB.cs</LastGenOutput>
     </Content>
     <Content Include="Default.aspx" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -176,6 +175,7 @@
     <Content Include="Data\PermisosDB.edmx.diagram">
       <DependentUpon>PermisosDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Scripts\bulma.sass" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

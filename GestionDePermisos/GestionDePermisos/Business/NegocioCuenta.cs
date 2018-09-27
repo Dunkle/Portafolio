@@ -15,9 +15,9 @@ namespace GestionDePermisos.Business
             cuenta.usuario = user;
             cuenta.read();
 
-            if (user.Equals(cuenta.usuario))
+            if (user.Equals(cuenta.usuario) && !string.IsNullOrEmpty(cuenta.usuario))
             {
-                if (passw.Equals(cuenta.contraseña))
+                if (passw.Equals(cuenta.contraseña) && !string.IsNullOrEmpty(cuenta.contraseña))
                 {
                     return true;
                 }
