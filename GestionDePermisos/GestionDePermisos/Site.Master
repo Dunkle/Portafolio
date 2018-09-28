@@ -13,7 +13,7 @@
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/bulma.sass"></script>
 
-        <!--===============================================================================================-->
+    <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="Scripts/images/icons/favicon.ico" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Scripts/usuario/bootstrap/css/bootstrap.min.css" />
@@ -103,11 +103,6 @@
     <script src="Scripts/usuario/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="Scripts/usuario/tilt/tilt.jquery.min.js"></script>
-    <script>
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
     <!--===============================================================================================-->
     <script src="Scripts/main.js"></script>
 

@@ -12,7 +12,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Scripts/usuario/bootstrap/css/bootstrap.min.css" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Scripts/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="Scripts/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Scripts/usuario/animate/animate.css" />
     <!--===============================================================================================-->
@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="Scripts/usuario/select2/select2.min.css" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Content/util.css" />
+    <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Content/main.css" />
     <!--===============================================================================================-->
 </head>
@@ -70,32 +71,7 @@
             </div>
         </div>
     </div>
-    <script>
-        if 
-    </script>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-    <!-- Modal -->
-    <asp:Panel runat="server" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </asp:Panel>
-
+   
     <!--===============================================================================================-->
     <script src="Scripts/usuario/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
@@ -105,11 +81,6 @@
     <script src="Scripts/usuario/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="Scripts/usuario/tilt/tilt.jquery.min.js"></script>
-    <script>
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
     <!--===============================================================================================-->
     <script src="Scripts/main.js"></script>
 </body>
