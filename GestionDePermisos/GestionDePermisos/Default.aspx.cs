@@ -29,7 +29,7 @@ namespace GestionDePermisos
             {
                 Response.Redirect("Views/Inicio.aspx");
             }
-            else { lblError.Text = "error"; }
+            //else { lblError.Text = "error"; }
         }
     }
 }

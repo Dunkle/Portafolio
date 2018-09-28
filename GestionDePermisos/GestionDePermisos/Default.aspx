@@ -2,53 +2,115 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" />
-    <link rel="stylesheet" href="Content/bulma.css" />
-    <script src="Scripts/jquery-1.10.2.js"></script>
-    <script src="Scripts/bulma.sass"></script>
+    <title>Login</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="Scripts/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Scripts/usuario/bootstrap/css/bootstrap.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Scripts/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Scripts/usuario/animate/animate.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Scripts/usuario/css-hamburgers/hamburgers.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Scripts/usuario/select2/select2.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="Content/util.css" />
+    <link rel="stylesheet" type="text/css" href="Content/main.css" />
+    <!--===============================================================================================-->
 </head>
 <body>
-    <div class="section is-medium">
-        <div class="container">
-            <div class="column is-5 is-offset-one-quarter" style="text-align: center">
-                <h1 class="title is-1">Gestion de Permisos</h1>
-            </div>
-            <div class="column is-4 is-offset-one-quarter">
-            </div>
-            <div class="columns">
-                <div class="column is-5 is-offset-one-quarter">
-                    <h2 class="subtitle">Favor ingrese sus credenciales</h2>
-                    <form id="login" runat="server">
-                        <div class="field">
-                            <p class="control has-icons-left has-icons-right">
-                                <asp:TextBox runat="server" ID="txtUsuario" CssClass="input" placeholder="Usuario" ClientIDMode="Static"></asp:TextBox>
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <asp:TextBox runat="server" ID="txtContraseña" TextMode="Password" placeholder="Contraseña" ClientIDMode="Static" CssClass="input"></asp:TextBox>
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="field">
-                            <p class="control">
-                                <asp:Button Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" CssClass="button is-success" OnClick="btnLogin_Click" />
-                            </p>
-                            <asp:Label ID="lblError" runat="server"></asp:Label>
-                        </div>
-                    </form>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+                    <img src="Scripts/images/img-01.png" alt="IMG">
                 </div>
+
+                <form class="login100-form validate-form" id="login" runat="server">
+                    <span class="login100-form-title">Member Login
+                    </span>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <asp:TextBox runat="server" class="input100" type="text" name="email" placeholder="Ingrese Usuario" ID="txtUsuario" ClientIDMode="Static"></asp:TextBox>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <asp:TextBox runat="server" class="input100" type="password" name="pass" ID="txtContraseña" placeholder="Contraseña"></asp:TextBox>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+
+                    <div class="container-login100-form-btn">
+                        <asp:Button class="login100-form-btn" Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" />
+                    </div>
+
+                    <!--<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div>
+                    -->
+                </form>
             </div>
         </div>
     </div>
+    <script>
+        if 
+    </script>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+    <!-- Modal -->
+    <asp:Panel runat="server" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </asp:Panel>
+
+    <!--===============================================================================================-->
+    <script src="Scripts/usuario/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Scripts/usuario/bootstrap/js/popper.js"></script>
+    <script src="Scripts/usuario/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Scripts/usuario/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="Scripts/usuario/tilt/tilt.jquery.min.js"></script>
+    <script>
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <!--===============================================================================================-->
+    <script src="Scripts/main.js"></script>
 </body>
 </html>
