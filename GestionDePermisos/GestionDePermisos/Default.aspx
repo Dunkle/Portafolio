@@ -10,7 +10,7 @@
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="Scripts/images/icons/favicon.ico" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"/>
     <!--===============================================================================================-->
@@ -57,6 +57,8 @@
                     <div class="container-login100-form-btn">
                         <asp:Button class="login100-form-btn" Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" />
                     </div>
+                    <br />
+                    <%--<div class="alert alert-danger" role="alert" id="alertError" hidden><asp:Label id="lblError" runat="server" ClientIDMode="Static"></asp:Label></div>--%>
                 </form>
             </div>
         </div>
@@ -66,12 +68,21 @@
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <!--===============================================================================================-->
     <script src="Scripts/popper.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
     <script src="Scripts/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="Scripts/tilt.jquery.min.js"></script>
     <!--===============================================================================================-->
     <script src="Scripts/main.js"></script>
+    <%--<script type="text/javascript">
+        $(document).ready(function () {
+            var lbl = $('#lblError');
+            var mensaje = $('#alertError');
+            if (lbl.text == 'Ingrese credenciales correctas') {
+                mensaje.show;
+            }
+        });
+    </script>--%>
 </body>
 </html>
