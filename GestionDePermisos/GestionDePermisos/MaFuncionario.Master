@@ -8,9 +8,7 @@
     <title></title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/style.css" />
-    <script src="Scripts/jquery-3.3.1.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="Content/font-awesome.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -68,11 +66,11 @@
                         <div class="panel panel-warning">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">Solicitudes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">Solicitudes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                                 <div class="panel-body">
                                     <div class="list-group">
 
@@ -87,14 +85,13 @@
                         <div class="panel panel-warning">
                             <div class="panel-heading" role="tab" id="headingThree">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Estado de Permisos <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Estado de Permisos <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                                 <div class="panel-body">
                                     <div class="list-group">
-
                                         <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar estado de Permisos </a>
                                     </div>
                                 </div>
@@ -103,14 +100,13 @@
                         <div class="panel panel-warning">
                             <div class="panel-heading" role="tab" id="headingFour">
                                 <h4 class="panel-title">
-                                    <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">Validar Documento <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Validar Documento <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree" aria-expanded="true">
+                            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
                                 <div class="panel-body">
                                     <div class="list-group">
-
                                         <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Buscar documento </a>
                                     </div>
                                 </div>
@@ -123,5 +119,8 @@
     </div>
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
+     <script src="../Scripts/Jquery.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>     
 </body>
 </html>
