@@ -24,6 +24,13 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Content/main.css" />
     <!--===============================================================================================-->
+        <style>
+        .container-login100
+        {
+            background-image:url("Scripts/images/login_portafolio.jpg");
+        }
+           
+    </style>
 </head>
 <body>
 
@@ -37,7 +44,7 @@
                 <form class="login100-form validate-form" id="login" runat="server">
                     <span class="login100-form-title">Member Login
                     </span>
-                    <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                    <div class="wrap-input100 validate-input" data-validate="El usuario es requerido: ex@abc.xyz">
                         <asp:TextBox runat="server" class="input100" type="text" name="email" placeholder="Ingrese Usuario" ID="txtUsuario" ClientIDMode="Static"></asp:TextBox>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
@@ -45,7 +52,7 @@
                         </span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                    <div class="wrap-input100 validate-input" data-validate="La contraseña es requerida">
                         <asp:TextBox runat="server" class="input100" type="password" name="pass" ID="txtContraseña" placeholder="Contraseña"></asp:TextBox>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
@@ -60,10 +67,10 @@
                     <br />
                     <%--<div class="alert alert-danger" role="alert" id="alertError" hidden><asp:Label id="lblError" runat="server" ClientIDMode="Static"></asp:Label></div>--%>
                 </form>
+                
             </div>
         </div>
     </div>
-   
     <!--===============================================================================================-->
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <!--===============================================================================================-->
