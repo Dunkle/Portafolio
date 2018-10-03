@@ -46,9 +46,9 @@ namespace GestionDePermisos
                         Response.Redirect("Views/Alcalde/InicioAlcalde.aspx");
                         break;
                     case 5:
-                        //Session["funcionario"] = "funcionario";
+                        Session["admin"] = "admin";
                         //FormsAuthentication.RedirectFromLoginPage("funcionario", false);
-                        //Response.Redirect("Views/Funcionario/InicioFuncionario.aspx");
+                        Response.Redirect("Views/Administrador/InicioAdmin.aspx");
                         break;
                     default:
                         break;
