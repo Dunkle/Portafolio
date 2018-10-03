@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace GestionDePermisos.Views {
+namespace GestionDePermisos.Views.Alcalde {
     
     
-    public partial class InicioFuncionario {
+    public partial class InicioAlcalde {
     }
 }

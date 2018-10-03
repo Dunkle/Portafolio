@@ -25,5 +25,8 @@ namespace GestionDePermisos.Business
             }
             else { return false; }
         }
+        public int retonarCargo() {
+            return cuenta.idPerfilCuenta;
+        }
     }
 }
