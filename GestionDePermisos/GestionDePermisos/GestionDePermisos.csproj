@@ -184,6 +184,7 @@
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\tilt.jquery.min.js" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Administrador\InicioAdmin.aspx" />
     <Content Include="Views\Alcalde\InicioAlcalde.aspx" />
     <Content Include="Views\Funcionario\InicioFuncionario.aspx">
       <BrowseToURL>~/Views/Funcionario/InicioFuncionario</BrowseToURL>
@@ -271,6 +272,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MaAdmin.Master.cs">
+      <DependentUpon>MaAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaAdmin.Master.designer.cs">
+      <DependentUpon>MaAdmin.Master</DependentUpon>
+    </Compile>
     <Compile Include="MaAlcalde.Master.cs">
       <DependentUpon>MaAlcalde.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,6 +315,13 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Administrador\InicioAdmin.aspx.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administrador\InicioAdmin.aspx.designer.cs">
+      <DependentUpon>InicioAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Alcalde\InicioAlcalde.aspx.cs">
       <DependentUpon>InicioAlcalde.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -339,13 +354,13 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Administrador\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MaFuncionario.Master" />
     <Content Include="MaJefeInterno.Master" />
     <Content Include="MaJefeSuperior.Master" />
     <Content Include="MaAlcalde.Master" />
+    <Content Include="MaAdmin.Master" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">

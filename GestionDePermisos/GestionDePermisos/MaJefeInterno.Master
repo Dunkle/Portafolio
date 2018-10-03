@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Nearby Company</a>
+                <a class="navbar-brand" href="#"> Ilustre Municipalidad de Vista Hermosa </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -42,80 +42,78 @@
     <br>
     <br>
     <br>
-    <div class="aside">
-        <div class="section">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-warning">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">Perfil <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
-                                <div class="panel-body">
-                                    <div class="list-group">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-warning">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">Perfil <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="list-group">
 
-                                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
-                                    </div>
-                                </div>
+                                <a href="Default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
                             </div>
                         </div>
-                        <div class="panel panel-warning">
-                            <div class="panel-heading" role="tab" id="headingTwo">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">Solicitudes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
-                                <div class="panel-body">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Autorizar Solicitudes</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-warning">
-                            <div class="panel-heading" role="tab" id="headingThree">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Permisos <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
-                                <div class="panel-body">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Consultar Permisos </a>
-                                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Validar Documenno </a>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">Solicitudes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Autorizar Solicitudes</a>
                             </div>
                         </div>
-                        <div class="panel panel-warning">
-                            <div class="panel-heading" role="tab" id="headingFour">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour"> Reportes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
-                                    </a>
-                                </h4>
+                    </div>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Permisos <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Validar Documenno </a>
                             </div>
-                            <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
-                                <div class="panel-body">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> Reporte cuantitativo de permisos </a>
-                                    </div>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Reportes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Reporte cuantitativo de permisos </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-    </asp:ContentPlaceHolder>
+        <div class="col-md-10">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
     <script src="../../Scripts/Jquery.js"></script>
     <script src="../../Scripts/popper.min.js"></script>
     <script src="../../Scripts/bootstrap.min.js"></script>

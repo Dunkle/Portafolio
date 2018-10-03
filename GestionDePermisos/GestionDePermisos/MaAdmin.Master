@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MaFuncionario.master.cs" Inherits="GestionDePermisos.MaFuncionario" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MaAdmin.master.cs" Inherits="GestionDePermisos.MaAdmin" %>
 
 <!DOCTYPE html>
 
@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Ilustre Municipalidad de Vista Hermosa</a>
+                <a class="navbar-brand" href="#">Ilustre Municipalidad de Vista Hermosa </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -55,7 +55,8 @@
                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="../default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
+
+                                <a href="Default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
                             </div>
                         </div>
                     </div>
@@ -63,18 +64,14 @@
                 <div class="panel panel-warning">
                     <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">Solicitudes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsed">Consultas <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                             </a>
                         </h4>
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Permiso Administrativo</a>
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Permiso por Fallecimiento</a>
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Feriado Legal</a>
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Permiso Parental</a>
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>
                             </div>
                         </div>
                     </div>
@@ -82,14 +79,14 @@
                 <div class="panel panel-warning">
                     <div class="panel-heading" role="tab" id="headingThree">
                         <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Consultas <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Descarga <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                             </a>
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Estado de Permisos </a>
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Archivo XML </a>
                             </div>
                         </div>
                     </div>
