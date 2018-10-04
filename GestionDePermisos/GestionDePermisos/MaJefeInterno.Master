@@ -26,7 +26,7 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="../Jefe Interno/InicioJefeInterno.aspx">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li class="dropdown">
                 </ul>
@@ -56,7 +56,7 @@
                         <div class="panel-body">
                             <div class="list-group">
 
-                                <a href="Default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
+                                <a href="../../Default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Autorizar Solicitudes</a>
+                                <a href="../Jefe Interno/AutorizarSolicitud.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Autorizar Solicitudes</a>
                             </div>
                         </div>
                     </div>
@@ -86,8 +86,8 @@
                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Validar Documenno </a>
+                                <a href="../Jefe Interno/ConsultarPermisosJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>
+                                <a href="../Jefe Interno/ConsultarDocumentoJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Validar Documenno </a>
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                     <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Reporte cuantitativo de permisos </a>
+                                <a href="../Jefe Interno/ReportePermisosJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Reporte cuantitativo de permisos </a>
                             </div>
                         </div>
                     </div>

@@ -183,12 +183,36 @@
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\tilt.jquery.min.js" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\Administrador\BuscarDocumentoAdmin.aspx" />
+    <Content Include="Views\Administrador\consultarPermisoAdministrador.aspx" />
+    <Content Include="Views\Administrador\DescargaXMLAdmin.aspx" />
     <Content Include="Views\Administrador\InicioAdmin.aspx" />
+    <Content Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx" />
+    <Content Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx" />
+    <Content Include="Views\Alcalde\EstadoPermisosAlcalde.aspx" />
     <Content Include="Views\Alcalde\InicioAlcalde.aspx" />
+    <Content Include="Views\Alcalde\ReporteTipoPermisoAlcalde.aspx" />
+    <Content Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx" />
+    <Content Include="Views\Alcalde\ValidarDocumentoAlcalde.aspx" />
+    <Content Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx" />
+    <Content Include="Views\Funcionario\EstadoPermisosFuncionario.aspx" />
+    <Content Include="Views\Funcionario\FeriadoLegal.aspx" />
     <Content Include="Views\Funcionario\InicioFuncionario.aspx">
       <BrowseToURL>~/Views/Funcionario/InicioFuncionario</BrowseToURL>
     </Content>
+    <Content Include="Views\Funcionario\PermisoAdministrativo.aspx" />
+    <Content Include="Views\Funcionario\PermisoParental.aspx" />
+    <Content Include="Views\Funcionario\PermisoPorFallecimiento.aspx" />
+    <Content Include="Views\Jefe Interno\AutorizarSolicitud.aspx" />
+    <Content Include="Views\Jefe Interno\ConsultarDocumentoJeInt.aspx" />
+    <Content Include="Views\Jefe Interno\ConsultarPermisosJeInt.aspx" />
     <Content Include="Views\Jefe Interno\InicioJefeInterno.aspx" />
+    <Content Include="Views\Jefe Interno\ReportePermisosJeInt.aspx" />
+    <Content Include="Views\Jefe Superior\BuscarDocumentoJefeSup.aspx" />
+    <Content Include="Views\Jefe Superior\ConsultaEmpleadoJeSup.aspx" />
+    <Content Include="Views\Jefe Superior\ConsultaResolucionJeSup.aspx" />
+    <Content Include="Views\Jefe Superior\ConsultarUnidadInternaJeSup.aspx" />
+    <Content Include="Views\Jefe Superior\GenerarResolucionJeSup.aspx" />
     <Content Include="Views\Jefe Superior\InicioJefeSuperior.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -314,12 +338,54 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Administrador\BuscarDocumentoAdmin.aspx.cs">
+      <DependentUpon>BuscarDocumentoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administrador\BuscarDocumentoAdmin.aspx.designer.cs">
+      <DependentUpon>BuscarDocumentoAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Administrador\consultarPermisoAdministrador.aspx.cs">
+      <DependentUpon>consultarPermisoAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administrador\consultarPermisoAdministrador.aspx.designer.cs">
+      <DependentUpon>consultarPermisoAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Administrador\DescargaXMLAdmin.aspx.cs">
+      <DependentUpon>DescargaXMLAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Administrador\DescargaXMLAdmin.aspx.designer.cs">
+      <DependentUpon>DescargaXMLAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Administrador\InicioAdmin.aspx.cs">
       <DependentUpon>InicioAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Administrador\InicioAdmin.aspx.designer.cs">
       <DependentUpon>InicioAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx.cs">
+      <DependentUpon>ConsultarPermisosAlcalde.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx.designer.cs">
+      <DependentUpon>ConsultarPermisosAlcalde.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx.cs">
+      <DependentUpon>ConsultarResolucionAlcalde.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx.designer.cs">
+      <DependentUpon>ConsultarResolucionAlcalde.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alcalde\EstadoPermisosAlcalde.aspx.cs">
+      <DependentUpon>EstadoPermisosAlcalde.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Alcalde\EstadoPermisosAlcalde.aspx.designer.cs">
+      <DependentUpon>EstadoPermisosAlcalde.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Alcalde\InicioAlcalde.aspx.cs">
       <DependentUpon>InicioAlcalde.aspx</DependentUpon>
@@ -328,6 +394,48 @@
     <Compile Include="Views\Alcalde\InicioAlcalde.aspx.designer.cs">
       <DependentUpon>InicioAlcalde.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Alcalde\ReporteTipoPermisoAlcalde.aspx.cs">
+      <DependentUpon>ReporteTipoPermisoAlcalde.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Alcalde\ReporteTipoPermisoAlcalde.aspx.designer.cs">
+      <DependentUpon>ReporteTipoPermisoAlcalde.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx.cs">
+      <DependentUpon>ReporteUnidadInternaAlcalde.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx.designer.cs">
+      <DependentUpon>ReporteUnidadInternaAlcalde.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alcalde\ValidarDocumentoAlcalde.aspx.cs">
+      <DependentUpon>ValidarDocumentoAlcalde.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Alcalde\ValidarDocumentoAlcalde.aspx.designer.cs">
+      <DependentUpon>ValidarDocumentoAlcalde.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx.cs">
+      <DependentUpon>BuscarDocumentoFuncionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx.designer.cs">
+      <DependentUpon>BuscarDocumentoFuncionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcionario\EstadoPermisosFuncionario.aspx.cs">
+      <DependentUpon>EstadoPermisosFuncionario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Funcionario\EstadoPermisosFuncionario.aspx.designer.cs">
+      <DependentUpon>EstadoPermisosFuncionario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcionario\FeriadoLegal.aspx.cs">
+      <DependentUpon>FeriadoLegal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Funcionario\FeriadoLegal.aspx.designer.cs">
+      <DependentUpon>FeriadoLegal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Funcionario\InicioFuncionario.aspx.cs">
       <DependentUpon>InicioFuncionario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -335,12 +443,96 @@
     <Compile Include="Views\Funcionario\InicioFuncionario.aspx.designer.cs">
       <DependentUpon>InicioFuncionario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Funcionario\PermisoAdministrativo.aspx.cs">
+      <DependentUpon>PermisoAdministrativo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Funcionario\PermisoAdministrativo.aspx.designer.cs">
+      <DependentUpon>PermisoAdministrativo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcionario\PermisoParental.aspx.cs">
+      <DependentUpon>PermisoParental.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Funcionario\PermisoParental.aspx.designer.cs">
+      <DependentUpon>PermisoParental.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Funcionario\PermisoPorFallecimiento.aspx.cs">
+      <DependentUpon>PermisoPorFallecimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Funcionario\PermisoPorFallecimiento.aspx.designer.cs">
+      <DependentUpon>PermisoPorFallecimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\AutorizarSolicitud.aspx.cs">
+      <DependentUpon>AutorizarSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\AutorizarSolicitud.aspx.designer.cs">
+      <DependentUpon>AutorizarSolicitud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\ConsultarDocumentoJeInt.aspx.cs">
+      <DependentUpon>ConsultarDocumentoJeInt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\ConsultarDocumentoJeInt.aspx.designer.cs">
+      <DependentUpon>ConsultarDocumentoJeInt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\ConsultarPermisosJeInt.aspx.cs">
+      <DependentUpon>ConsultarPermisosJeInt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\ConsultarPermisosJeInt.aspx.designer.cs">
+      <DependentUpon>ConsultarPermisosJeInt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Jefe Interno\InicioJefeInterno.aspx.cs">
       <DependentUpon>InicioJefeInterno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Jefe Interno\InicioJefeInterno.aspx.designer.cs">
       <DependentUpon>InicioJefeInterno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\ReportePermisosJeInt.aspx.cs">
+      <DependentUpon>ReportePermisosJeInt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Interno\ReportePermisosJeInt.aspx.designer.cs">
+      <DependentUpon>ReportePermisosJeInt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\BuscarDocumentoJefeSup.aspx.cs">
+      <DependentUpon>BuscarDocumentoJefeSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\BuscarDocumentoJefeSup.aspx.designer.cs">
+      <DependentUpon>BuscarDocumentoJefeSup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\ConsultaEmpleadoJeSup.aspx.cs">
+      <DependentUpon>ConsultaEmpleadoJeSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\ConsultaEmpleadoJeSup.aspx.designer.cs">
+      <DependentUpon>ConsultaEmpleadoJeSup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\ConsultaResolucionJeSup.aspx.cs">
+      <DependentUpon>ConsultaResolucionJeSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\ConsultaResolucionJeSup.aspx.designer.cs">
+      <DependentUpon>ConsultaResolucionJeSup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\ConsultarUnidadInternaJeSup.aspx.cs">
+      <DependentUpon>ConsultarUnidadInternaJeSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\ConsultarUnidadInternaJeSup.aspx.designer.cs">
+      <DependentUpon>ConsultarUnidadInternaJeSup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\GenerarResolucionJeSup.aspx.cs">
+      <DependentUpon>GenerarResolucionJeSup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Jefe Superior\GenerarResolucionJeSup.aspx.designer.cs">
+      <DependentUpon>GenerarResolucionJeSup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Jefe Superior\InicioJefeSuperior.aspx.cs">
       <DependentUpon>InicioJefeSuperior.aspx</DependentUpon>
