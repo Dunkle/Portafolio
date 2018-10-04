@@ -176,6 +176,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\images\icons\favicon.ico" />
     <Content Include="Scripts\images\img-01.png" />
+    <Content Include="Scripts\images\login_portafolio.jpg" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\Jquery.js" />
     <Content Include="Scripts\main.js" />
@@ -553,6 +554,7 @@
     <Content Include="MaAlcalde.Master" />
     <Content Include="MaAdmin.Master" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -574,15 +576,14 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50204</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:65178/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:7001</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
