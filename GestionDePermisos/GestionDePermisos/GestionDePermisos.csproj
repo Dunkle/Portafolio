@@ -533,6 +533,10 @@
     <Content Include="MaJefeSuperior.Master" />
     <Content Include="MaAlcalde.Master" />
     <Content Include="MaAdmin.Master" />
+    <Content Include="fonts\Montserrat-Bold.ttf" />
+    <Content Include="fonts\Poppins-Medium.ttf" />
+    <Content Include="fonts\Poppins-Bold.ttf" />
+    <Content Include="fonts\Poppins-Regular.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
