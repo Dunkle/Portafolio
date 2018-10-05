@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/style.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="../../Scripts/Jquery.js"></script>
+    <script src="../../Scripts/popper.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -71,10 +74,7 @@
                         <div class="panel-body">
                             <div class="list-group">
 
-                                <a href="../Funcionario/PermisoAdministrativo.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Permiso Administrativo</a>
-                                <a href="../Funcionario/PermisoPorFallecimiento.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Permiso por Fallecimiento</a>
-                                <a href="../Funcionario/FeriadoLegal.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Feriado Legal</a>
-                                <a href="../Funcionario/FeriadoLegal.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Permiso Parental</a>
+                                <a href="../Funcionario/Solicitud de Permiso.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Solicitud de Permiso </a>
                             </div>
                         </div>
                     </div>
@@ -116,8 +116,5 @@
             </asp:ContentPlaceHolder>
         </div>
     </div>
-    <script src="../../Scripts/Jquery.js"></script>
-    <script src="../../Scripts/popper.min.js"></script>
-    <script src="../../Scripts/bootstrap.min.js"></script>
 </body>
 </html>

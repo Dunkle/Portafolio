@@ -145,6 +145,8 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\hamburgers.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="Content\menu.css" />
+    <Content Include="Content\Permisos.css" />
     <Content Include="Content\select2.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
@@ -197,13 +199,10 @@
     <Content Include="Views\Alcalde\ValidarDocumentoAlcalde.aspx" />
     <Content Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx" />
     <Content Include="Views\Funcionario\EstadoPermisosFuncionario.aspx" />
-    <Content Include="Views\Funcionario\FeriadoLegal.aspx" />
     <Content Include="Views\Funcionario\InicioFuncionario.aspx">
       <BrowseToURL>~/Views/Funcionario/InicioFuncionario</BrowseToURL>
     </Content>
-    <Content Include="Views\Funcionario\PermisoAdministrativo.aspx" />
-    <Content Include="Views\Funcionario\PermisoParental.aspx" />
-    <Content Include="Views\Funcionario\PermisoPorFallecimiento.aspx" />
+    <Content Include="Views\Funcionario\Solicitud de Permiso.aspx" />
     <Content Include="Views\Jefe Interno\AutorizarSolicitud.aspx" />
     <Content Include="Views\Jefe Interno\ConsultarDocumentoJeInt.aspx" />
     <Content Include="Views\Jefe Interno\ConsultarPermisosJeInt.aspx" />
@@ -223,9 +222,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Business\NegocioCuenta.cs" />
+    <Compile Include="Business\NegocioTipoPermiso.cs" />
     <Compile Include="Controllers\Conexion.cs" />
     <Compile Include="Controllers\Cuenta.cs" />
     <Compile Include="Controllers\Empleado.cs" />
+    <Compile Include="Controllers\TipoPermiso.cs" />
     <Compile Include="Data\CARGO.cs">
       <DependentUpon>PermisosDB.tt</DependentUpon>
     </Compile>
@@ -430,13 +431,6 @@
     <Compile Include="Views\Funcionario\EstadoPermisosFuncionario.aspx.designer.cs">
       <DependentUpon>EstadoPermisosFuncionario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcionario\FeriadoLegal.aspx.cs">
-      <DependentUpon>FeriadoLegal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Funcionario\FeriadoLegal.aspx.designer.cs">
-      <DependentUpon>FeriadoLegal.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Funcionario\InicioFuncionario.aspx.cs">
       <DependentUpon>InicioFuncionario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -444,26 +438,12 @@
     <Compile Include="Views\Funcionario\InicioFuncionario.aspx.designer.cs">
       <DependentUpon>InicioFuncionario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Funcionario\PermisoAdministrativo.aspx.cs">
-      <DependentUpon>PermisoAdministrativo.aspx</DependentUpon>
+    <Compile Include="Views\Funcionario\Solicitud de Permiso.aspx.cs">
+      <DependentUpon>Solicitud de Permiso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Funcionario\PermisoAdministrativo.aspx.designer.cs">
-      <DependentUpon>PermisoAdministrativo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Funcionario\PermisoParental.aspx.cs">
-      <DependentUpon>PermisoParental.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Funcionario\PermisoParental.aspx.designer.cs">
-      <DependentUpon>PermisoParental.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Funcionario\PermisoPorFallecimiento.aspx.cs">
-      <DependentUpon>PermisoPorFallecimiento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Funcionario\PermisoPorFallecimiento.aspx.designer.cs">
-      <DependentUpon>PermisoPorFallecimiento.aspx</DependentUpon>
+    <Compile Include="Views\Funcionario\Solicitud de Permiso.aspx.designer.cs">
+      <DependentUpon>Solicitud de Permiso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Jefe Interno\AutorizarSolicitud.aspx.cs">
       <DependentUpon>AutorizarSolicitud.aspx</DependentUpon>
@@ -576,13 +556,13 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50204</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:65178/</IISUrl>
+          <IISUrl>http://localhost:50204/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://localhost:7001</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
