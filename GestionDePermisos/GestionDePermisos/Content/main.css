@@ -1,28 +1,31 @@
+/*///////////////////////////////////////////////
+[ IMAGEN BACKGROUND LOGIN]*/
 
-
-
+#ContenedorImagen {
+    background-image: url("../Scripts/images/login_portafolio.jpg");
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
 @font-face {
     font-family: Poppins-Regular;
-    src: url('../Scripts/fonts/poppins/Poppins-Regular.ttf');
+    src: url('../fonts/Poppins-Regular.ttf');
 }
 
 @font-face {
     font-family: Poppins-Bold;
-    src: url('../Scripts/fonts/poppins/Poppins-Bold.ttf');
+    src: url('../fonts/Poppins-Bold.ttf');
 }
 
 @font-face {
     font-family: Poppins-Medium;
-    src: url('../Scripts/fonts/poppins/Poppins-Medium.ttf');
+    src: url('../fonts/Poppins-Medium.ttf');
 }
 
 @font-face {
     font-family: Montserrat-Bold;
-    src: url('../Scripts/fonts/montserrat/Montserrat-Bold.ttf');
+    src: url('../fonts/Montserrat-Bold.ttf');
 }
 
 /*//////////////////////////////////////////////////////////////////
