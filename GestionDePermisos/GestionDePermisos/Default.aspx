@@ -60,14 +60,20 @@
                         <asp:Button class="login100-form-btn" Text="Loading" ID="loading" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" Data-toggle="modal" data-target="#exampleModal" hidden="true" />
                     </div>
                     <br />
+                    <div class="content-footer">
+                        <p>
+                            Page © - 2018
+                    <br>
+                            <a>Powered By Nearby Company S.A.</a>
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top: 15%; overflow-y: visible;">
+    <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top: 25%; overflow-y: visible;">
         <div class="modal-dialog modal-m">
-            <div class="modal-content">
                 <div id="loader">
                     <div class="dot"></div>
                     <div class="dot"></div>
@@ -80,7 +86,6 @@
                     <div class="lading"></div>
                 </div>
             </div>
-        </div>
     </div>
 
     <!--===============================================================================================-->
