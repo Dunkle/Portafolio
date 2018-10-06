@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaFuncionario.Master" AutoEventWireup="true" CodeBehind="Solicitud de Permiso.aspx.cs" Inherits="GestionDePermisos.Views.Funcionario.Solicitud_de_Permiso" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="../../Content/Permisos.css" />    
+    <link rel="stylesheet" href="../../Content/Permisos.css" />
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -29,47 +29,52 @@
                 <div class="col-md-12">
                     <h3>Step 1</h3>
                     <div class="form-group">
-                        <label class="control-label">Tipo de Permiso</label>
-                        <asp:DropDownList runat="server" ID="cmbTipoPermiso" CssClass="btn btn-success dropdown-toggle" ></asp:DropDownList>
+                        <label class="control-label">Tipo de Permiso</label><br />
+                        <asp:DropDownList runat="server" ID="cmbTipoPermiso" CssClass="btn btn-default dropdown-toggle">
+                            <asp:ListItem> -Seleccione- </asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Last Name</label>
-                        <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Last Name" />
+                        <label class="control-label">Motivo </label><br />
+                        <asp:DropDownList runat="server" ID="cmbMotivo" CssClass="btn btn-default dropdown-toggle">
+                            <asp:ListItem> -Seleccione- </asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Address</label>
                         <textarea required="required" class="form-control" placeholder="Enter your address"></textarea>
+                        <asp:TextBox runat="server" ID="txtDetalle" CssClass="form-control"></asp:TextBox>
                     </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
                 </div>
-            </div>
-    <div class="row setup-content" id="step-2">
-        <div class="col-xs-6 col-md-offset-3">
-            <div class="col-md-12">
-                <h3>Step 2</h3>
-                <div class="form-group">
-                    <label class="control-label">Company Name</label>
-                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                <div class="row setup-content" id="step-2">
+                    <div class="col-xs-6 col-md-offset-3">
+                        <div class="col-md-12">
+                            <h3>Step 2</h3>
+                            <div class="form-group">
+                                <label class="control-label">Company Name</label>
+                                <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Company Address</label>
+                                <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
+                            </div>
+                            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" id="btnSig" >Next</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Company Address</label>
-                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address" />
+                <div class="row setup-content" id="step-3">
+                    <div class="col-xs-6 col-md-offset-3">
+                        <div class="col-md-12">
+                            <h3>Step 3</h3>
+                            <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+                        </div>
+                    </div>
                 </div>
-                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
             </div>
-        </div>
-    </div>
-    <div class="row setup-content" id="step-3">
-        <div class="col-xs-6 col-md-offset-3">
-            <div class="col-md-12">
-                <h3>Step 3</h3>
-                <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
-            </div>
-        </div>
-    </div>
-    </form>
+        </form>
 
-    </div> 
+    </div>
     <script type="text/javascript">
         $(document).ready(function () {
             var navListItems = $('div.setup-panel div a'),
