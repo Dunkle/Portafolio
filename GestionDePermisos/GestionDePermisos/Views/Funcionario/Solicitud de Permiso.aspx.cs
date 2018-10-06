@@ -19,17 +19,17 @@ namespace GestionDePermisos.Views.Funcionario
             //    FormsAuthentication.SignOut();
             //    Response.Redirect("../../Default.aspx");
             //}
-            //if (!IsPostBack)
-            //{
-            //    NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();                
-            //    if (negocioTipo.listado().Count > 0)
-            //    {
-            //        foreach (var tmp in negocioTipo.listado())
-            //        {
-            //            cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString() , Text = tmp.nombreTipoPermiso });                        
-            //        }
-            //    }
-            //}
+            if (!IsPostBack)
+            {
+                NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
+                if (negocioTipo.listado().Count > 0)
+                {
+                    foreach (var tmp in negocioTipo.listado())
+                    {
+                        cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString(), Text = tmp.nombreTipoPermiso });
+                    }
+                }
+            }
         }
     }
 }
