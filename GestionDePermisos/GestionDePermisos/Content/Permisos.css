@@ -3,6 +3,13 @@
     background: #fff;
 }
 
+.glyphicon {
+    top: 11px;
+}
+
+i {
+    font-size: 44px;
+}
     .wizard .nav-tabs {
         position: relative;
         margin: 40px auto;
