@@ -12,7 +12,6 @@
                     </div>
                     <span class="input-group-btn">
                         <button class="btn btn-success" type="button">Consultar</button>
-
                         <button class="btn btn-danger" type="button" id="limpiar" onclick="document.getElementById('inputSuccess5').value = ''">Limpiar</button>
                     </span>
                 </div>
