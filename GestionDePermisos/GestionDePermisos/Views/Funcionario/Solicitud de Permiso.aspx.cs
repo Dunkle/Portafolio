@@ -22,16 +22,11 @@ namespace GestionDePermisos.Views.Funcionario
             if (!IsPostBack)
             {
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
-                NegocioMotivo negocioMotivo = new NegocioMotivo();
                 if (negocioTipo.listado().Count > 0)
                 {
                     foreach (var tmp in negocioTipo.listado())
                     {
                         cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString(), Text = tmp.nombreTipoPermiso });
-                    }
-                    foreach (var item in negocioMotivo.listado())
-                    {
-                        cmbMotivo.Items.Add(new ListItem() { Value = item.idMotivo.ToString(), Text = item.nombreMotivo });
                     }
                 }
             }
