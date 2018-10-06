@@ -21,7 +21,15 @@ namespace GestionDePermisos.Controllers
         {
             idSolicitud = default(int);
             descripcion = string.Empty;
-            //fechaInicio = DateTime.
+            fechaSolicitud = default(DateTime);
+            fechaInicio = default(DateTime);
+            fechaTermino = default(DateTime);
+            idTipoPermiso = default(int);
+            rutSolicitante = default(int);
+            rutAutorizante = default(int);
+            idEstado = default(int);
         }
+
+
     }
 }
