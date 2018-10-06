@@ -226,6 +226,7 @@
     <Compile Include="Controllers\Conexion.cs" />
     <Compile Include="Controllers\Cuenta.cs" />
     <Compile Include="Controllers\Empleado.cs" />
+    <Compile Include="Controllers\Solicitud.cs" />
     <Compile Include="Controllers\TipoPermiso.cs" />
     <Compile Include="Data\CARGO.cs">
       <DependentUpon>PermisosDB.tt</DependentUpon>
