@@ -13,5 +13,9 @@ namespace GestionDePermisos.Views.Jefe_Interno
         {
 
         }
+        protected void BuscarSolicitud()
+        {
+            
+        }
     }
 }

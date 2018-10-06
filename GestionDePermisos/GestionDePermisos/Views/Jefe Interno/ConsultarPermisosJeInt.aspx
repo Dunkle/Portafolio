@@ -7,12 +7,12 @@
             <div class="col">
                 <div class="input-group">
                     <div class="form-group  has-feedback">
-                        <input type="text" class="form-control" id="inputSuccess5"  placeholder="Ingrese aquí el rut de la persona a buscar">
+                        <input type="text" class="form-control" id="rutSolicitud"  placeholder="Ingrese aquí el rut de la persona a buscar">
                         <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
                     </div>
                     <span class="input-group-btn">
                         <button class="btn btn-success" type="button">Consultar</button>
-                        <button class="btn btn-danger" type="button" id="limpiar" onclick="document.getElementById('inputSuccess5').value = ''">Limpiar</button>
+                        <button class="btn btn-danger" type="button" id="limpiar" onclick="document.getElementById('rutSolicitud').value = ''">Limpiar</button>
                     </span>
                 </div>
             </div>

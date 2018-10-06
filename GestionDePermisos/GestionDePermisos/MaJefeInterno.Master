@@ -104,11 +104,11 @@
                 <div class="panel panel-warning">
                     <div class="panel-heading" role="tab" id="headingFour">
                         <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">Reportes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Reportes <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour" aria-expanded="true">
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour" aria-expanded="false">
                         <div class="panel-body">
                             <div class="list-group">
                                 <a href="../Jefe Interno/ReportePermisosJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Reporte cuantitativo de permisos </a>
