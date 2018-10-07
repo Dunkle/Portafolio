@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,16 +6,15 @@ using GestionDePermisos.Controllers;
 
 namespace GestionDePermisos.Business
 {
-    public class NegocioTipoPermiso
-    {        
-
-        public IList<TipoPermiso> listado()
+    public class NegocioSolicitud
+    {
+        public IList<Solicitud> listado()
         {
-            TipoPermiso permiso = new TipoPermiso();
-            IList <TipoPermiso> lista = new List<TipoPermiso>();
-            if (permiso.readAll())
+            Solicitud solicitud = new Solicitud();
+            IList<Solicitud> lista = new List<Solicitud>();
+            if (solicitud.readAll())
             {
-                foreach (var item in permiso.coleccion)
+                foreach (var item in solicitud.coleccionSolicitudes)
                 {
                     lista.Add(item);
                 }
@@ -24,5 +22,6 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+        
     }
 }

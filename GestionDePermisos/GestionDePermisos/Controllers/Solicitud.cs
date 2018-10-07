@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionDePermisos.Data;
 
 namespace GestionDePermisos.Controllers
 {
@@ -56,6 +57,84 @@ namespace GestionDePermisos.Controllers
             }
             catch(Exception ex)
             {
+                return false;
+            }
+        }
+        public bool create()
+        {
+            SOLICITUD solicitud = new SOLICITUD();
+            try
+            {
+                solicitud.IDSOLICITUD = this.idSolicitud;
+                solicitud.DESCRIPCION = this.descripcion;
+                solicitud.FECHASOLICITUD = this.fechaSolicitud;
+                solicitud.FECHAINICIO = this.fechaInicio;
+                solicitud.FECHATERMINO = this.fechaTermino;
+                solicitud.IDTIPOPERMISO = this.idTipoPermiso;
+                solicitud.RUT = this.rutSolicitante;
+                solicitud.AUTORIZADOR = this.rutAutorizante;
+                solicitud.IDESTADO = this.idEstado;
+
+                Conexion.entities.SOLICITUD.Add(solicitud);
+                Conexion.entities.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                Conexion.entities.SOLICITUD.Local.Clear();
+                return false;
+            }
+        }
+
+        public bool update()
+        {
+            try
+            {
+                SOLICITUD solicitud = Conexion.entities.SOLICITUD.First(f => f.IDSOLICITUD == this.idSolicitud);
+
+                solicitud.IDSOLICITUD = this.idSolicitud;
+                solicitud.DESCRIPCION = this.descripcion;
+                solicitud.FECHASOLICITUD = this.fechaSolicitud;
+                solicitud.FECHAINICIO = this.fechaInicio;
+                solicitud.FECHATERMINO = this.fechaTermino;
+                solicitud.IDTIPOPERMISO = this.idTipoPermiso;
+                solicitud.RUT = this.rutSolicitante;
+                solicitud.AUTORIZADOR = this.rutAutorizante;
+                solicitud.IDESTADO = this.idEstado;
+
+                Conexion.entities.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
+
+        public bool read()
+        {
+            try
+            {
+                SOLICITUD solicitud = Conexion.entities.SOLICITUD.First(f => f.IDSOLICITUD == this.idSolicitud);
+
+                this.idSolicitud = Convert.ToInt32(solicitud.IDSOLICITUD);
+                this.descripcion = solicitud.DESCRIPCION;
+                this.fechaSolicitud = Convert.ToDateTime(solicitud.FECHASOLICITUD);
+                this.fechaInicio = Convert.ToDateTime(solicitud.FECHAINICIO);
+                this.fechaTermino = Convert.ToDateTime(solicitud.FECHATERMINO);
+                this.idTipoPermiso = Convert.ToInt32(solicitud.IDTIPOPERMISO);
+                this.rutSolicitante = Convert.ToInt32(solicitud.RUT);
+                this.rutAutorizante = Convert.ToInt32(solicitud.AUTORIZADOR);
+                this.idEstado = Convert.ToInt32(solicitud.IDESTADO);
+
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+
                 return false;
             }
         }

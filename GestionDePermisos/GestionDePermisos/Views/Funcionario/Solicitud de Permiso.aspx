@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../../Content/Permisos.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://resources/demos/style.css" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -69,23 +72,36 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="step2">
-                                    <h3>Step two</h3>
-                                    <p>Second step</p>
-                                    <ul class="list-inline pull-right">
-                                        <li>
-                                            <button type="button" class="btn btn-default prev-step">Previous</button></li>
-                                        <li>
-                                            <button type="button" class="btn btn-primary next-step">next</button></li>
-                                    </ul>
+                                    <h3>Selecciona la fecha de tu permiso</h3>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Fecha Inicio</label>
+                                            <asp:TextBox runat="server" ID="txtDate1" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                     <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Fecha Termino</label>
+                                            <asp:TextBox runat="server" ID="txtDate2" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <ul class="list-inline pull-right">
+                                            <li>
+                                                <button type="button" class="btn btn-default prev-step btn-lg">Anterior</button></li>
+                                            <li>
+                                                <button type="button" class="btn btn-primary next-step btn-lg">Siguiente</button></li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="tab-pane" role="tabpanel" id="complete">
-                                    <h3>Complete steps</h3>
-                                    <p>You have successfully completed every steps.</p>
+                                    <h3>Casi hemos terminado</h3>
+                                    <p>Click en finalizar para procesar tu permiso.</p>
                                     <ul class="list-inline pull-right">
                                         <li>
-                                            <button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                            <button type="button" class="btn btn-default prev-step btn-lg">Anterior</button></li>
                                         <li>
-                                            <button type="button" class="btn btn-primary btn-info-full next-step">Submit</button></li>
+                                            <asp:Button runat="server" ID="btnFinalizarPermiso" CssClass="btn btn-primary btn-lg" Text="Finalizar" OnClick="btnFinalizarPermiso_Click"/></li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
@@ -96,6 +112,24 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#' + '<%= txtDate1.ClientID %>').datepicker(
+                {
+                    changeMonth: true,
+                    changeYear: true,
+                    inline: true
+                }
+            );
+            $('#' + '<%= txtDate2.ClientID %>').datepicker(
+                {
+                    changeMonth: true,
+                    changeYear: true,
+                    inline: true
+                }
+            );
+        });
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             //Initialize tooltips
