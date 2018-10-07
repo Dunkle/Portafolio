@@ -8,7 +8,7 @@ namespace GestionDePermisos.Controllers
     public class Motivo
     {
         public int idMotivo { get; set; }
-        public string nombreMotivo { get; set} 
+        public string nombreMotivo { get; set; } 
         int idTipoPermiso { get; set; }
         public IList<Motivo> motivos { get; set; }
 
