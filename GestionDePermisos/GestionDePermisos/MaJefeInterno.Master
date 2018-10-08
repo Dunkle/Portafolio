@@ -4,6 +4,7 @@
 
 <html>
 <head runat="server">
+    <link rel="icon" type="image/png" href="Scripts/images/icons/faviconMunicipal.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
