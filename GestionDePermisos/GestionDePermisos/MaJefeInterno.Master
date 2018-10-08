@@ -37,8 +37,8 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="../Jefe Interno/InicioJefeInterno.aspx">Home</a></li>
-                        <li><a href="../../Default.aspx">Log out</a></li>
+                        <li class=""><a href="../Jefe Interno/InicioJefeInterno.aspx">Inicio</a></li>
+                        <li><a href="../../Default.aspx">Cerrar Sesion</a></li>
                         <li class="dropdown">
                     </ul>
                 </div>
@@ -58,14 +58,14 @@
                 <div class="panel panel-warning">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">Inicio <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">Perfil <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                             </a>
                         </h4>
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="../Jefe Interno/InicioJefeInterno.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Inicio </a>
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><asp:Label runat="server" ID="lblJefeInterno"></asp:Label> </a>
                             </div>
                         </div>
                     </div>

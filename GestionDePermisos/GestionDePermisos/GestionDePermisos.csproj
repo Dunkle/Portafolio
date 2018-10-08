@@ -198,7 +198,9 @@
     <Content Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx" />
     <Content Include="Views\Alcalde\ValidarDocumentoAlcalde.aspx" />
     <Content Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx" />
-    <Content Include="Views\Funcionario\EstadoPermisosFuncionario.aspx" />
+    <Content Include="Views\Funcionario\EstadoPermisosFuncionario.aspx">
+      <BrowseToURL>../Views/Funcionario/EstadoPermisosFuncionario</BrowseToURL>
+    </Content>
     <Content Include="Views\Funcionario\InicioFuncionario.aspx">
       <BrowseToURL>~/Views/Funcionario/InicioFuncionario</BrowseToURL>
     </Content>
@@ -222,14 +224,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Business\NegocioCuenta.cs" />
+    <Compile Include="Business\NegocioEstado.cs" />
     <Compile Include="Business\NegocioMotivo.cs" />
     <Compile Include="Business\NegocioSolicitud.cs" />
     <Compile Include="Business\NegocioTipoPermiso.cs" />
     <Compile Include="Controllers\Conexion.cs" />
     <Compile Include="Controllers\Cuenta.cs" />
     <Compile Include="Controllers\Empleado.cs" />
+    <Compile Include="Controllers\Estado.cs" />
     <Compile Include="Controllers\Motivo.cs" />
-    <Compile Include="Controllers\Solicitud.cs" />
+    <Compile Include="Controllers\ControllerSolicitud.cs" />
     <Compile Include="Controllers\TipoPermiso.cs" />
     <Compile Include="Data\CARGO.cs">
       <DependentUpon>PermisosDB.tt</DependentUpon>
@@ -336,6 +340,7 @@
     <Compile Include="MaJefeSuperior.Master.designer.cs">
       <DependentUpon>MaJefeSuperior.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -529,7 +534,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MaFuncionario.Master" />

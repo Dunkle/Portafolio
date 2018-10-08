@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Business;
+using GestionDePermisos.Models;
 
 namespace GestionDePermisos.Views.Funcionario
 {
@@ -33,13 +35,37 @@ namespace GestionDePermisos.Views.Funcionario
                     {
                         cmbMotivo.Items.Add(new ListItem() { Value = item.idMotivo.ToString(), Text = item.nombreMotivo });
                     }
-                }
+                }                
             }
         }
 
         protected void btnFinalizarPermiso_Click(object sender, EventArgs e)
         {
+            Solicitud newSolicitud = new Solicitud();
+            NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
 
+            newSolicitud.idSolicitud = 1; 
+            newSolicitud.idTipoPermiso = Convert.ToInt32(cmbTipoPermiso.SelectedItem.Value);
+            newSolicitud.descripcion = txtDetalleSolicitud.Text;
+            newSolicitud.fechaSolicitud = DateTime.Today;
+            newSolicitud.fechaInicio = DateTime.ParseExact(txtDate1.Text,"MM/dd/yyyy",CultureInfo.InvariantCulture);
+            newSolicitud.fechaTermino = DateTime.ParseExact(txtDate2.Text,"MM/dd/yyyy",CultureInfo.InvariantCulture);
+            newSolicitud.idEstado = 1;
+            newSolicitud.rutSolicitante = 1;
+
+            if (negocioSolicitud.crearSolicitud(newSolicitud))
+            {
+                limpiarFormulario();
+            }            
+        }
+
+        private void limpiarFormulario()
+        {
+            cmbTipoPermiso.SelectedIndex = 0;
+            cmbMotivo.SelectedIndex = 0;
+            txtDate1.Text = string.Empty;
+            txtDate2.Text = string.Empty;
+            txtDetalleSolicitud.Text = string.Empty;
         }
     }
 }

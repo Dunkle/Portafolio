@@ -40,5 +40,23 @@ namespace GestionDePermisos.Controllers
                 return false;
             }
         }
+
+        public bool read()
+        {            
+            try
+            {
+                TIPOPERMISO tipoPermiso = Conexion.entities.TIPOPERMISO.First(f=>f.IDTIPOPERMISO == this.idTipoPermiso);
+                this.idTipoPermiso = Convert.ToInt32(tipoPermiso.IDTIPOPERMISO);
+                this.nombreTipoPermiso = tipoPermiso.NOMBRETIPOPERMISO;
+                this.idEstado = Convert.ToInt32(tipoPermiso.IDESTADO);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
     }
 }

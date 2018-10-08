@@ -1,5 +1,4 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MaFuncionario.master.cs" Inherits="GestionDePermisos.MaFuncionario" %>
-
 <!DOCTYPE html>
 
 <html>
@@ -36,8 +35,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="../Jefe Interno/InicioJefeInterno.aspx">Home</a></li>
-                    <li><a href="../../Default.aspx">Log out</a></li>
+                    <li class=""><a href="../Funcionario/InicioFuncionario.aspx">Inicio</a></li>
+                    <li><a href="../../Default.aspx">Cerrar Sesion</a></li>
                     <li class="dropdown">
                 </ul>
             </div>
@@ -65,7 +64,7 @@
                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="../../default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
+                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><asp:Label runat="server" ID="lblFuncionario"></asp:Label></a>
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ using GestionDePermisos.Data;
 
 namespace GestionDePermisos.Controllers
 {
-    public class Solicitud
+    public class ControllerSolicitud
     {
         public int idSolicitud { set; get; }
         public String descripcion { set; get; }
@@ -17,10 +17,10 @@ namespace GestionDePermisos.Controllers
         public int rutSolicitante { set; get; }
         public int rutAutorizante { set; get; }
         public int idEstado { set; get; }
-        public IList<Solicitud> coleccionSolicitudes { get; set; }
+        public IList<ControllerSolicitud> coleccionSolicitudes { get; set; }
 
 
-        public Solicitud()
+        public ControllerSolicitud()
         {
             idSolicitud = default(int);
             descripcion = string.Empty;
@@ -37,10 +37,10 @@ namespace GestionDePermisos.Controllers
         {
             try
             {
-                this.coleccionSolicitudes = new List<Solicitud>();
+                this.coleccionSolicitudes = new List<ControllerSolicitud>();
                 foreach (var tmp in Conexion.entities.SOLICITUD.ToList())
                 {
-                    Solicitud solicitud = new Solicitud();
+                    ControllerSolicitud solicitud = new ControllerSolicitud();
                     solicitud.idSolicitud = Convert.ToInt32(tmp.IDSOLICITUD);
                     solicitud.descripcion = tmp.DESCRIPCION;
                     solicitud.fechaSolicitud = Convert.ToDateTime(tmp.FECHASOLICITUD);
@@ -49,7 +49,7 @@ namespace GestionDePermisos.Controllers
                     solicitud.idTipoPermiso = Convert.ToInt32(tmp.IDTIPOPERMISO);
                     solicitud.rutSolicitante = Convert.ToInt32(tmp.RUT);
                     solicitud.rutAutorizante = Convert.ToInt32(tmp.AUTORIZADOR);
-                    solicitud.idEstado = Convert.ToInt32(tmp.ESTADO);
+                    solicitud.idEstado = Convert.ToInt32(tmp.IDESTADO);
 
                     this.coleccionSolicitudes.Add(solicitud);
                 }

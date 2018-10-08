@@ -7,6 +7,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Business;
+using GestionDePermisos.Views;
 
 namespace GestionDePermisos
 {
@@ -27,7 +28,7 @@ namespace GestionDePermisos
                 {
                     case 1:
                         Session["funcionario"] = "funcionario";
-                        //FormsAuthentication.RedirectFromLoginPage("funcionario", false);
+                        
                         Response.Redirect("Views/Funcionario/InicioFuncionario.aspx");
                         break;
                     case 2:
@@ -79,6 +80,10 @@ namespace GestionDePermisos
             sb.Append(msg.Replace("\n", "\\n").Replace("\r", "").Replace("'", "\\'"));
             sb.Append("');");
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
+        }
+        public string retornarUsuario()
+        {
+            return txtUsuario.Text;
         }
     }
 }

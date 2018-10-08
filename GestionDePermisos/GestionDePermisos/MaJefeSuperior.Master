@@ -36,8 +36,8 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="../Jefe Interno/InicioJefeInterno.aspx">Home</a></li>
-                    <li><a href="../../Default.aspx">Log out</a></li>
+                    <li class="active"><a href="../Jefe Superior/InicioJefeSuperior.aspx">Inicio</a></li>
+                    <li><a href="../../Default.aspx">Cerrar Sesion</a></li>
                     <li class="dropdown">
                 </ul>
             </div>
@@ -66,7 +66,7 @@
                         <div class="panel-body">
                             <div class="list-group">
 
-                                <a href="../../Default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Cerrar Sesión </a>
+                                <a href="../../Default.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><asp:Label runat="server" ID="lblJefeSuperior"></asp:Label></a>
                             </div>
                         </div>
                     </div>

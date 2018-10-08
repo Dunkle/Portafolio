@@ -24,5 +24,19 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
-    }
+
+        public string nameByID(int id)
+        {
+            TipoPermiso tipoPermiso = new TipoPermiso();
+            tipoPermiso.idTipoPermiso = id;
+            if (tipoPermiso.read())
+            {
+                return tipoPermiso.nombreTipoPermiso;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+    }    
 }

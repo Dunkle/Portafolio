@@ -52,7 +52,7 @@
                                         <div class="form-group">
                                             <label class="control-label">Tipo Permiso </label>
                                             <asp:DropDownList runat="server" ID="cmbTipoPermiso" CssClass="form-control">
-                                                <asp:ListItem> -Seleccione- </asp:ListItem>
+                                                <asp:ListItem Value="0"> -Seleccione- </asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -60,8 +60,14 @@
                                         <div class="form-group">
                                             <label class="control-label">Motivos </label>
                                             <asp:DropDownList runat="server" ID="cmbMotivo" CssClass="form-control">
-                                                <asp:ListItem> -Seleccione- </asp:ListItem>
+                                                <asp:ListItem Value="0"> -Seleccione- </asp:ListItem>
                                             </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Ingrese comentarios de la solicitud </label>
+                                            <asp:TextBox runat="server" ID="txtDetalleSolicitud" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
