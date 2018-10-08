@@ -7,11 +7,11 @@ using GestionDePermisos.Controllers;
 namespace GestionDePermisos.Business
 {
     public class NegocioCuenta
-    {
-        Cuenta cuenta = new Cuenta();
+    {        
 
         public bool comprobarCuenta(string user, string passw)
         {
+            Cuenta cuenta = new Cuenta();
             cuenta.usuario = user;
             cuenta.read();
 
@@ -25,8 +25,31 @@ namespace GestionDePermisos.Business
             }
             else { return false; }
         }
-        public int retonarCargo() {
-            return cuenta.idPerfilCuenta;
+        public int retonarCargo(string user) {
+            Cuenta cuenta = new Cuenta();
+            cuenta.usuario = user;
+            if (cuenta.read())
+            {
+                return cuenta.idPerfilCuenta;
+            }
+            else
+            {
+                return 0;
+            }
+            
+        }
+        public int retornarID(string user)
+        {
+            Cuenta cuenta = new Cuenta();
+            cuenta.usuario = user;
+            if (cuenta.read())
+            {
+                return cuenta.idCuenta;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

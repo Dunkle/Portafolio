@@ -43,15 +43,18 @@ namespace GestionDePermisos.Views.Funcionario
         {
             Solicitud newSolicitud = new Solicitud();
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            NegocioCuenta negocioCuenta = new NegocioCuenta();
+            string cuenta = Session["usuario"].ToString();
 
-            newSolicitud.idSolicitud = 1; 
+            newSolicitud.idSolicitud = 1;
             newSolicitud.idTipoPermiso = Convert.ToInt32(cmbTipoPermiso.SelectedItem.Value);
             newSolicitud.descripcion = txtDetalleSolicitud.Text;
             newSolicitud.fechaSolicitud = DateTime.Today;
-            newSolicitud.fechaInicio = DateTime.ParseExact(txtDate1.Text,"MM/dd/yyyy",CultureInfo.InvariantCulture);
-            newSolicitud.fechaTermino = DateTime.ParseExact(txtDate2.Text,"MM/dd/yyyy",CultureInfo.InvariantCulture);
+            newSolicitud.fechaInicio = DateTime.ParseExact(txtDate1.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            newSolicitud.fechaTermino = DateTime.ParseExact(txtDate2.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);
             newSolicitud.idEstado = 1;
-            newSolicitud.rutSolicitante = 1;
+            newSolicitud.rutSolicitante = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(cuenta));
 
             if (negocioSolicitud.crearSolicitud(newSolicitud))
             {

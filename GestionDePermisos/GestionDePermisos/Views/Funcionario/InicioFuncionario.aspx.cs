@@ -11,7 +11,10 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Page.PreviousPage != null && !IsPostBack)
+            {
+                
+            }
         }
     }
 }

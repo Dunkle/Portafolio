@@ -24,6 +24,7 @@ namespace GestionDePermisos.Controllers
         public int idDepartamento { get; set; }
         public int idCuenta { get; set; }
         public int idTipoContrato { get; set; }
+        public IList<Empleado> empleados { get; set; }
 
         public Empleado()
         {
@@ -45,7 +46,7 @@ namespace GestionDePermisos.Controllers
         }
 
         public bool read()
-        {            
+        {
 
             try
             {
@@ -76,5 +77,39 @@ namespace GestionDePermisos.Controllers
             }
         }
 
+        public bool readAll()
+        {
+            this.empleados = new List<Empleado>();
+            try
+            {
+                foreach (var item in Conexion.entities.EMPLEADO.ToList())
+                {
+                    Empleado empleado = new Empleado();
+                    empleado.rut = Convert.ToInt32(item.RUT);
+                    empleado.nombres = item.NOMBRES;
+                    empleado.apellidoMaterno = item.APELLIDOMATERNO;
+                    empleado.apellidoPaterno = item.APELLIDOPATERNO;
+                    empleado.fechaNacimiento = Convert.ToDateTime(item.FECHANACIMIENTO);
+                    empleado.direccion = item.DIRECCION;
+                    empleado.telefono = Convert.ToInt32(item.TELEFONO);
+                    empleado.correo = item.CORREO;
+                    empleado.fechaContratacion = Convert.ToDateTime(item.FECHACONTRATACION);
+                    empleado.idEstado = Convert.ToInt32(item.IDESTADO);
+                    empleado.idCargo = Convert.ToInt32(item.IDCARGO);
+                    empleado.idComuna = Convert.ToInt32(item.IDCOMUNA);
+                    empleado.idDepartamento = Convert.ToInt32(item.IDDEPARTAMENTO);
+                    empleado.idCuenta = Convert.ToInt32(item.IDCUENTA);
+                    empleado.idTipoContrato = Convert.ToInt32(item.TIPOCONTRATO);
+
+                    this.empleados.Add(empleado);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
     }
 }

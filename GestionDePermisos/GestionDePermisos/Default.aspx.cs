@@ -24,31 +24,31 @@ namespace GestionDePermisos
         {
             if (comprobarConexion())
             {
-                switch (controladorLogin.retonarCargo())
+                switch (controladorLogin.retonarCargo(usuario))
                 {
                     case 1:
                         Session["funcionario"] = "funcionario";
-                        
+                        Session["usuario"] = usuario;
                         Response.Redirect("Views/Funcionario/InicioFuncionario.aspx");
                         break;
                     case 2:
                         Session["jefeInterno"] = "jefeInterno";
-                        //FormsAuthentication.RedirectFromLoginPage("funcionario", false);
+                        Session["usuario"] = usuario;
                         Response.Redirect("Views/Jefe Interno/InicioJefeInterno.aspx");
                         break;
                     case 3:
                         Session["jefeSuperior"] = "jefeSuperior";
-                        //FormsAuthentication.RedirectFromLoginPage("funcionario", false);
+                        Session["usuario"] = usuario;
                         Response.Redirect("Views/Jefe Superior/InicioJefeSuperior.aspx");
                         break;
                     case 4:
                         Session["alcalde"] = "alcalde";
-                        //FormsAuthentication.RedirectFromLoginPage("funcionario", false);
+                        Session["usuario"] = usuario;
                         Response.Redirect("Views/Alcalde/InicioAlcalde.aspx");
                         break;
                     case 5:
                         Session["admin"] = "admin";
-                        //FormsAuthentication.RedirectFromLoginPage("funcionario", false);
+                        Session["usuario"] = usuario;
                         Response.Redirect("Views/Administrador/InicioAdmin.aspx");
                         break;
                     default:
@@ -80,10 +80,6 @@ namespace GestionDePermisos
             sb.Append(msg.Replace("\n", "\\n").Replace("\r", "").Replace("'", "\\'"));
             sb.Append("');");
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
-        }
-        public string retornarUsuario()
-        {
-            return txtUsuario.Text;
-        }
+        }        
     }
 }

@@ -11,12 +11,13 @@ namespace GestionDePermisos
     {                
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack && PreviousPage != null)
-            //{
-            //    Page page = PreviousPage;
-            //    lblFuncionario.Text = ((TextBox)page.FindControl("txtUsuario")).Text;
-            //}
-
-        }
+            if (!IsPostBack)
+            {
+                if (Session["usuario"] != null)
+                {
+                    lblFuncionario.Text = Session["usuario"].ToString();
+                }               
+            }
+        }        
     }
 }

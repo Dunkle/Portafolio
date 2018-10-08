@@ -11,7 +11,13 @@ namespace GestionDePermisos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["usuario"] != null)
+                {
+                    lblJefeSuperior.Text = Session["usuario"].ToString();
+                }                
+            }
         }
     }
 }

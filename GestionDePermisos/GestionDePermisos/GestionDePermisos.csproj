@@ -224,6 +224,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Business\NegocioCuenta.cs" />
+    <Compile Include="Business\NegocioEmpleado.cs" />
     <Compile Include="Business\NegocioEstado.cs" />
     <Compile Include="Business\NegocioMotivo.cs" />
     <Compile Include="Business\NegocioSolicitud.cs" />
