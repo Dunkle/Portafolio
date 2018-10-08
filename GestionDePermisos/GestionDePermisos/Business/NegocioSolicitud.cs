@@ -43,5 +43,22 @@ namespace GestionDePermisos.Business
                 return false;
             }
         }
+        public IList<ControllerSolicitud> listadoFiltradoByID(int rut)
+        {
+            ControllerSolicitud solicitud = new ControllerSolicitud();
+            IList<ControllerSolicitud> lista = new List<ControllerSolicitud>();
+            if (solicitud.readAll())
+            {
+                foreach (var item in solicitud.coleccionSolicitudes)
+                {
+                    if (item.rutSolicitante == rut)
+                    {
+                        lista.Add(item);
+                    }                    
+                }
+                return lista;
+            }
+            else { return null; }
+        }
     }
 }

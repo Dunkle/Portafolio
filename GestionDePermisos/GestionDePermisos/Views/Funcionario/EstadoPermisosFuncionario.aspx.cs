@@ -24,6 +24,7 @@ namespace GestionDePermisos.Views.Funcionario
                 TableCell rutAutorizador = new TableCell();
                 TableCell rutSolicitante = new TableCell();
                 TableCell estado = new TableCell();
+                
                 foreach (var item in negocioSolicitud.listado())
                 {
                     TableRow tableRow = new TableRow();

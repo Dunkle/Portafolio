@@ -20,6 +20,7 @@
                                 <asp:TableHeaderCell>Rut Solicitante</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Rut Autorizador</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Estado</asp:TableHeaderCell>
+                                <asp:TableHeaderCell>Accion</asp:TableHeaderCell>
                             </asp:TableRow>
                         </asp:Table>
                     </div>
