@@ -177,6 +177,7 @@
     </Content>
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\images\icons\favicon.ico" />
+    <Content Include="Scripts\images\icons\faviconMunicipal.ico" />
     <Content Include="Scripts\images\img-01.png" />
     <Content Include="Scripts\images\login_portafolio.jpg" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
