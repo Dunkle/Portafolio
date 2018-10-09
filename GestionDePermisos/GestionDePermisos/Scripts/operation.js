@@ -1,5 +1,9 @@
 ﻿$(document).ready(function () {
-    //Iniciar modal siempre y cuando el usuario y la contraseña no esten vacios. 
+
+    ///////////////////////// LOGIN /////////////////////////////////7
+    /*
+     * Inicia modal de carga.
+     */
     $('#btnLogin').on('click', function () {
 
         var user = $('#txtUsuario').val();
@@ -13,6 +17,9 @@
         }
     });
 
+    /*
+     * Oculta el mensaje de error al presionar el spam
+     */
     $('#btnClose').on('click', function () {
 
 
