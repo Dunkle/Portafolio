@@ -22,9 +22,7 @@ namespace GestionDePermisos
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            ShowPopUpMsg("validando");
-            txtUsuario.Text = string.Empty;
-            txtContraseña.Text = string.Empty;
+
             if (comprobarConexion())
             {
                 switch (controladorLogin.retonarCargo(usuario))
@@ -56,7 +54,7 @@ namespace GestionDePermisos
                         break;
                     default:
                         break;
-                }                
+                }
             }
             else
             {
@@ -69,7 +67,7 @@ namespace GestionDePermisos
         private bool comprobarConexion()
         {
             usuario = txtUsuario.Text;
-            string contraseña = txtContraseña.Text;            
+            string contraseña = txtContraseña.Text;
             if (controladorLogin.comprobarCuenta(usuario, contraseña))
             {
                 return true;
@@ -83,6 +81,6 @@ namespace GestionDePermisos
             sb.Append(msg.Replace("\n", "\\n").Replace("\r", "").Replace("'", "\\'"));
             sb.Append("');");
             ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
-        }        
+        }
     }
 }

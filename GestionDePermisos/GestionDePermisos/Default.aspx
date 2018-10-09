@@ -24,7 +24,6 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="Content/main.css" />
     <!--===============================================================================================-->
-
 </head>
 <body>
 
@@ -34,7 +33,6 @@
                 <div class="login100-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
                     <img src="Scripts/images/img-01.png" alt="IMG">
                 </div>
-
                 <form class="login100-form validate-form" id="login" runat="server">
                     <span class="login100-form-title">Member Login
                     </span>
@@ -56,8 +54,7 @@
 
 
                     <div class="container-login100-form-btn">
-                        <asp:Button class="login100-form-btn" Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" />
-                        <asp:Button class="login100-form-btn" Text="Loading" ID="loading" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" Data-toggle="modal" data-target="#exampleModal" hidden="true"/>
+                        <asp:Button class="login100-form-btn" Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" Data-toggle="modal" />
                     </div>
                     <br />
                     <div class="content-footer">
@@ -72,25 +69,26 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top: 25%; overflow-y: visible;">
+    <div class="modal fade" id="modalCarga" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top: 25%; overflow-y: visible;">
         <div class="modal-dialog modal-m">
-                <div id="loader">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="lading"></div>
-                </div>
+            <div id="loader">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="lading"></div>
             </div>
+        </div>
     </div>
 
     <!--===============================================================================================-->
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <!--===============================================================================================-->
+    <script type="text/javascript" src="Scripts/operation.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
