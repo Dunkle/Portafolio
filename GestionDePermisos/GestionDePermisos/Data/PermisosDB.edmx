@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CARGO">
           <Key>
             <PropertyRef Name="IDCARGO" />
@@ -43,7 +43,7 @@
           <Key>
             <PropertyRef Name="RUT" />
           </Key>
-          <Property Name="RUT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="NOMBRES" Type="varchar2" MaxLength="100" />
           <Property Name="APELLIDOPATERNO" Type="varchar2" MaxLength="100" />
           <Property Name="APELLIDOMATERNO" Type="varchar2" MaxLength="100" />
@@ -73,6 +73,7 @@
           </Key>
           <Property Name="IDMOTIVO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBREMOTIVO" Type="varchar2" MaxLength="100" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" />
           <Property Name="IDTIPOPERMISO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="MUNICIPALIDAD">
@@ -113,13 +114,14 @@
             <PropertyRef Name="IDSOLICITUD" />
           </Key>
           <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGODOCUMENTO" Type="varchar2" MaxLength="256" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" />
           <Property Name="FECHASOLICITUD" Type="date" />
           <Property Name="FECHAINICIO" Type="date" />
           <Property Name="FECHATERMINO" Type="date" />
           <Property Name="IDTIPOPERMISO" Type="number" Precision="38" Scale="0" />
-          <Property Name="RUT" Type="number" Precision="38" Scale="0" />
-          <Property Name="AUTORIZADOR" Type="number" Precision="38" Scale="0" />
+          <Property Name="RUT" Type="varchar2" MaxLength="10" />
+          <Property Name="AUTORIZADOR" Type="varchar2" MaxLength="10" />
           <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="TIPOCONTRATO">
@@ -450,8 +452,7 @@
             <End Role="UNIDAD" EntitySet="UNIDAD" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -502,7 +503,7 @@
           <Key>
             <PropertyRef Name="RUT" />
           </Key>
-          <Property Name="RUT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="APELLIDOPATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="APELLIDOMATERNO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
@@ -543,6 +544,7 @@
           </Key>
           <Property Name="IDMOTIVO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBREMOTIVO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDTIPOPERMISO" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="TIPOPERMISO" Relationship="Self.MOTIVOTIPOPERMISOFK" FromRole="MOTIVO" ToRole="TIPOPERMISO" />
         </EntityType>
@@ -590,13 +592,14 @@
             <PropertyRef Name="IDSOLICITUD" />
           </Key>
           <Property Name="IDSOLICITUD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CODIGODOCUMENTO" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FECHASOLICITUD" Type="DateTime" />
           <Property Name="FECHAINICIO" Type="DateTime" />
           <Property Name="FECHATERMINO" Type="DateTime" />
           <Property Name="IDTIPOPERMISO" Type="Decimal" Precision="38" Scale="0" />
-          <Property Name="RUT" Type="Decimal" Precision="38" Scale="0" />
-          <Property Name="AUTORIZADOR" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AUTORIZADOR" Type="String" />
           <Property Name="IDESTADO" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.SOLICITUDEMPLEADOFK" FromRole="SOLICITUD" ToRole="EMPLEADO" />
           <NavigationProperty Name="ESTADO" Relationship="Self.SOLICITUDESTADOFK" FromRole="SOLICITUD" ToRole="ESTADO" />
@@ -1015,6 +1018,7 @@
               <MappingFragment StoreEntitySet="MOTIVO">
                 <ScalarProperty Name="IDMOTIVO" ColumnName="IDMOTIVO" />
                 <ScalarProperty Name="NOMBREMOTIVO" ColumnName="NOMBREMOTIVO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="IDTIPOPERMISO" ColumnName="IDTIPOPERMISO" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1060,6 +1064,7 @@
             <EntityTypeMapping TypeName="Model.SOLICITUD">
               <MappingFragment StoreEntitySet="SOLICITUD">
                 <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
+                <ScalarProperty Name="CODIGODOCUMENTO" ColumnName="CODIGODOCUMENTO" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />
                 <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
@@ -1113,7 +1118,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>

@@ -13,8 +13,8 @@ namespace GestionDePermisos.Models
         public DateTime fechaInicio { set; get; }
         public DateTime fechaTermino { set; get; }
         public int idTipoPermiso { set; get; }
-        public int rutSolicitante { set; get; }
-        public int rutAutorizante { set; get; }
+        public string rutSolicitante { set; get; }
+        public string rutAutorizante { set; get; }
         public int idEstado { set; get; }
 
         public Solicitud()
@@ -25,8 +25,8 @@ namespace GestionDePermisos.Models
             fechaInicio = default(DateTime);
             fechaTermino = default(DateTime);
             idTipoPermiso = default(int);
-            rutSolicitante = default(int);
-            rutAutorizante = default(int);
+            rutSolicitante = string.Empty;
+            rutAutorizante = string.Empty;
             idEstado = default(int);
         }
 

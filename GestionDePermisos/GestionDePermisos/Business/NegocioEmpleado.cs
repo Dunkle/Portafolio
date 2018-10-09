@@ -8,7 +8,7 @@ namespace GestionDePermisos.Business
 {
     public class NegocioEmpleado
     {
-        public int retornarRutByCuentaID(int idCuenta) {
+        public string retornarRutByCuentaID(int idCuenta) {
             Empleado empleado = new Empleado();
             empleado.readAll();
             empleado = empleado.empleados.First(f=> f.idCuenta == idCuenta);
@@ -18,7 +18,7 @@ namespace GestionDePermisos.Business
             }
             else
             {
-                return 0;
+                return string.Empty;
             }
         }
     }

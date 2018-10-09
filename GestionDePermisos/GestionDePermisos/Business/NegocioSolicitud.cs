@@ -43,7 +43,7 @@ namespace GestionDePermisos.Business
                 return false;
             }
         }
-        public IList<ControllerSolicitud> listadoFiltradoByID(int rut)
+        public IList<ControllerSolicitud> listadoFiltradoByID(string rut)
         {
             ControllerSolicitud solicitud = new ControllerSolicitud();
             IList<ControllerSolicitud> lista = new List<ControllerSolicitud>();

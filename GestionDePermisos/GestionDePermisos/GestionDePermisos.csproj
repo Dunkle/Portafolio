@@ -153,8 +153,8 @@
     <Content Include="Content\util.css" />
     <Content Include="Data\PermisosDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PermisosDB.Context.cs</LastGenOutput>
       <DependentUpon>PermisosDB.edmx</DependentUpon>
+      <LastGenOutput>PermisosDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Data\PermisosDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -168,13 +168,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <EntityDeploy Include="Data\PermisosDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PermisosDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Data\PermisosDB.edmx.diagram">
-      <DependentUpon>PermisosDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\images\icons\favicon.ico" />
     <Content Include="Scripts\images\icons\faviconMunicipal.ico" />
@@ -218,7 +211,9 @@
     <Content Include="Views\Jefe Superior\ConsultarUnidadInternaJeSup.aspx" />
     <Content Include="Views\Jefe Superior\GenerarResolucionJeSup.aspx" />
     <Content Include="Views\Jefe Superior\InicioJefeSuperior.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="Views\web.config" />
   </ItemGroup>
@@ -548,6 +543,13 @@
     <Content Include="fonts\Poppins-Medium.ttf" />
     <Content Include="fonts\Poppins-Bold.ttf" />
     <Content Include="fonts\Poppins-Regular.ttf" />
+    <EntityDeploy Include="Data\PermisosDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PermisosDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\PermisosDB.edmx.diagram">
+      <DependentUpon>PermisosDB.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">

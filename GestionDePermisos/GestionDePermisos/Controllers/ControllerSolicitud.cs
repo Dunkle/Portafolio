@@ -9,13 +9,14 @@ namespace GestionDePermisos.Controllers
     public class ControllerSolicitud
     {
         public int idSolicitud { set; get; }
+        public string codigoDocumento { get; set; }
         public String descripcion { set; get; }
         public DateTime fechaSolicitud { set; get; }
         public DateTime fechaInicio { set; get; }
         public DateTime fechaTermino { set; get; }
         public int idTipoPermiso { set; get; }
-        public int rutSolicitante { set; get; }
-        public int rutAutorizante { set; get; }
+        public string rutSolicitante { set; get; }
+        public string rutAutorizante { set; get; }
         public int idEstado { set; get; }
         public IList<ControllerSolicitud> coleccionSolicitudes { get; set; }
 
@@ -23,13 +24,14 @@ namespace GestionDePermisos.Controllers
         public ControllerSolicitud()
         {
             idSolicitud = default(int);
+            codigoDocumento = string.Empty;
             descripcion = string.Empty;
             fechaSolicitud = default(DateTime);
             fechaInicio = default(DateTime);
             fechaTermino = default(DateTime);
             idTipoPermiso = default(int);
-            rutSolicitante = default(int);
-            rutAutorizante = default(int);
+            rutSolicitante = string.Empty;
+            rutAutorizante = string.Empty;
             idEstado = default(int);
         }
 
@@ -42,13 +44,14 @@ namespace GestionDePermisos.Controllers
                 {
                     ControllerSolicitud solicitud = new ControllerSolicitud();
                     solicitud.idSolicitud = Convert.ToInt32(tmp.IDSOLICITUD);
+                    solicitud.codigoDocumento = tmp.CODIGODOCUMENTO;
                     solicitud.descripcion = tmp.DESCRIPCION;
                     solicitud.fechaSolicitud = Convert.ToDateTime(tmp.FECHASOLICITUD);
                     solicitud.fechaInicio = Convert.ToDateTime(tmp.FECHAINICIO);
                     solicitud.fechaTermino = Convert.ToDateTime(tmp.FECHATERMINO);
                     solicitud.idTipoPermiso = Convert.ToInt32(tmp.IDTIPOPERMISO);
-                    solicitud.rutSolicitante = Convert.ToInt32(tmp.RUT);
-                    solicitud.rutAutorizante = Convert.ToInt32(tmp.AUTORIZADOR);
+                    solicitud.rutSolicitante = tmp.RUT;
+                    solicitud.rutAutorizante = tmp.AUTORIZADOR;
                     solicitud.idEstado = Convert.ToInt32(tmp.IDESTADO);
 
                     this.coleccionSolicitudes.Add(solicitud);
@@ -66,6 +69,7 @@ namespace GestionDePermisos.Controllers
             try
             {
                 solicitud.IDSOLICITUD = this.idSolicitud;
+                solicitud.CODIGODOCUMENTO = this.codigoDocumento;
                 solicitud.DESCRIPCION = this.descripcion;
                 solicitud.FECHASOLICITUD = this.fechaSolicitud;
                 solicitud.FECHAINICIO = this.fechaInicio;
@@ -93,6 +97,7 @@ namespace GestionDePermisos.Controllers
                 SOLICITUD solicitud = Conexion.entities.SOLICITUD.First(f => f.IDSOLICITUD == this.idSolicitud);
 
                 solicitud.IDSOLICITUD = this.idSolicitud;
+                solicitud.CODIGODOCUMENTO = this.codigoDocumento;
                 solicitud.DESCRIPCION = this.descripcion;
                 solicitud.FECHASOLICITUD = this.fechaSolicitud;
                 solicitud.FECHAINICIO = this.fechaInicio;
@@ -119,13 +124,14 @@ namespace GestionDePermisos.Controllers
                 SOLICITUD solicitud = Conexion.entities.SOLICITUD.First(f => f.IDSOLICITUD == this.idSolicitud);
 
                 this.idSolicitud = Convert.ToInt32(solicitud.IDSOLICITUD);
+                this.codigoDocumento = solicitud.CODIGODOCUMENTO;
                 this.descripcion = solicitud.DESCRIPCION;
                 this.fechaSolicitud = Convert.ToDateTime(solicitud.FECHASOLICITUD);
                 this.fechaInicio = Convert.ToDateTime(solicitud.FECHAINICIO);
                 this.fechaTermino = Convert.ToDateTime(solicitud.FECHATERMINO);
                 this.idTipoPermiso = Convert.ToInt32(solicitud.IDTIPOPERMISO);
-                this.rutSolicitante = Convert.ToInt32(solicitud.RUT);
-                this.rutAutorizante = Convert.ToInt32(solicitud.AUTORIZADOR);
+                this.rutSolicitante = solicitud.RUT;
+                this.rutAutorizante = solicitud.AUTORIZADOR;
                 this.idEstado = Convert.ToInt32(solicitud.IDESTADO);
 
                 return true;

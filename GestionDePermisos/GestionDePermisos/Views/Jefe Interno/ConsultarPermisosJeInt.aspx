@@ -11,7 +11,7 @@
                         <asp:TextBox runat="server" CssClass="form-control" ID="txtRutSolicitud" placeholder="Ingrese rut a consultar"></asp:TextBox>
                         <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
                     </div>
-                    <span class="input-group-btn">
+                    <span class="input-group-btn">                        
                         <asp:Button runat="server" ID="btnConsulta" Text="Consultar" CssClass="btn btn-success" OnClick="btnConsulta_Click" />
                         <asp:Button runat="server" ID="btnLimpiar" Text="Limpiar" CssClass="btn btn-danger" OnClick="btnLimpiar_Click" />
                     </span>
@@ -22,7 +22,7 @@
     <br />
     <br />
     <br />
-    <div class="container" id="contarinerTabla" hidden>
+    <div class="container" id="containerTabla"  runat="server" hidden>
         <div class="panel">
             <div class="row">
                 <div class="col-md-12">
@@ -47,13 +47,8 @@
         </div>
     </div>
     <script type="text/javascript">
-        function busqueda() {
-            var $div = $('#containerTabla');
-            $div.removeProp('hidden');
-        }
-        function clean() {
-            var $divCon = $('#containerTabla');
-            $divCon.hide;
+        function mostrar() {
+            document.getElementById("containerTabla").removeAttribute("hidden");
         }
     </script>
 </asp:Content>

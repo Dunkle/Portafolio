@@ -9,7 +9,7 @@ namespace GestionDePermisos.Controllers
 {
     public class Empleado
     {
-        public int rut { get; set; }
+        public string rut { get; set; }
         public string nombres { get; set; }
         public string apellidoPaterno { get; set; }
         public string apellidoMaterno { get; set; }
@@ -28,7 +28,7 @@ namespace GestionDePermisos.Controllers
 
         public Empleado()
         {
-            rut = default(int);
+            rut = string.Empty;
             nombres = string.Empty;
             apellidoMaterno = string.Empty;
             apellidoPaterno = string.Empty;
@@ -52,7 +52,7 @@ namespace GestionDePermisos.Controllers
             {
                 EMPLEADO empleado = Conexion.entities.EMPLEADO.First(f => f.IDCUENTA == this.idCuenta);
 
-                this.rut = Convert.ToInt32(empleado.RUT);
+                this.rut = empleado.RUT;
                 this.nombres = empleado.NOMBRES;
                 this.apellidoMaterno = empleado.APELLIDOMATERNO;
                 this.apellidoPaterno = empleado.APELLIDOPATERNO;
@@ -85,7 +85,7 @@ namespace GestionDePermisos.Controllers
                 foreach (var item in Conexion.entities.EMPLEADO.ToList())
                 {
                     Empleado empleado = new Empleado();
-                    empleado.rut = Convert.ToInt32(item.RUT);
+                    empleado.rut = item.RUT;
                     empleado.nombres = item.NOMBRES;
                     empleado.apellidoMaterno = item.APELLIDOMATERNO;
                     empleado.apellidoPaterno = item.APELLIDOPATERNO;

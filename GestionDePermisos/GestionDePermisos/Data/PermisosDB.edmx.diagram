@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ceb84bbe53e47eb8c30c1b0c3ac3351" Name="Diagram1">
+      <Diagram DiagramId="3f4183bf669c4b3599b0aa13b3796718" Name="Diagram1">
         <EntityTypeShape EntityType="Model.CARGO" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.COMUNA" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.CUENTA" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
@@ -16,7 +16,7 @@
         <EntityTypeShape EntityType="Model.PERFILCUENTA" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.PROVINCIA" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.REGION" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.TIPOCONTRATO" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.TIPOPERMISO" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.UNIDAD" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />

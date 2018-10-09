@@ -9,6 +9,7 @@ namespace GestionDePermisos.Controllers
     {
         public int idMotivo { get; set; }
         public string nombreMotivo { get; set; } 
+        public string descripcion { get; set; }
         int idTipoPermiso { get; set; }
         public IList<Motivo> motivos { get; set; }
 
@@ -16,6 +17,7 @@ namespace GestionDePermisos.Controllers
         {
             idMotivo = default(int);
             nombreMotivo = string.Empty;
+            descripcion = string.Empty;
             idTipoPermiso = default(int);
         }
 
@@ -28,6 +30,7 @@ namespace GestionDePermisos.Controllers
                 {
                     this.idMotivo = Convert.ToInt32(item.IDMOTIVO);
                     this.nombreMotivo = item.NOMBREMOTIVO;
+                    this.descripcion = item.DESCRIPCION;
                     this.idTipoPermiso = Convert.ToInt32(item.IDTIPOPERMISO);
                 }
                 return true;
