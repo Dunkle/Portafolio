@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    //Iniciar modal siempre y cuando el usuario y la contraseña no esten vacios. 
     $('#btnLogin').on('click', function () {
 
         var user = $('#txtUsuario').val();
