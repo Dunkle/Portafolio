@@ -22,7 +22,6 @@ namespace GestionDePermisos
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-
             if (comprobarConexion())
             {
                 switch (controladorLogin.retonarCargo(usuario))
@@ -58,10 +57,7 @@ namespace GestionDePermisos
             }
             else
             {
-                ShowPopUpMsg("Ingrese credenciales correctas");
-                txtUsuario.Text = string.Empty;
-                txtContraseña.Text = string.Empty;
-
+                this.errorSession.Attributes.Remove("hidden");
             }
         }
         private bool comprobarConexion()
@@ -73,14 +69,6 @@ namespace GestionDePermisos
                 return true;
             }
             else { return false; }
-        }
-        private void ShowPopUpMsg(string msg)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("alert('");
-            sb.Append(msg.Replace("\n", "\\n").Replace("\r", "").Replace("'", "\\'"));
-            sb.Append("');");
-            ScriptManager.RegisterStartupScript(this.Page, this.GetType(), "showalert", sb.ToString(), true);
         }
     }
 }

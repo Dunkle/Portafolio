@@ -33,7 +33,12 @@
                 <div class="login100-pic js-tilt" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
                     <img src="Scripts/images/img-01.png" alt="IMG">
                 </div>
+
                 <form class="login100-form validate-form" id="login" runat="server">
+                    <div class="alert alert-danger" runat="server" id="errorSession" hidden>
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="btnClose">×</span><span class="sr-only">Close</span></button>
+                        <strong>Ups!</strong> Usuario o contraseña no validos.
+                    </div>
                     <span class="login100-form-title">Member Login
                     </span>
                     <div class="wrap-input100 validate-input" data-validate="El usuario es requerido: ex@abc.xyz">
