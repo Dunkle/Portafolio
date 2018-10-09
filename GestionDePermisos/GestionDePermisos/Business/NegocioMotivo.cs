@@ -23,5 +23,23 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+
+        public IList<Motivo> retornarListaFiltrada(int index)
+        {
+            Motivo motivo = new Motivo();
+            IList<Motivo> lista = new List<Motivo>();
+            if (motivo.readAll())
+            {
+                foreach (var item in motivo.motivos)
+                {
+                    if (item.idTipoPermiso == index)
+                    {
+                        lista.Add(item);
+                    }                   
+                }
+                return lista;
+            }
+            else { return null; }
+        }
     }
 }

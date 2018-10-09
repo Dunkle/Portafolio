@@ -59,7 +59,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="control-label">Motivos </label>
-                                            <asp:DropDownList runat="server" ID="cmbMotivo" CssClass="form-control">
+                                            <asp:DropDownList runat="server" ID="cmbMotivo" CssClass="form-control" OnSelectedIndexChanged="cmbMotivo_SelectedIndexChanged">
                                                 <asp:ListItem Value="0"> -Seleccione- </asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
@@ -172,5 +172,8 @@
         function prevTab(elem) {
             $(elem).prev().find('a[data-toggle="tab"]').click();
         }
+    </script>
+    <script type="text/javascript">
+
     </script>
 </asp:Content>

@@ -25,16 +25,12 @@ namespace GestionDePermisos.Views.Funcionario
             {
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
                 NegocioMotivo negocioMotivo = new NegocioMotivo();
-                if (negocioTipo.listado().Count > 0)
+                if (negocioTipo.listado() != null)
                 {
                     foreach (var tmp in negocioTipo.listado())
                     {
                         cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString(), Text = tmp.nombreTipoPermiso });
-                    }
-                    foreach (var item in negocioMotivo.retornarLista())
-                    {
-                        cmbMotivo.Items.Add(new ListItem() { Value = item.idMotivo.ToString(), Text = item.nombreMotivo });
-                    }
+                    }                    
                 }                
             }
         }
@@ -69,6 +65,16 @@ namespace GestionDePermisos.Views.Funcionario
             txtDate1.Text = string.Empty;
             txtDate2.Text = string.Empty;
             txtDetalleSolicitud.Text = string.Empty;
+        }
+
+        protected void cmbMotivo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NegocioMotivo negocioMotivo = new NegocioMotivo();
+            int var = cmbTipoPermiso.SelectedIndex;
+            foreach (var item in negocioMotivo.retornarListaFiltrada(var))
+            {
+                cmbMotivo.Items.Add(new ListItem() { Value = item.idMotivo.ToString(), Text = item.nombreMotivo });
+            }
         }
     }
 }
