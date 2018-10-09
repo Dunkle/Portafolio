@@ -22,6 +22,9 @@ namespace GestionDePermisos
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            ShowPopUpMsg("validando");
+            txtUsuario.Text = string.Empty;
+            txtContraseña.Text = string.Empty;
             if (comprobarConexion())
             {
                 switch (controladorLogin.retonarCargo(usuario))

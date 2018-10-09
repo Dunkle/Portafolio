@@ -57,7 +57,7 @@
 
                     <div class="container-login100-form-btn">
                         <asp:Button class="login100-form-btn" Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" />
-                        <asp:Button class="login100-form-btn" Text="Loading" ID="loading" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" Data-toggle="modal" data-target="#exampleModal" hidden="true" />
+                        <asp:Button class="login100-form-btn" Text="Loading" ID="loading" runat="server" ClientIDMode="Static" OnClick="btnLogin_Click" Data-toggle="modal" data-target="#exampleModal" hidden="true"/>
                     </div>
                     <br />
                     <div class="content-footer">

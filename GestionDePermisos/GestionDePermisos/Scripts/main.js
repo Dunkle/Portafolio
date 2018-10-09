@@ -2,10 +2,6 @@
 (function ($) {
     "use strict";
 
-    $('#btnLogin').on('click', function () {
-        alert('hola');
-    });
-
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
