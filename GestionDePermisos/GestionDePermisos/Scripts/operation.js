@@ -28,7 +28,7 @@
         $mensaje.attr('hidden','true');
     });
 
-    //////////////////////// CONSULTA PERMISO  /////////////////////////
+    //////////////////////// CONSULTA PERMISO  JEFE INTERNO/////////////////////////
 
     $('#validarDocumento').on('click', function () {
 
