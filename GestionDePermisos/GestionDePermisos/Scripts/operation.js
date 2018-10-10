@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    ///////////////////////// LOGIN /////////////////////////////////7
+    ///////////////////////// LOGIN /////////////////////////////////
     /*
      * Inicia modal de carga.
      */
@@ -27,4 +27,30 @@
 
         $mensaje.attr('hidden','true');
     });
-});  
+
+    //////////////////////// CONSULTA PERMISO  /////////////////////////
+
+    $('#validarDocumento').on('click', function () {
+
+        var cod = $('#txtCodSolicitud').val();
+
+        if (cod != "") {
+            var $modalSolicitud = $(this);
+
+            $modalSolicitud.attr("data-target", "#solicitudPDF");
+        }
+    });
+
+    //////////////////// ESTADO PERMISO FUNCIONARIO ////////////////////
+    /*
+     * Oculta el mensaje de error al presionar el spam
+     */
+    $('#btnClose').on('click', function () {
+
+
+        $mensaje = $('#error');
+
+        $mensaje.attr('hidden', 'true');
+    });
+
+}); 

@@ -13,13 +13,13 @@ namespace GestionDePermisos.Views.Jefe_Interno {
     public partial class ConsultarPermisosJeInt {
         
         /// <summary>
-        /// Control txtRutSolicitud.
+        /// Control txtCodSolicitud.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRutSolicitud;
+        protected global::System.Web.UI.WebControls.TextBox txtCodSolicitud;
         
         /// <summary>
         /// Control btnConsulta.

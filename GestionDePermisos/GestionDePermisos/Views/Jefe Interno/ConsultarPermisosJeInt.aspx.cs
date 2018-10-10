@@ -17,7 +17,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
 
         protected void btnConsulta_Click(object sender, EventArgs e)
         {
-            string consultaRut = txtRutSolicitud.Text;
+            string consultaRut = txtCodSolicitud.Text;
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
             TableCell idSolicitud = new TableCell();
             TableCell descripcion = new TableCell();
@@ -59,7 +59,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtRutSolicitud.Text = string.Empty;
+            txtCodSolicitud.Text = string.Empty;
 
             
         }

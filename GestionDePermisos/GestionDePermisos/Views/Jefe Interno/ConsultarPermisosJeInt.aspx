@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaJefeInterno.Master" AutoEventWireup="true" CodeBehind="ConsultarPermisosJeInt.aspx.cs" Inherits="GestionDePermisos.Views.Jefe_Interno.ConsultarPermisosJeInt" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="Scripts/operation.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
@@ -8,7 +10,7 @@
             <div class="col-md-7">
                 <div class="input-group">
                     <div class="form-group  has-feedback">
-                        <asp:TextBox runat="server" CssClass="form-control" ID="txtRutSolicitud" placeholder="Ingrese rut a consultar"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass="form-control" ID="txtCodSolicitud" placeholder="Ingrese rut a consultar"></asp:TextBox>
                         <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
                     </div>
                     <span class="input-group-btn">                        
@@ -46,6 +48,9 @@
             </div>
         </div>
     </div>
+
+    
+
     <script type="text/javascript">
         function mostrar() {
             document.getElementById("containerTabla").removeAttribute("hidden");
