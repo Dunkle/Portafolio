@@ -184,7 +184,9 @@
     <Content Include="Views\Administrador\BuscarDocumentoAdmin.aspx" />
     <Content Include="Views\Administrador\consultarPermisoAdministrador.aspx" />
     <Content Include="Views\Administrador\DescargaXMLAdmin.aspx" />
-    <Content Include="Views\Administrador\InicioAdmin.aspx" />
+    <Content Include="Views\Administrador\InicioAdmin.aspx">
+      <BrowseToURL>../Views/Administrador/InicioAdmin</BrowseToURL>
+    </Content>
     <Content Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx" />
     <Content Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx" />
     <Content Include="Views\Alcalde\EstadoPermisosAlcalde.aspx" />
