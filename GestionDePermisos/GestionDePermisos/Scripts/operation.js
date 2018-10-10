@@ -47,10 +47,7 @@
      */
     $('#btnClose').on('click', function () {
 
-
-        $mensaje = $('#error');
-
-        $mensaje.attr('hidden', 'true');
+        document.getElementById("error").removeAttribute("hidden");
     });
 
 }); 

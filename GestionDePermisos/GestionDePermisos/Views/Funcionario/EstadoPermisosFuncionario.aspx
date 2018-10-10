@@ -1,9 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaFuncionario.Master" AutoEventWireup="true" CodeBehind="EstadoPermisosFuncionario.aspx.cs" Inherits="GestionDePermisos.Views.Funcionario.EstadoPermisosFuncionario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="../../Scripts/operation.js"></script>
+    <%--<script type="text/javascript">
+        $('#btnClose').on('click', function () {
+
+            $mensaje = $('#errorSession');
+
+            $mensaje.attr('hidden', 'true');
+        });
+    </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <form>
+        <div class="alert alert-warning" runat="server" id="errorSession">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="btnClose">×</span><span class="sr-only">Close</span></button>
+            <strong>Ups!</strong> No tiene solicitudes asociadas.
+        </div>
+    </form>
+    <div class="container" id="containerTabla" runat="server" hidden>
         <div class="panel">
             <div class="row">
                 <div class="col-md-12">
