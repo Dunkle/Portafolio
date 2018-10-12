@@ -28,8 +28,7 @@ namespace GestionDePermisos.Views.Funcionario
                 cmbMotivo.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
                 cmbTipoPermiso.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
                 if (negocioTipo.listado() != null)
-                {
-                    
+                {                    
                     foreach (var tmp in negocioTipo.listado())
                     {
                         cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString(), Text = tmp.nombreTipoPermiso });
@@ -64,10 +63,10 @@ namespace GestionDePermisos.Views.Funcionario
         private void limpiarFormulario()
         {
             cmbTipoPermiso.SelectedIndex = 0;
-            cmbMotivo.SelectedIndex = 0;
+            cmbMotivo.Items.Clear();
             txtDate1.Text = string.Empty;
             txtDate2.Text = string.Empty;
-            txtDetalleSolicitud.Text = string.Empty;
+            txtDetalleSolicitud.Text = string.Empty;            
         }
 
         protected void cmbTipoPermiso_SelectedIndexChanged(object sender, EventArgs e)
