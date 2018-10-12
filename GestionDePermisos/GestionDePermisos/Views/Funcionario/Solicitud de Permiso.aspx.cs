@@ -25,8 +25,11 @@ namespace GestionDePermisos.Views.Funcionario
             {
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
                 NegocioMotivo negocioMotivo = new NegocioMotivo();
+                cmbMotivo.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
+                cmbTipoPermiso.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
                 if (negocioTipo.listado() != null)
                 {
+                    
                     foreach (var tmp in negocioTipo.listado())
                     {
                         cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString(), Text = tmp.nombreTipoPermiso });
@@ -49,7 +52,7 @@ namespace GestionDePermisos.Views.Funcionario
             newSolicitud.fechaSolicitud = DateTime.Today;
             newSolicitud.fechaInicio = DateTime.ParseExact(txtDate1.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);
             newSolicitud.fechaTermino = DateTime.ParseExact(txtDate2.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-            newSolicitud.idEstado = 1;
+            newSolicitud.idEstado = 4;
             newSolicitud.rutSolicitante = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(cuenta));
 
             if (negocioSolicitud.crearSolicitud(newSolicitud))
@@ -67,10 +70,11 @@ namespace GestionDePermisos.Views.Funcionario
             txtDetalleSolicitud.Text = string.Empty;
         }
 
-        protected void cmbMotivo_SelectedIndexChanged(object sender, EventArgs e)
+        protected void cmbTipoPermiso_SelectedIndexChanged(object sender, EventArgs e)
         {
             NegocioMotivo negocioMotivo = new NegocioMotivo();
             int var = cmbTipoPermiso.SelectedIndex;
+            cmbMotivo.Items.Clear();
             foreach (var item in negocioMotivo.retornarListaFiltrada(var))
             {
                 cmbMotivo.Items.Add(new ListItem() { Value = item.idMotivo.ToString(), Text = item.nombreMotivo });

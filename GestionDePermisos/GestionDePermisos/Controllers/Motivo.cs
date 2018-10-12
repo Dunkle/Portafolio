@@ -28,10 +28,13 @@ namespace GestionDePermisos.Controllers
             {
                 foreach (var item in Conexion.entities.MOTIVO.ToList())
                 {
-                    this.idMotivo = Convert.ToInt32(item.IDMOTIVO);
-                    this.nombreMotivo = item.NOMBREMOTIVO;
-                    this.descripcion = item.DESCRIPCION;
-                    this.idTipoPermiso = Convert.ToInt32(item.IDTIPOPERMISO);
+                    Motivo motivo = new Motivo();
+                    motivo.idMotivo = Convert.ToInt32(item.IDMOTIVO);
+                    motivo.nombreMotivo = item.NOMBREMOTIVO;
+                    motivo.descripcion = item.DESCRIPCION;
+                    motivo.idTipoPermiso = Convert.ToInt32(item.IDTIPOPERMISO);
+
+                    this.motivos.Add(motivo);
                 }
                 return true;
             }
