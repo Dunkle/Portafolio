@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Business;
@@ -12,23 +13,30 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
-            //NegocioCuenta negocioCuenta = new NegocioCuenta();
-            //NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
-            //string usuario = Session["usuario"].ToString();
-            //string rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
-            //if (!IsPostBack)
-            //{                
-            //    if (negocioSolicitud.listadoFiltradoByID(rut) != null && negocioSolicitud.listadoFiltradoByID(rut).Count <= 0)
-            //    {
-            //        cargarListado(rut);
-            //    }
-            //    else
-            //    {
-            //        cargarDialogo();
-            //    }
-            //}
-            
+            NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
+            NegocioCuenta negocioCuenta = new NegocioCuenta();
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            string rut = string.Empty;
+            string usuario = string.Empty;
+            if (!IsPostBack)
+            {
+                if (Session["funcionario"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                    usuario = Session["usuario"].ToString();
+                    rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
+                }
+                if (negocioSolicitud.listadoFiltradoByID(rut) != null && negocioSolicitud.listadoFiltradoByID(rut).Count <= 0)
+                {
+                    cargarListado(rut);
+                }
+                else
+                {
+                    cargarDialogo();
+                }
+            }
+
         }
 
         private string retornarEstado(int id)

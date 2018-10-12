@@ -80,6 +80,7 @@ namespace GestionDePermisos.Controllers
                 solicitud.IDESTADO = this.idEstado;
 
                 Conexion.entities.SOLICITUD.Add(solicitud);
+                
                 Conexion.entities.SaveChanges();
                 return true;
             }

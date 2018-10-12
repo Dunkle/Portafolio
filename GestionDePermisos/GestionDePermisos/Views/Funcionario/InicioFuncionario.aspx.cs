@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +14,11 @@ namespace GestionDePermisos.Views.Funcionario
         {
             if (Page.PreviousPage != null && !IsPostBack)
             {
-                
+                if (Session["funcionario"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                }
             }
         }
     }

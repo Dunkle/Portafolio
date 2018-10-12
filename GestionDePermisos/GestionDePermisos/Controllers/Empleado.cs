@@ -99,7 +99,7 @@ namespace GestionDePermisos.Controllers
                     empleado.idComuna = Convert.ToInt32(item.IDCOMUNA);
                     empleado.idDepartamento = Convert.ToInt32(item.IDDEPARTAMENTO);
                     empleado.idCuenta = Convert.ToInt32(item.IDCUENTA);
-                    empleado.idTipoContrato = Convert.ToInt32(item.TIPOCONTRATO);
+                    empleado.idTipoContrato = Convert.ToInt32(item.IDTIPOCONTRATO);
 
                     this.empleados.Add(empleado);
                 }

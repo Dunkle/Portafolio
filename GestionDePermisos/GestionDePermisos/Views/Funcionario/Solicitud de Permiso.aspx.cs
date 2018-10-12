@@ -16,11 +16,11 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["funcionario"] == null)
-            //{
-            //    FormsAuthentication.SignOut();
-            //    Response.Redirect("../../Default.aspx");
-            //}
+            if (Session["funcionario"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("../../Default.aspx");
+            }
             if (!IsPostBack)
             {
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
@@ -46,7 +46,7 @@ namespace GestionDePermisos.Views.Funcionario
             NegocioCuenta negocioCuenta = new NegocioCuenta();
             string cuenta = Session["usuario"].ToString();
 
-            newSolicitud.idSolicitud = 1;
+            newSolicitud.idSolicitud = negocioSolicitud.listado().Count + 1;
             newSolicitud.idTipoPermiso = Convert.ToInt32(cmbTipoPermiso.SelectedItem.Value);
             newSolicitud.descripcion = txtDetalleSolicitud.Text;
             newSolicitud.fechaSolicitud = DateTime.Today;

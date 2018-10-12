@@ -11,15 +11,24 @@ namespace GestionDePermisos.Business
         public string retornarRutByCuentaID(int idCuenta) {
             Empleado empleado = new Empleado();
             empleado.readAll();
-            empleado = empleado.empleados.First(f=> f.idCuenta == idCuenta);
-            if (empleado != null)
+            try
             {
-                return empleado.rut;
+                empleado = empleado.empleados.First(f => f.idCuenta == idCuenta);
+                if (empleado != null)
+                {
+                    return empleado.rut;
+                }
+                else
+                {
+                    return string.Empty;
+                }
             }
-            else
+            catch (Exception e)
             {
-                return string.Empty;
+
+                return string.Empty;;
             }
+            
         }
     }
 }

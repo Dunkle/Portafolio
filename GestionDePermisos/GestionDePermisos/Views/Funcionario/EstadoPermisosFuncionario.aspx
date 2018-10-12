@@ -2,14 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="../../Scripts/operation.js"></script>
-    <%--<script type="text/javascript">
-        $('#btnClose').on('click', function () {
-
-            $mensaje = $('#errorSession');
-
-            $mensaje.attr('hidden', 'true');
-        });
-    </script>--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form>
