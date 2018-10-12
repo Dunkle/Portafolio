@@ -13,7 +13,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form>
-        <div class="alert alert-warning" runat="server" id="errorSession">
+        <div class="alert alert-warning" runat="server" id="errorBuscaSolicitud" style="display:block">
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="btnClose">×</span><span class="sr-only">Close</span></button>
             <strong>Ups!</strong> No tiene solicitudes asociadas.
         </div>

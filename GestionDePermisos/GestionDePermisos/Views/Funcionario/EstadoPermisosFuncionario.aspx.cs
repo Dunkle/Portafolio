@@ -17,18 +17,18 @@ namespace GestionDePermisos.Views.Funcionario
             //NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             //string usuario = Session["usuario"].ToString();
             //string rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
-            if (!IsPostBack)
-            {                
-                //if (negocioSolicitud.listadoFiltradoByID(rut) != null && negocioSolicitud.listadoFiltradoByID(rut).Count <= 0)
-                //{
-                //    cargarListado(rut);
-                //}
-                //else
-                //{
-                //    cargarDialogo();
-                //}
-            }
-
+            //if (!IsPostBack)
+            //{                
+            //    if (negocioSolicitud.listadoFiltradoByID(rut) != null && negocioSolicitud.listadoFiltradoByID(rut).Count <= 0)
+            //    {
+            //        cargarListado(rut);
+            //    }
+            //    else
+            //    {
+            //        cargarDialogo();
+            //    }
+            //}
+            
         }
 
         private string retornarEstado(int id)
@@ -80,13 +80,12 @@ namespace GestionDePermisos.Views.Funcionario
                 tableRow.Cells.Add(rutSolicitante);
                 tableRow.Cells.Add(rutAutorizador);
                 tableRow.Cells.Add(estado);
-
-                this.containerTabla.Attributes.Remove("hidden");
+                
             }
         }
         private void cargarDialogo()
         {
-            this.errorSession.Attributes.Remove("hidden");
+            this.errorBuscaSolicitud.Attributes.Add("hidden", "false");
         }
     }
 }

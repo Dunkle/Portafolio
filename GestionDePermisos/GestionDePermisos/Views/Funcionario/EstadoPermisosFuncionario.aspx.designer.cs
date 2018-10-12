@@ -13,13 +13,13 @@ namespace GestionDePermisos.Views.Funcionario {
     public partial class EstadoPermisosFuncionario {
         
         /// <summary>
-        /// Control errorSession.
+        /// Control errorBuscaSolicitud.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorSession;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorBuscaSolicitud;
         
         /// <summary>
         /// Control containerTabla.

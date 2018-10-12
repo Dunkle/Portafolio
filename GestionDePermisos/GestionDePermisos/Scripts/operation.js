@@ -47,7 +47,9 @@
      */
     $('#btnClose').on('click', function () {
 
-        document.getElementById("error").removeAttribute("hidden");
+        //document.getElementById("errerrorBuscaSolicitudor").attributes("style", "display:none");
+        document.getElementById('#errerrorBuscaSolicitudor').attributes.style.display = "none";
+    
     });
 
 }); 
