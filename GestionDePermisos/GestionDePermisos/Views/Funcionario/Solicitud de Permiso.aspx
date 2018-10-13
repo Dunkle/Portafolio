@@ -80,7 +80,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label">Fecha Inicio</label>
-                                            <asp:TextBox runat="server" ID="txtDate1" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtDate1" CssClass="form-control"></asp:TextBox>                                            
                                         </div>
                                     </div>
                                      <div class="col-md-3">
@@ -118,14 +118,15 @@
     </div>
     <script type="text/javascript">
         $(function () {
-            $('#' + '<%= txtDate1.ClientID %>').datepicker(
+          $('#' + '<%= txtDate1.ClientID %>').datepicker(
                 {
                     changeMonth: true,
                     changeYear: true,
                     inline: true
                 }
+
             );
-            $('#' + '<%= txtDate2.ClientID %>').datepicker(
+          $('#' + '<%= txtDate2.ClientID %>').datepicker(
                 {
                     changeMonth: true,
                     changeYear: true,

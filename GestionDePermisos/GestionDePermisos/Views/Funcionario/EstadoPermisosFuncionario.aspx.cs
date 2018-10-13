@@ -13,27 +13,31 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
-            NegocioCuenta negocioCuenta = new NegocioCuenta();
-            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
-            string rut = string.Empty;
-            string usuario = string.Empty;
             if (!IsPostBack)
             {
                 if (Session["funcionario"] == null)
                 {
                     FormsAuthentication.SignOut();
                     Response.Redirect("../../Default.aspx");
-                    usuario = Session["usuario"].ToString();
-                    rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
-                }
-                if (negocioSolicitud.listadoFiltradoByID(rut) != null && negocioSolicitud.listadoFiltradoByID(rut).Count <= 0)
-                {
-                    cargarListado(rut);
                 }
                 else
                 {
-                    cargarDialogo();
+                    NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+                    NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
+                    NegocioCuenta negocioCuenta = new NegocioCuenta();
+
+                    string usuario = Session["usuario"].ToString();
+                    string rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
+
+                    if (negocioSolicitud.listadoFiltradoByID(rut).Count > 0)
+                    {
+                        cargarListado(rut);
+                        containerTabla.Attributes.Remove("hidden");
+                    }
+                    else
+                    {
+                        cargarDialogo();
+                    }
                 }
             }
 
@@ -54,32 +58,42 @@ namespace GestionDePermisos.Views.Funcionario
         {
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
             NegocioCuenta negocioCuenta = new NegocioCuenta();
-            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
-            TableCell idSolicitud = new TableCell();
-            TableCell descripcion = new TableCell();
-            TableCell fechaSolicitud = new TableCell();
-            TableCell fechaInicio = new TableCell();
-            TableCell fechaTermino = new TableCell();
-            TableCell tipoPermiso = new TableCell();
-            TableCell rutAutorizador = new TableCell();
-            TableCell rutSolicitante = new TableCell();
-            TableCell estado = new TableCell();            
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();           
 
             foreach (var item in negocioSolicitud.listadoFiltradoByID(rut))
             {
                 TableRow tableRow = new TableRow();
+                TableCell idSolicitud = new TableCell();
+                TableCell codigoDocumento = new TableCell();
+                TableCell descripcion = new TableCell();
+                TableCell fechaSolicitud = new TableCell();
+                TableCell fechaInicio = new TableCell();
+                TableCell fechaTermino = new TableCell();
+                TableCell tipoPermiso = new TableCell();
+                TableCell rutAutorizador = new TableCell();
+                TableCell rutSolicitante = new TableCell();
+                TableCell estado = new TableCell();
                 tablaEstadoPermisos.Rows.Add(tableRow);
                 idSolicitud.Text = item.idSolicitud.ToString();
+                codigoDocumento.Text = item.codigoDocumento;
                 descripcion.Text = item.descripcion;
                 fechaSolicitud.Text = item.fechaSolicitud.ToString("dd/MM/yyyy");
                 fechaInicio.Text = item.fechaInicio.ToString("dd/MM/yyyy");
                 fechaTermino.Text = item.fechaTermino.ToString("dd/MM/yyyy");
                 tipoPermiso.Text = retornarTipoPermiso(item.idTipoPermiso);
                 rutSolicitante.Text = item.rutSolicitante.ToString();
-                rutAutorizador.Text = item.rutAutorizante.ToString();
+                if (item.rutAutorizante == null)
+                {
+                    rutAutorizador.Text = "Sin asignar";
+                }
+                else
+                {
+                    rutAutorizador.Text = item.rutAutorizante.ToString();
+                }
                 estado.Text = retornarEstado(item.idEstado);
 
                 tableRow.Cells.Add(idSolicitud);
+                tableRow.Cells.Add(codigoDocumento);
                 tableRow.Cells.Add(descripcion);
                 tableRow.Cells.Add(fechaSolicitud);
                 tableRow.Cells.Add(fechaInicio);
@@ -88,12 +102,12 @@ namespace GestionDePermisos.Views.Funcionario
                 tableRow.Cells.Add(rutSolicitante);
                 tableRow.Cells.Add(rutAutorizador);
                 tableRow.Cells.Add(estado);
-                
+
             }
         }
         private void cargarDialogo()
         {
-            this.errorBuscaSolicitud.Attributes.Add("hidden", "false");
+            this.errorBuscaSolicitud.Attributes.Remove("hidden");
         }
     }
 }

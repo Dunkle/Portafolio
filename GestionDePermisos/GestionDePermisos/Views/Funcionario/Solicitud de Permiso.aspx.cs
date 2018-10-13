@@ -16,11 +16,11 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["funcionario"] == null)
-            {
-                FormsAuthentication.SignOut();
-                Response.Redirect("../../Default.aspx");
-            }
+            //if (Session["funcionario"] == null)
+            //{
+            //    FormsAuthentication.SignOut();
+            //    Response.Redirect("../../Default.aspx");
+            //}
             if (!IsPostBack)
             {
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
@@ -46,6 +46,7 @@ namespace GestionDePermisos.Views.Funcionario
             string cuenta = Session["usuario"].ToString();
 
             newSolicitud.idSolicitud = negocioSolicitud.listado().Count + 1;
+            newSolicitud.codigoDocumento = string.Concat(DateTime.Now.ToString("yyyyMMdd"),newSolicitud.idSolicitud);
             newSolicitud.idTipoPermiso = Convert.ToInt32(cmbTipoPermiso.SelectedItem.Value);
             newSolicitud.descripcion = txtDetalleSolicitud.Text;
             newSolicitud.fechaSolicitud = DateTime.Today;
@@ -78,6 +79,15 @@ namespace GestionDePermisos.Views.Funcionario
             {
                 cmbMotivo.Items.Add(new ListItem() { Value = item.idMotivo.ToString(), Text = item.nombreMotivo });
             }
+        }
+        private string encriptar(string txt_plano)
+        {
+            System.Security.Cryptography.HashAlgorithm obj_hash = new System.Security.Cryptography.SHA1CryptoServiceProvider();
+            // Convertir el string original a un array de Bytes
+            byte[] cadena_plana = System.Text.Encoding.UTF8.GetBytes(txt_plano);
+            byte[] cadena_encrp = obj_hash.ComputeHash(cadena_plana);
+            obj_hash.Clear();
+            return (Convert.ToBase64String(cadena_encrp));
         }
     }
 }

@@ -27,6 +27,7 @@ namespace GestionDePermisos.Business
         {
             ControllerSolicitud controllerSolicitud = new ControllerSolicitud();
             controllerSolicitud.idSolicitud = solicitud.idSolicitud;
+            controllerSolicitud.codigoDocumento = solicitud.codigoDocumento;
             controllerSolicitud.descripcion = solicitud.descripcion;
             controllerSolicitud.fechaInicio = solicitud.fechaInicio;
             controllerSolicitud.fechaSolicitud = solicitud.fechaSolicitud;

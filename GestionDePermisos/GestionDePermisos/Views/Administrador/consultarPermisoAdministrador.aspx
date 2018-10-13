@@ -22,7 +22,7 @@
     <br />
     <br />
     <br />
-    <div class="alert alert-warning" runat="server" id="error">
+    <div class="alert alert-warning" runat="server" id="error" hidden>
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="btnClose">×</span><span class="sr-only">Close</span></button>
         <strong>Ups!</strong>El rut ingresado no tiene solicitudes asociadas.
     </div>
@@ -35,6 +35,7 @@
                         <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
                             <asp:TableRow TableSection="TableHeader">
                                 <asp:TableHeaderCell>ID Solicitud</asp:TableHeaderCell>
+                                <asp:TableHeaderCell>Codigo Documento</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Fecha Solicitud</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Fecha Inicio</asp:TableHeaderCell>

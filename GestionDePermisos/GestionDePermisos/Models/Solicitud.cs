@@ -8,7 +8,8 @@ namespace GestionDePermisos.Models
     public class Solicitud
     {
         public int idSolicitud { set; get; }
-        public String descripcion { set; get; }
+        public string codigoDocumento { get; set; }
+        public string descripcion { set; get; }
         public DateTime fechaSolicitud { set; get; }
         public DateTime fechaInicio { set; get; }
         public DateTime fechaTermino { set; get; }
@@ -20,6 +21,7 @@ namespace GestionDePermisos.Models
         public Solicitud()
         {
             idSolicitud = default(int);
+            codigoDocumento = string.Empty;
             descripcion = string.Empty;
             fechaSolicitud = default(DateTime);
             fechaInicio = default(DateTime);

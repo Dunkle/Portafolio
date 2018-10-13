@@ -10,7 +10,7 @@ namespace GestionDePermisos.Controllers
     {
         public int idSolicitud { set; get; }
         public string codigoDocumento { get; set; }
-        public String descripcion { set; get; }
+        public string descripcion { set; get; }
         public DateTime fechaSolicitud { set; get; }
         public DateTime fechaInicio { set; get; }
         public DateTime fechaTermino { set; get; }
