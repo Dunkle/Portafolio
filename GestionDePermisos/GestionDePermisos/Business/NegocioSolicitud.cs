@@ -61,5 +61,33 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+        public Solicitud retornarSolicitudByCodigoDocumento(string codigo)
+        {
+            ControllerSolicitud controllerSolicitud = new ControllerSolicitud();
+            Solicitud solicitud = new Solicitud();
+            controllerSolicitud.readAll();
+            try
+            {
+                controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f=> f.codigoDocumento == codigo);
+                solicitud.idSolicitud = controllerSolicitud.idSolicitud;
+                solicitud.codigoDocumento = controllerSolicitud.codigoDocumento;
+                solicitud.descripcion = controllerSolicitud.descripcion;
+                solicitud.fechaSolicitud = controllerSolicitud.fechaSolicitud;
+                solicitud.fechaInicio = controllerSolicitud.fechaInicio;
+                solicitud.fechaTermino = controllerSolicitud.fechaTermino;
+                solicitud.idTipoPermiso = controllerSolicitud.idTipoPermiso;
+                solicitud.idEstado = controllerSolicitud.idEstado;
+                solicitud.rutAutorizante = controllerSolicitud.rutAutorizante;
+                solicitud.rutSolicitante = controllerSolicitud.rutSolicitante;
+
+                return solicitud;
+            }
+            catch (Exception e)
+            {
+
+                return null ;
+            }
+
+        }
     }
 }

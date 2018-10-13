@@ -6,17 +6,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
         <div class="row">
-            <div class="col">
-                <div class="input-group">
-                    <div class="form-group  has-feedback">
-                        <input type="text" class="form-control" id="inputSuccess5" placeholder="Ingrese aquí el documento que desea validar">
-                        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+            <div class="col-md-offset-2">
+                <div class="col-md-7">
+                    <div class="input-group">
+                        <div class="form-group  has-feedback">
+                            <input type="text" class="form-control" id="inputSuccess5" placeholder="Ingrese aquí el documento que desea validar">
+                            <asp:TextBox CssClass="form-control" ID="txtCodigoDocumento" Text ="Ingrese aquí el documento que desea validar" runat="server"></asp:TextBox>                            
+                        </div>
+                        <span class="input-group-btn">
+                            <asp:Button CssClass="btn btn-success" Text="Buscar" ID="btnLogin" runat="server" ClientIDMode="Static" Data-toggle="modal" data-target="modalCarga" OnClick="btnLogin_Click" />
+                            <asp:Button CssClass="btn btn-danger" Text="Limpiar" ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" />                            
+                        </span>
                     </div>
-                    <span class="input-group-btn">
-                        <asp:Button class="btn btn-success" Text="Login" ID="btnLogin" runat="server" ClientIDMode="Static" Data-toggle="modal" data-target="modalCarga" />
-
-                        <button class="btn btn-danger" type="button" id="limpiar" onclick="document.getElementById('inputSuccess5').value = ''">Limpiar</button>
-                    </span>
                 </div>
             </div>
         </div>

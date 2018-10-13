@@ -13,6 +13,15 @@ namespace GestionDePermisos.Views.Funcionario {
     public partial class BuscarDocumentoFuncionario {
         
         /// <summary>
+        /// Control txtCodigoDocumento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoDocumento;
+        
+        /// <summary>
         /// Control btnLogin.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace GestionDePermisos.Views.Funcionario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogin;
+        
+        /// <summary>
+        /// Control btnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
     }
 }
