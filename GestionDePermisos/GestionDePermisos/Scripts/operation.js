@@ -36,7 +36,7 @@
 
         if (cod != "") {
             var $modalSolicitud = $(this);
-
+            
             $modalSolicitud.attr("data-target", "#solicitudPDF");
         }
     });
@@ -48,8 +48,21 @@
     $('#btnClose').on('click', function () {
 
         //document.getElementById("errerrorBuscaSolicitudor").attributes("style", "display:none");
-        document.getElementById('#errerrorBuscaSolicitudor').attributes.style.display = "none";
+        document.getElementById('#errorBuscaSolicitudor').attributes.style.display = "none";
     
     });
 
+
+    ////////////////////// JEFE SUPERIOR
+    $('#txtRut').on('click', function () {
+
+        var rut = $('#inputSuccess5').val();
+
+        if (rut != "") {
+
+            var $modal = $(this);
+
+            $modal.attr("data-target", "#modalSolicitud");
+        }
+    });
 }); 

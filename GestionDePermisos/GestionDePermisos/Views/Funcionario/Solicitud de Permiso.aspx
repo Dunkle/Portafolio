@@ -5,6 +5,16 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="https://resources/demos/style.css" />
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var cod = $('#txtCod').get.toString();
+            console.log(cod.val);
+            if (cod != "") {
+                  $("#mostrarmodal").modal("show");
+            }
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -113,6 +123,41 @@
                         </form>
                     </div>
                 </section>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="modalCod" runat="server">
+        <div class="row">
+            <a class="btn btn-primary" data-toggle="modal" href="#mostrarmodal">open Popup</a>
+            <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <div class="thank-you-pop">
+                                <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
+                                    <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                                    <span class="swal2-success-line-tip"></span>
+                                    <span class="swal2-success-line-long"></span>
+                                    <div class="swal2-success-ring"></div>
+                                    <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                                    <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
+                                </div>
+                                <h1 style="text-align: center">Gracias!</h1>
+                                <p style="text-align: center">Su solicitud ha sido enviada</p>
+                                <h3 class="cupon-pop" style="text-align: center">Su codigo es: <asp:Label runat="server" Text="" ID="txtCod"></asp:Label></h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

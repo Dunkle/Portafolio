@@ -13,12 +13,21 @@ namespace GestionDePermisos.Views.Jefe_Superior {
     public partial class BuscarDocumentoJefeSup {
         
         /// <summary>
-        /// Control btnLogin.
+        /// Control inputSuccess5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText inputSuccess5;
+        
+        /// <summary>
+        /// Control txtRut.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button txtRut;
     }
 }
