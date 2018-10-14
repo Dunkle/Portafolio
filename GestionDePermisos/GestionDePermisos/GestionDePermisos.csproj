@@ -229,6 +229,7 @@
     <Compile Include="Business\NegocioMotivo.cs" />
     <Compile Include="Business\NegocioSolicitud.cs" />
     <Compile Include="Business\NegocioTipoPermiso.cs" />
+    <Compile Include="Business\NegocioUnidad.cs" />
     <Compile Include="Controllers\Conexion.cs" />
     <Compile Include="Controllers\Cuenta.cs" />
     <Compile Include="Controllers\Empleado.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Controllers\Motivo.cs" />
     <Compile Include="Controllers\ControllerSolicitud.cs" />
     <Compile Include="Controllers\TipoPermiso.cs" />
+    <Compile Include="Controllers\Unidad.cs" />
     <Compile Include="Data\CARGO.cs">
       <DependentUpon>PermisosDB.tt</DependentUpon>
     </Compile>

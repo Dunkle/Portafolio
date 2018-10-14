@@ -23,9 +23,11 @@ namespace GestionDePermisos.Data
         public decimal IDUNIDAD { get; set; }
         public string NOMBREUNIDAD { get; set; }
         public Nullable<decimal> IDMUNICIPALIDAD { get; set; }
+        public decimal IDESTADO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DEPARTAMENTO> DEPARTAMENTO { get; set; }
         public virtual MUNICIPALIDAD MUNICIPALIDAD { get; set; }
+        public virtual ESTADO ESTADO { get; set; }
     }
 }

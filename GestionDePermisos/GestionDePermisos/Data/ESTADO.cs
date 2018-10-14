@@ -21,6 +21,7 @@ namespace GestionDePermisos.Data
             this.EMPLEADO = new HashSet<EMPLEADO>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
             this.TIPOPERMISO = new HashSet<TIPOPERMISO>();
+            this.UNIDAD = new HashSet<UNIDAD>();
         }
     
         public decimal IDESTADO { get; set; }
@@ -35,5 +36,7 @@ namespace GestionDePermisos.Data
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TIPOPERMISO> TIPOPERMISO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UNIDAD> UNIDAD { get; set; }
     }
 }

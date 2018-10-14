@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3f4183bf669c4b3599b0aa13b3796718" Name="Diagram1">
+      <Diagram DiagramId="3f4183bf669c4b3599b0aa13b3796718" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="Model.CARGO" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.COMUNA" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.CUENTA" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
@@ -19,7 +19,7 @@
         <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.TIPOCONTRATO" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.TIPOPERMISO" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.UNIDAD" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UNIDAD" Width="1.5" PointX="3.75" PointY="23.125" IsExpanded="true" />
         <AssociationConnector Association="Model.EMPLEADOCARGOFK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.COMUNAPROVINCIAFK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.EMPLEADOCOMUNAFK" ManuallyRouted="false" />
@@ -38,6 +38,7 @@
         <AssociationConnector Association="Model.UNIDADMUNICIPALIDADFK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.PROVINCIAREGIONFK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.SOLICITUDTIPOPERMISOFK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.IDUNIDAD" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

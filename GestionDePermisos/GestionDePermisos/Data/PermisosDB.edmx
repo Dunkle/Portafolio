@@ -146,10 +146,23 @@
           <Property Name="IDUNIDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBREUNIDAD" Type="varchar2" MaxLength="100" />
           <Property Name="IDMUNICIPALIDAD" Type="number" Precision="38" Scale="0" />
+          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
         </EntityType>
+        <Association Name="FK_ESTADO">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
+          <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="UNIDAD">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="COMUNAPROVINCIAFK">
           <End Role="PROVINCIA" Type="Self.PROVINCIA" Multiplicity="0..1" />
-          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="*" />          
           <ReferentialConstraint>
             <Principal Role="PROVINCIA">
               <PropertyRef Name="IDPROVINCIA" />
@@ -537,6 +550,7 @@
           <NavigationProperty Name="EMPLEADO" Relationship="Self.EMPLEADOESTADOFK" FromRole="ESTADO" ToRole="EMPLEADO" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUDESTADOFK" FromRole="ESTADO" ToRole="SOLICITUD" />
           <NavigationProperty Name="TIPOPERMISO" Relationship="Self.TIPOPERMISOESTADOFK" FromRole="ESTADO" ToRole="TIPOPERMISO" />
+          <NavigationProperty Name="UNIDAD" Relationship="Model.IDUNIDAD" FromRole="ESTADO" ToRole="UNIDAD" />
         </EntityType>
         <EntityType Name="MOTIVO">
           <Key>
@@ -633,6 +647,8 @@
           <Property Name="IDMUNICIPALIDAD" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="DEPARTAMENTO" Relationship="Self.DEPARTAMENTOUNIDADFK" FromRole="UNIDAD" ToRole="DEPARTAMENTO" />
           <NavigationProperty Name="MUNICIPALIDAD" Relationship="Self.UNIDADMUNICIPALIDADFK" FromRole="UNIDAD" ToRole="MUNICIPALIDAD" />
+          <NavigationProperty Name="ESTADO" Relationship="Model.IDUNIDAD" FromRole="UNIDAD" ToRole="ESTADO" />
+          <Property Name="IDESTADO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
         </EntityType>
         <Association Name="EMPLEADOCARGOFK">
           <End Role="CARGO" Type="Self.CARGO" Multiplicity="0..1" />
@@ -938,7 +954,23 @@
             <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
             <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
+          <AssociationSet Name="IDUNIDAD" Association="Model.IDUNIDAD">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="UNIDAD" EntitySet="UNIDAD" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="IDUNIDAD">
+          <End Type="Model.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <End Type="Model.UNIDAD" Role="UNIDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="IDESTADO" />
+            </Principal>
+            <Dependent Role="UNIDAD">
+              <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1099,6 +1131,7 @@
                 <ScalarProperty Name="IDUNIDAD" ColumnName="IDUNIDAD" />
                 <ScalarProperty Name="NOMBREUNIDAD" ColumnName="NOMBREUNIDAD" />
                 <ScalarProperty Name="IDMUNICIPALIDAD" ColumnName="IDMUNICIPALIDAD" />
+                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
