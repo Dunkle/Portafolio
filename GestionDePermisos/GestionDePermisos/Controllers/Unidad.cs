@@ -32,7 +32,8 @@ namespace GestionDePermisos.Controllers
                     Unidad unidad = new Unidad();
                     unidad.idUnidad = Convert.ToInt32(tmp.IDUNIDAD);
                     unidad.nombreUnidad = tmp.NOMBREUNIDAD;
-                    unidad.idMunicipalidad = Convert.ToInt32(tmp.IDMUNICIPALIDAD);                
+                    unidad.idMunicipalidad = Convert.ToInt32(tmp.IDMUNICIPALIDAD);
+                    unidad.idEstado = Convert.ToInt32(tmp.IDESTADO);
                     this.unidades.Add(unidad);
                 }
                 return true;
