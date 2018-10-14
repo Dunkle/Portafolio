@@ -16,11 +16,19 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //if (Session["funcionario"] == null)
             //{
             //    FormsAuthentication.SignOut();
             //    Response.Redirect("../../Default.aspx");
             //}
+
+            string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#mostrarmodal').modal('show');
+                        });
+                  </script>";
+
             if (!IsPostBack)
             {
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
@@ -28,12 +36,32 @@ namespace GestionDePermisos.Views.Funcionario
                 cmbMotivo.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
                 cmbTipoPermiso.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
                 if (negocioTipo.listado() != null)
-                {                    
+                {
                     foreach (var tmp in negocioTipo.listado())
                     {
                         cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString(), Text = tmp.nombreTipoPermiso });
-                    }                    
-                }                
+                    }
+                }
+            }
+            else
+            {
+                if (txtCod.Text == "")
+                {
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                }
+
+                if(txtCod.Text == "null")
+                {
+                    if (txtCod.Text != "" || txtCod.Text != "null")
+                    {
+                        txtCod.Text = string.Empty;
+                    }
+                }
+
+                if (txtCod.Text != "" || txtCod.Text != "null")
+                {
+                    txtCod.Text = string.Empty;
+                }
             }
         }
 
@@ -46,7 +74,10 @@ namespace GestionDePermisos.Views.Funcionario
             string cuenta = Session["usuario"].ToString();
 
             newSolicitud.idSolicitud = negocioSolicitud.listado().Count + 1;
-            newSolicitud.codigoDocumento = string.Concat(DateTime.Now.ToString("yyyyMMdd"),newSolicitud.idSolicitud);
+
+            var codigo = string.Concat(DateTime.Now.ToString("yyyyMMdd"), newSolicitud.idSolicitud);
+
+            newSolicitud.codigoDocumento = string.Concat(DateTime.Now.ToString("yyyyMMdd"), newSolicitud.idSolicitud);
             newSolicitud.idTipoPermiso = Convert.ToInt32(cmbTipoPermiso.SelectedItem.Value);
             newSolicitud.descripcion = txtDetalleSolicitud.Text;
             newSolicitud.fechaSolicitud = DateTime.Today;
@@ -58,7 +89,9 @@ namespace GestionDePermisos.Views.Funcionario
             if (negocioSolicitud.crearSolicitud(newSolicitud))
             {
                 limpiarFormulario();
-            }            
+            }
+
+            txtCod.Text = codigo;
         }
 
         private void limpiarFormulario()
@@ -67,7 +100,7 @@ namespace GestionDePermisos.Views.Funcionario
             cmbMotivo.Items.Clear();
             txtDate1.Text = string.Empty;
             txtDate2.Text = string.Empty;
-            txtDetalleSolicitud.Text = string.Empty;            
+            txtDetalleSolicitud.Text = string.Empty;
         }
 
         protected void cmbTipoPermiso_SelectedIndexChanged(object sender, EventArgs e)

@@ -13,6 +13,15 @@ namespace GestionDePermisos.Views.Funcionario {
     public partial class Solicitud_de_Permiso {
         
         /// <summary>
+        /// Control formSolicitud.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm formSolicitud;
+        
+        /// <summary>
         /// Control cmbTipoPermiso.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace GestionDePermisos.Views.Funcionario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFinalizarPermiso;
-        
-        /// <summary>
-        /// Control modalCod.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl modalCod;
         
         /// <summary>
         /// Control txtCod.

@@ -2,17 +2,22 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../../Content/Permisos.css" />
+    <link rel="stylesheet" href="../../Content/estiloValidacionSolicitud.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <link rel="stylesheet" href="https://resources/demos/style.css" />
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function () {
 
-            var cod = $('#txtCod').get.toString();
-            console.log(cod.val);
-            if (cod != "") {
-                  $("#mostrarmodal").modal("show");
-            }
+            $('#<%=txtDetalleSolicitud.ClientID%>').blur(function () {
+                 
+                var val1 = $(this).val();
+                if (val1.length > 3) {
+                    $('#paso1').removeAttr("disabled");
+                }
+                if (val1.length < 3) {
+                    $('#paso1').attr("disabled","disabled");
+                }
+            });
         });
     </script>
 </asp:Content>
@@ -53,7 +58,7 @@
                             </ul>
                         </div>
 
-                        <form role="form" runat="server">
+                        <form role="form" runat="server" id="formSolicitud">
                             <div class="tab-content">
                                 <div class="tab-pane active" role="tabpanel" id="step1">
                                     <h3>Selecciona tu permiso deseado</h3>
@@ -61,7 +66,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="control-label">Tipo Permiso </label>
-                                            <asp:DropDownList runat="server" ID="cmbTipoPermiso" CssClass="form-control"  AutoPostBack="true" OnSelectedIndexChanged ="cmbTipoPermiso_SelectedIndexChanged">
+                                            <asp:DropDownList runat="server" ID="cmbTipoPermiso" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="cmbTipoPermiso_SelectedIndexChanged">
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -74,14 +79,15 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="control-label">Ingrese comentarios de la solicitud </label>
+                                            <label class="control-label" id="comentario">Ingrese comentarios de la solicitud </label>
                                             <asp:TextBox runat="server" ID="txtDetalleSolicitud" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <ul class="list-inline pull-right">
                                             <li>
-                                                <button type="button" class="btn btn-primary next-step btn-lg">Siguiente</button></li>
+                                                <button type="button" class="btn btn-primary next-step btn-lg" id="paso1" disabled="disabled">Siguiente</button>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -90,13 +96,13 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label">Fecha Inicio</label>
-                                            <asp:TextBox runat="server" ID="txtDate1" CssClass="form-control"></asp:TextBox>                                            
+                                            <asp:TextBox runat="server" ID="txtDate1" CssClass="form-control">11</asp:TextBox>
                                         </div>
                                     </div>
-                                     <div class="col-md-3">
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label">Fecha Termino</label>
-                                            <asp:TextBox runat="server" ID="txtDate2" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtDate2" CssClass="form-control">11</asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -104,7 +110,7 @@
                                             <li>
                                                 <button type="button" class="btn btn-default prev-step btn-lg">Anterior</button></li>
                                             <li>
-                                                <button type="button" class="btn btn-primary next-step btn-lg">Siguiente</button></li>
+                                                <button type="button" class="btn btn-primary next-step btn-lg" id="paso2" disabled="disabled">Siguiente</button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -115,7 +121,7 @@
                                         <li>
                                             <button type="button" class="btn btn-default prev-step btn-lg">Anterior</button></li>
                                         <li>
-                                            <asp:Button runat="server" ID="btnFinalizarPermiso" CssClass="btn btn-primary btn-lg" Text="Finalizar" OnClick="btnFinalizarPermiso_Click"/></li>
+                                            <asp:Button runat="server" ID="btnFinalizarPermiso" CssClass="btn btn-primary btn-lg" Text="Finalizar" OnClick="btnFinalizarPermiso_Click" /></li>
                                     </ul>
                                 </div>
                                 <div class="clearfix"></div>
@@ -127,55 +133,54 @@
         </div>
     </div>
 
-    <div class="container" id="modalCod" runat="server">
-        <div class="row">
-            <a class="btn btn-primary" data-toggle="modal" href="#mostrarmodal">open Popup</a>
-            <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+
+    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="thank-you-pop">
+                        <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
+                            <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
+                            <span class="swal2-success-line-tip"></span>
+                            <span class="swal2-success-line-long"></span>
+                            <div class="swal2-success-ring"></div>
+                            <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
+                            <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
                         </div>
-
-                        <div class="modal-body">
-
-                            <div class="thank-you-pop">
-                                <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
-                                    <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
-                                    <span class="swal2-success-line-tip"></span>
-                                    <span class="swal2-success-line-long"></span>
-                                    <div class="swal2-success-ring"></div>
-                                    <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
-                                    <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
-                                </div>
-                                <h1 style="text-align: center">Gracias!</h1>
-                                <p style="text-align: center">Su solicitud ha sido enviada</p>
-                                <h3 class="cupon-pop" style="text-align: center">Su codigo es: <asp:Label runat="server" Text="" ID="txtCod"></asp:Label></h3>
-
-                            </div>
-
-                        </div>
+                        <h1 style="text-align: center">Gracias!</h1>
+                        <p style="text-align: center">Su solicitud ha sido enviada</p>
+                        <h3 class="cupon-pop" style="text-align: center">Su codigo es:
+                            <asp:Label runat="server" Text="null" ID="txtCod"></asp:Label></h3>
 
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
     <script type="text/javascript">
         $(function () {
-          $('#' + '<%= txtDate1.ClientID %>').datepicker(
+            $('#' + '<%= txtDate1.ClientID %>').datepicker(
                 {
                     changeMonth: true,
                     changeYear: true,
                     inline: true
+                    
                 }
 
             );
-          $('#' + '<%= txtDate2.ClientID %>').datepicker(
+            $('#' + '<%= txtDate2.ClientID %>').datepicker(
                 {
                     changeMonth: true,
                     changeYear: true,
                     inline: true
+                    
                 }
             );
         });
@@ -219,5 +224,5 @@
     </script>
     <script type="text/javascript">
 
-    </script>
+</script>
 </asp:Content>
