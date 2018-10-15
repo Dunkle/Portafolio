@@ -8,16 +8,60 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $('#<%=txtDetalleSolicitud.ClientID%>').blur(function () {
-                 
+            $('#<%=txtDetalleSolicitud.ClientID%>').keyup(function () {
+
                 var val1 = $(this).val();
                 if (val1.length > 3) {
                     $('#paso1').removeAttr("disabled");
                 }
                 if (val1.length < 3) {
-                    $('#paso1').attr("disabled","disabled");
+                    $('#paso1').attr("disabled", "disabled");
+                }
+
+            });
+
+            $('#<%=txtDate1.ClientID%>').change(function () {
+
+                var date1 = $(this).val();
+                var date2 = $('#<%=txtDate2.ClientID%>').val();
+                var parts = date1.split("/");
+
+                var day = parseInt(parts[0], 10);
+                var month = parseInt(parts[1], 10);
+                var year = parseInt(parts[2], 10);
+
+                $('#<%= txtDate2.ClientID %>').datepicker("option", "minDate", 0);
+
+                if (date1.length > 8 && date2.length > 8) {
+                    $('#paso2').removeAttr("disabled");
+                }
+                else {
+                    $('#paso2').attr("disabled","disabled");
                 }
             });
+
+            $('#<%=txtDate2.ClientID%>').change(function () {
+
+                var date1 = $(this).val();
+                var date2 = $('#<%=txtDate1.ClientID%>').val();
+                var parts = date1.split("/");
+
+                var day = parseInt(parts[0], 10);
+                var month = parseInt(parts[1], 10);
+                var year = parseInt(parts[2], 10);
+
+                $('#<%= txtDate2.ClientID %>').datepicker("option", "minDate", 0);
+
+                if (date1.length > 8 && date2.length > 8) {
+                    $('#paso2').removeAttr("disabled");
+                }
+                else {
+                    $('#paso2').attr("disabled","disabled");
+                }
+            });
+
+
+
         });
     </script>
 </asp:Content>
@@ -96,13 +140,13 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label">Fecha Inicio</label>
-                                            <asp:TextBox runat="server" ID="txtDate1" CssClass="form-control">11</asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtDate1" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label class="control-label">Fecha Termino</label>
-                                            <asp:TextBox runat="server" ID="txtDate2" CssClass="form-control">11</asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtDate2" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -168,19 +212,22 @@
         $(function () {
             $('#' + '<%= txtDate1.ClientID %>').datepicker(
                 {
+                    dateFormat: "dd/mm/yy",
+                    minDate: 0,
                     changeMonth: true,
                     changeYear: true,
                     inline: true
-                    
+
                 }
 
             );
             $('#' + '<%= txtDate2.ClientID %>').datepicker(
                 {
+                    dateFormat: "dd/mm/yy",
                     changeMonth: true,
                     changeYear: true,
                     inline: true
-                    
+
                 }
             );
         });
