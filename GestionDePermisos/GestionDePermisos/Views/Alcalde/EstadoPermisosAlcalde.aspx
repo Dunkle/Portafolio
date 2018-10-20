@@ -24,14 +24,14 @@
     <br />
     <div class="alert alert-warning" runat="server" id="error" hidden>
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" id="btnClose">×</span><span class="sr-only">Close</span></button>
-        <strong>Ups!</strong>El rut ingresado no tiene solicitudes asociadas.
+        <strong>Ups!</strong> El rut ingresado no tiene solicitudes asociadas.
     </div>
     <div class="container" id="containerTabla" runat="server" hidden>
         <div class="panel">
             <div class="row">
                 <div class="col-md-12">
                     <h4>Listado de solicitudes</h4>
-                    <br />
+                    <br />                    
                     <div class="table-responsive">
                         <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
                             <asp:TableRow TableSection="TableHeader">
@@ -45,6 +45,7 @@
                                 <asp:TableHeaderCell>Rut Solicitante</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Rut Autorizador</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Estado</asp:TableHeaderCell>
+                                <asp:TableHeaderCell><em class="fa fa-cog"></em></asp:TableHeaderCell>
                             </asp:TableRow>
                         </asp:Table>
                     </div>

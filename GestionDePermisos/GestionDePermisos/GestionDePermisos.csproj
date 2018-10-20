@@ -190,7 +190,9 @@
     </Content>
     <Content Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx" />
     <Content Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx" />
-    <Content Include="Views\Alcalde\EstadoPermisosAlcalde.aspx" />
+    <Content Include="Views\Alcalde\EstadoPermisosAlcalde.aspx">
+      <BrowseToURL>../Views/Alcalde/EstadoPermisosAlcalde</BrowseToURL>
+    </Content>
     <Content Include="Views\Alcalde\InicioAlcalde.aspx" />
     <Content Include="Views\Alcalde\ReporteTipoPermisoAlcalde.aspx" />
     <Content Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx" />

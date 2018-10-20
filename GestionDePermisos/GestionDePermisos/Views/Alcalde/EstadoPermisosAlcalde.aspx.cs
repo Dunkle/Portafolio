@@ -48,6 +48,7 @@ namespace GestionDePermisos.Views.Alcalde
                 TableCell rutAutorizador = new TableCell();
                 TableCell rutSolicitante = new TableCell();
                 TableCell estado = new TableCell();
+                TableCell accion = new TableCell();
                 tablaEstadoPermisos.Rows.Add(tableRow);
                 idSolicitud.Text = item.idSolicitud.ToString();
                 codigoDocumento.Text = item.codigoDocumento;
@@ -66,6 +67,8 @@ namespace GestionDePermisos.Views.Alcalde
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
                 estado.Text = retornarEstado(item.idEstado);
+                accion.Text = "<asp:Button CssClass='btn btn-danger' runat='server' name='btnAccion' /><em class='fa fa-search-plus'></em>";
+                
 
                 tableRow.Cells.Add(idSolicitud);
                 tableRow.Cells.Add(codigoDocumento);
@@ -77,6 +80,7 @@ namespace GestionDePermisos.Views.Alcalde
                 tableRow.Cells.Add(rutSolicitante);
                 tableRow.Cells.Add(rutAutorizador);
                 tableRow.Cells.Add(estado);
+                tableRow.Cells.Add(accion);
             }
 
             this.containerTabla.Attributes.Remove("hidden");
