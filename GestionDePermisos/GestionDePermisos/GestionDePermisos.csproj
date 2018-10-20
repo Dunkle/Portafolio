@@ -224,12 +224,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Business\NegocioCuenta.cs" />
+    <Compile Include="Business\NegocioDepartamento.cs" />
     <Compile Include="Business\NegocioEmpleado.cs" />
     <Compile Include="Business\NegocioEstado.cs" />
     <Compile Include="Business\NegocioMotivo.cs" />
     <Compile Include="Business\NegocioSolicitud.cs" />
     <Compile Include="Business\NegocioTipoPermiso.cs" />
     <Compile Include="Business\NegocioUnidad.cs" />
+    <Compile Include="Business\Reportes.cs" />
+    <Compile Include="Controllers\Departamento.cs" />
     <Compile Include="Controllers\Conexion.cs" />
     <Compile Include="Controllers\Cuenta.cs" />
     <Compile Include="Controllers\Empleado.cs" />
@@ -343,6 +346,7 @@
     <Compile Include="MaJefeSuperior.Master.designer.cs">
       <DependentUpon>MaJefeSuperior.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReporteAlcalde.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

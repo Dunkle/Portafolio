@@ -30,5 +30,20 @@ namespace GestionDePermisos.Business
             }
             
         }
+
+        public IList<Empleado> listado()
+        {
+            Empleado solicitud = new Empleado();
+            IList<Empleado> lista = new List<Empleado>();
+            if (solicitud.readAll())
+            {
+                foreach (var item in solicitud.empleados)
+                {
+                    lista.Add(item);
+                }
+                return lista;
+            }
+            else { return null; }
+        }
     }
 }

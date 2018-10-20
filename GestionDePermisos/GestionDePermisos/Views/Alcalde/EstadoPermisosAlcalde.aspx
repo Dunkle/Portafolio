@@ -31,6 +31,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4>Listado de solicitudes</h4>
+                    <br />
                     <div class="table-responsive">
                         <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
                             <asp:TableRow TableSection="TableHeader">
