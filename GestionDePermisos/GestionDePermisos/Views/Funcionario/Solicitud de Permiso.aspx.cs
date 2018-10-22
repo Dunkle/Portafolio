@@ -17,17 +17,19 @@ namespace GestionDePermisos.Views.Funcionario
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //if (Session["funcionario"] == null)
-            //{
-            //    FormsAuthentication.SignOut();
-            //    Response.Redirect("../../Default.aspx");
-            //}
+            if (Session["funcionario"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("../../Default.aspx");
+            }
 
             string script = @"<script type='text/javascript'>
                        $(document).ready(function () {
                             $('#mostrarmodal').modal('show');
+
                         });
                   </script>";
+            
 
             if (!IsPostBack)
             {
@@ -122,5 +124,6 @@ namespace GestionDePermisos.Views.Funcionario
             obj_hash.Clear();
             return (Convert.ToBase64String(cadena_encrp));
         }
+        
     }
 }

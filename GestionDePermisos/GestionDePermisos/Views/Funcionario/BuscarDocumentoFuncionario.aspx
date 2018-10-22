@@ -11,11 +11,11 @@
                     <div class="input-group">
                         <div class="form-group  has-feedback">
                             <input type="text" class="form-control" id="inputSuccess5" placeholder="Ingrese aquí el documento que desea validar">
-                            <asp:TextBox CssClass="form-control" ID="txtCodigoDocumento" Text ="Ingrese aquí el documento que desea validar" runat="server"></asp:TextBox>                            
+                            <asp:TextBox CssClass="form-control" ID="txtCodigoDocumento" Text="Ingrese aquí el documento que desea validar" runat="server"></asp:TextBox>
                         </div>
                         <span class="input-group-btn">
-                            <asp:Button CssClass="btn btn-success" Text="Buscar" ID="btnLogin" runat="server" ClientIDMode="Static" Data-toggle="modal" data-target="modalCarga" OnClick="btnLogin_Click" />
-                            <asp:Button CssClass="btn btn-danger" Text="Limpiar" ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" />                            
+                            <asp:Button CssClass="btn btn-success" Text="Buscar" ID="btnBuscar" runat="server" ClientIDMode="Static" Data-toggle="modal" data-target="modalCarga" OnClick="btnBuscar_Click" />
+                            <asp:Button CssClass="btn btn-danger" Text="Limpiar" ID="btnLimpiar" runat="server" OnClick="btnLimpiar_Click"/>
                         </span>
                     </div>
                 </div>

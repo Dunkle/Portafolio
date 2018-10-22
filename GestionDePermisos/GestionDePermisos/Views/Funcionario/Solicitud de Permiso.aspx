@@ -8,35 +8,55 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+             //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso]').val());
+
+             //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso] option:selected').text());
+
+            var $val1;
+            var diasDisponibles = 15;
+
             $('#<%=txtDetalleSolicitud.ClientID%>').keyup(function () {
 
-                var val1 = $(this).val();
-                if (val1.length > 3) {
+
+
+                $val1 = $(this).val();
+                if ($val1.length > 3) {
                     $('#paso1').removeAttr("disabled");
                 }
-                if (val1.length < 3) {
+                if ($val1.length < 3) {
                     $('#paso1').attr("disabled", "disabled");
                 }
 
             });
-
+            
             $('#<%=txtDate1.ClientID%>').change(function () {
-
+                
                 var date1 = $(this).val();
                 var date2 = $('#<%=txtDate2.ClientID%>').val();
                 var parts = date1.split("/");
 
-                var day = parseInt(parts[0], 10);
-                var month = parseInt(parts[1], 10);
-                var year = parseInt(parts[2], 10);
+                var $day = parseInt(parts[2], 10);
+                var $month = parseInt(parts[1], 10);
+                var $year = parseInt(parts[0], 10);
 
-                $('#<%= txtDate2.ClientID %>').datepicker("option", "minDate", 0);
+               // var $dia = parseInt($diasDisponibles) + parseInt($day)
 
+                
+                $('#<%= txtDate2.ClientID %>').datepicker("option", "minDate", new Date('' + $year + '-' + $month + '-' + $day));
+
+                   //$('#<%= txtDate2.ClientID %>').datepicker("option", "maxDate", $day  + diasDisponibles);
+                
+                //if () {
+
+                //}
+                //if () {
+
+                //}
                 if (date1.length > 8 && date2.length > 8) {
                     $('#paso2').removeAttr("disabled");
                 }
                 else {
-                    $('#paso2').attr("disabled","disabled");
+                    $('#paso2').attr("disabled", "disabled");
                 }
             });
 
@@ -50,13 +70,11 @@
                 var month = parseInt(parts[1], 10);
                 var year = parseInt(parts[2], 10);
 
-                $('#<%= txtDate2.ClientID %>').datepicker("option", "minDate", 0);
-
                 if (date1.length > 8 && date2.length > 8) {
                     $('#paso2').removeAttr("disabled");
                 }
                 else {
-                    $('#paso2').attr("disabled","disabled");
+                    $('#paso2').attr("disabled", "disabled");
                 }
             });
 
@@ -208,26 +226,26 @@
             </div>
         </div>
     </div>
+    
     <script type="text/javascript">
         $(function () {
             $('#' + '<%= txtDate1.ClientID %>').datepicker(
                 {
-                    dateFormat: "dd/mm/yy",
                     minDate: 0,
                     changeMonth: true,
                     changeYear: true,
-                    inline: true
-
+                    inline: true,
+                    beforeShowDay: $.datepicker.noWeekends 
                 }
 
             );
             $('#' + '<%= txtDate2.ClientID %>').datepicker(
                 {
-                    dateFormat: "dd/mm/yy",
+                    minDate: 0,
                     changeMonth: true,
                     changeYear: true,
-                    inline: true
-
+                    inline: true,
+                    //beforeShowDay: $.datepicker.noWeekends 
                 }
             );
         });

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Models;
 using GestionDePermisos.Business;
+using System.Web.Security;
 
 namespace GestionDePermisos.Views.Funcionario
 {
@@ -13,7 +14,11 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["funcionario"] == null)
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("../../Default.aspx");
+            }
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -27,7 +32,7 @@ namespace GestionDePermisos.Views.Funcionario
             }            
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btnLimpiar_Click(object sender, EventArgs e)
         {
 
         }
