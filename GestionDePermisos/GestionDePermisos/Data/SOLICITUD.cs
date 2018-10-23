@@ -24,9 +24,11 @@ namespace GestionDePermisos.Data
         public string RUT { get; set; }
         public string AUTORIZADOR { get; set; }
         public Nullable<decimal> IDESTADO { get; set; }
+        public decimal IDMOTIVO { get; set; }
     
         public virtual EMPLEADO EMPLEADO { get; set; }
         public virtual ESTADO ESTADO { get; set; }
         public virtual TIPOPERMISO TIPOPERMISO { get; set; }
+        public virtual MOTIVO MOTIVO { get; set; }
     }
 }

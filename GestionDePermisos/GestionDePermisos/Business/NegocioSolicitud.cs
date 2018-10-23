@@ -35,6 +35,7 @@ namespace GestionDePermisos.Business
             controllerSolicitud.rutSolicitante = solicitud.rutSolicitante;
             controllerSolicitud.idEstado = solicitud.idEstado;
             controllerSolicitud.idTipoPermiso = solicitud.idTipoPermiso;
+            controllerSolicitud.idMotivo = solicitud.idMotivo;
             if (controllerSolicitud.create())
             {
                 return true;
@@ -79,6 +80,7 @@ namespace GestionDePermisos.Business
                 solicitud.idEstado = controllerSolicitud.idEstado;
                 solicitud.rutAutorizante = controllerSolicitud.rutAutorizante;
                 solicitud.rutSolicitante = controllerSolicitud.rutSolicitante;
+                solicitud.idMotivo = controllerSolicitud.idMotivo;
 
                 return solicitud;
             }

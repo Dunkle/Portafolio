@@ -17,6 +17,7 @@ namespace GestionDePermisos.Models
         public string rutSolicitante { set; get; }
         public string rutAutorizante { set; get; }
         public int idEstado { set; get; }
+        public int idMotivo { get; set; }
 
         public Solicitud()
         {
@@ -30,6 +31,7 @@ namespace GestionDePermisos.Models
             rutSolicitante = string.Empty;
             rutAutorizante = string.Empty;
             idEstado = default(int);
+            idMotivo = default(int); 
         }
 
     }

@@ -110,19 +110,20 @@
           <Property Name="NOMBREREGION" Type="varchar2" MaxLength="100" />
         </EntityType>
         <EntityType Name="SOLICITUD">
-          <Key>
-            <PropertyRef Name="IDSOLICITUD" />
-          </Key>
-          <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="CODIGODOCUMENTO" Type="varchar2" MaxLength="256" />
-          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" />
-          <Property Name="FECHASOLICITUD" Type="date" />
-          <Property Name="FECHAINICIO" Type="date" />
-          <Property Name="FECHATERMINO" Type="date" />
-          <Property Name="IDTIPOPERMISO" Type="number" Precision="38" Scale="0" />
-          <Property Name="RUT" Type="varchar2" MaxLength="10" />
-          <Property Name="AUTORIZADOR" Type="varchar2" MaxLength="10" />
-          <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
+            <Key>
+                <PropertyRef Name="IDSOLICITUD" />
+            </Key>
+            <Property Name="IDSOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
+            <Property Name="CODIGODOCUMENTO" Type="varchar2" MaxLength="256" />
+            <Property Name="DESCRIPCION" Type="varchar2" MaxLength="100" />
+            <Property Name="FECHASOLICITUD" Type="date" />
+            <Property Name="FECHAINICIO" Type="date" />
+            <Property Name="FECHATERMINO" Type="date" />
+            <Property Name="IDTIPOPERMISO" Type="number" Precision="38" Scale="0" />
+            <Property Name="RUT" Type="varchar2" MaxLength="10" />
+            <Property Name="AUTORIZADOR" Type="varchar2" MaxLength="10" />
+            <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
+            <Property Name="IDMOTIVO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="TIPOCONTRATO">
           <Key>
@@ -148,6 +149,18 @@
           <Property Name="IDMUNICIPALIDAD" Type="number" Precision="38" Scale="0" />
           <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
         </EntityType>
+        <Association Name="FK_MOTIVO">
+            <End Role="MOTIVO" Type="Self.ESTADO" Multiplicity="0..1" />
+            <End Role="SOLICITUD" Type="Self.UNIDAD" Multiplicity="*" />
+            <ReferentialConstraint>
+                <Principal Role="MOTIVO">
+                    <PropertyRef Name="IDMOTIVO" />
+                </Principal>
+                <Dependent Role="SOLICITUD">
+                    <PropertyRef Name="IDMOTIVO" />
+                </Dependent>
+            </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ESTADO">
           <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="0..1" />
           <End Role="UNIDAD" Type="Self.UNIDAD" Multiplicity="*" />
@@ -377,93 +390,101 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModelStoreContainer">
-          <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="CUENTA" EntityType="Self.CUENTA" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="MOTIVO" EntityType="Self.MOTIVO" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="MUNICIPALIDAD" EntityType="Self.MUNICIPALIDAD" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="PERFILCUENTA" EntityType="Self.PERFILCUENTA" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="REGION" EntityType="Self.REGION" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="TIPOCONTRATO" EntityType="Self.TIPOCONTRATO" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="TIPOPERMISO" EntityType="Self.TIPOPERMISO" Schema="PORTAFOLIO" store:Type="Tables" />
-          <EntitySet Name="UNIDAD" EntityType="Self.UNIDAD" Schema="PORTAFOLIO" store:Type="Tables" />
-          <AssociationSet Name="COMUNAPROVINCIAFK" Association="Self.COMUNAPROVINCIAFK">
-            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
-            <End Role="COMUNA" EntitySet="COMUNA" />
-          </AssociationSet>
-          <AssociationSet Name="CUENTAESTADOFK" Association="Self.CUENTAESTADOFK">
-            <End Role="ESTADO" EntitySet="ESTADO" />
-            <End Role="CUENTA" EntitySet="CUENTA" />
-          </AssociationSet>
-          <AssociationSet Name="CUENTAPERFILCUENTAFK" Association="Self.CUENTAPERFILCUENTAFK">
-            <End Role="PERFILCUENTA" EntitySet="PERFILCUENTA" />
-            <End Role="CUENTA" EntitySet="CUENTA" />
-          </AssociationSet>
-          <AssociationSet Name="DEPARTAMENTOUNIDADFK" Association="Self.DEPARTAMENTOUNIDADFK">
-            <End Role="UNIDAD" EntitySet="UNIDAD" />
-            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
-          </AssociationSet>
-          <AssociationSet Name="EMPLEADOCARGOFK" Association="Self.EMPLEADOCARGOFK">
-            <End Role="CARGO" EntitySet="CARGO" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="EMPLEADOCOMUNAFK" Association="Self.EMPLEADOCOMUNAFK">
-            <End Role="COMUNA" EntitySet="COMUNA" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="EMPLEADOCUENTAFK" Association="Self.EMPLEADOCUENTAFK">
-            <End Role="CUENTA" EntitySet="CUENTA" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="EMPLEADODEPARTAMENTOFK" Association="Self.EMPLEADODEPARTAMENTOFK">
-            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="EMPLEADOESTADOFK" Association="Self.EMPLEADOESTADOFK">
-            <End Role="ESTADO" EntitySet="ESTADO" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="EMPLEADOTIPOCONTRATOFK" Association="Self.EMPLEADOTIPOCONTRATOFK">
-            <End Role="TIPOCONTRATO" EntitySet="TIPOCONTRATO" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="MOTIVOTIPOPERMISOFK" Association="Self.MOTIVOTIPOPERMISOFK">
-            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
-            <End Role="MOTIVO" EntitySet="MOTIVO" />
-          </AssociationSet>
-          <AssociationSet Name="MUNICIPALIDADCOMUNAFK" Association="Self.MUNICIPALIDADCOMUNAFK">
-            <End Role="COMUNA" EntitySet="COMUNA" />
-            <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
-          </AssociationSet>
-          <AssociationSet Name="PROVINCIAREGIONFK" Association="Self.PROVINCIAREGIONFK">
-            <End Role="REGION" EntitySet="REGION" />
-            <End Role="PROVINCIA" EntitySet="PROVINCIA" />
-          </AssociationSet>
-          <AssociationSet Name="SOLICITUDEMPLEADOFK" Association="Self.SOLICITUDEMPLEADOFK">
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-          </AssociationSet>
-          <AssociationSet Name="SOLICITUDESTADOFK" Association="Self.SOLICITUDESTADOFK">
-            <End Role="ESTADO" EntitySet="ESTADO" />
-            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-          </AssociationSet>
-          <AssociationSet Name="SOLICITUDTIPOPERMISOFK" Association="Self.SOLICITUDTIPOPERMISOFK">
-            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
-            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-          </AssociationSet>
-          <AssociationSet Name="TIPOPERMISOESTADOFK" Association="Self.TIPOPERMISOESTADOFK">
-            <End Role="ESTADO" EntitySet="ESTADO" />
-            <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
-          </AssociationSet>
-          <AssociationSet Name="UNIDADMUNICIPALIDADFK" Association="Self.UNIDADMUNICIPALIDADFK">
-            <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
-            <End Role="UNIDAD" EntitySet="UNIDAD" />
-          </AssociationSet>
+            <EntitySet Name="CARGO" EntityType="Self.CARGO" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="CUENTA" EntityType="Self.CUENTA" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="MOTIVO" EntityType="Self.MOTIVO" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="MUNICIPALIDAD" EntityType="Self.MUNICIPALIDAD" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="PERFILCUENTA" EntityType="Self.PERFILCUENTA" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="PROVINCIA" EntityType="Self.PROVINCIA" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="REGION" EntityType="Self.REGION" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="TIPOCONTRATO" EntityType="Self.TIPOCONTRATO" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="TIPOPERMISO" EntityType="Self.TIPOPERMISO" Schema="PORTAFOLIO" store:Type="Tables" />
+            <EntitySet Name="UNIDAD" EntityType="Self.UNIDAD" Schema="PORTAFOLIO" store:Type="Tables" />
+            <AssociationSet Name="COMUNAPROVINCIAFK" Association="Self.COMUNAPROVINCIAFK">
+                <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+                <End Role="COMUNA" EntitySet="COMUNA" />
+            </AssociationSet>
+            <AssociationSet Name="CUENTAESTADOFK" Association="Self.CUENTAESTADOFK">
+                <End Role="ESTADO" EntitySet="ESTADO" />
+                <End Role="CUENTA" EntitySet="CUENTA" />
+            </AssociationSet>
+            <AssociationSet Name="CUENTAPERFILCUENTAFK" Association="Self.CUENTAPERFILCUENTAFK">
+                <End Role="PERFILCUENTA" EntitySet="PERFILCUENTA" />
+                <End Role="CUENTA" EntitySet="CUENTA" />
+            </AssociationSet>
+            <AssociationSet Name="DEPARTAMENTOUNIDADFK" Association="Self.DEPARTAMENTOUNIDADFK">
+                <End Role="UNIDAD" EntitySet="UNIDAD" />
+                <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            </AssociationSet>
+            <AssociationSet Name="EMPLEADOCARGOFK" Association="Self.EMPLEADOCARGOFK">
+                <End Role="CARGO" EntitySet="CARGO" />
+                <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            </AssociationSet>
+            <AssociationSet Name="EMPLEADOCOMUNAFK" Association="Self.EMPLEADOCOMUNAFK">
+                <End Role="COMUNA" EntitySet="COMUNA" />
+                <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            </AssociationSet>
+            <AssociationSet Name="EMPLEADOCUENTAFK" Association="Self.EMPLEADOCUENTAFK">
+                <End Role="CUENTA" EntitySet="CUENTA" />
+                <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            </AssociationSet>
+            <AssociationSet Name="EMPLEADODEPARTAMENTOFK" Association="Self.EMPLEADODEPARTAMENTOFK">
+                <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+                <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            </AssociationSet>
+            <AssociationSet Name="EMPLEADOESTADOFK" Association="Self.EMPLEADOESTADOFK">
+                <End Role="ESTADO" EntitySet="ESTADO" />
+                <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            </AssociationSet>
+            <AssociationSet Name="EMPLEADOTIPOCONTRATOFK" Association="Self.EMPLEADOTIPOCONTRATOFK">
+                <End Role="TIPOCONTRATO" EntitySet="TIPOCONTRATO" />
+                <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            </AssociationSet>
+            <AssociationSet Name="MOTIVOTIPOPERMISOFK" Association="Self.MOTIVOTIPOPERMISOFK">
+                <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+                <End Role="MOTIVO" EntitySet="MOTIVO" />
+            </AssociationSet>
+            <AssociationSet Name="MUNICIPALIDADCOMUNAFK" Association="Self.MUNICIPALIDADCOMUNAFK">
+                <End Role="COMUNA" EntitySet="COMUNA" />
+                <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
+            </AssociationSet>
+            <AssociationSet Name="PROVINCIAREGIONFK" Association="Self.PROVINCIAREGIONFK">
+                <End Role="REGION" EntitySet="REGION" />
+                <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+            </AssociationSet>
+            <AssociationSet Name="SOLICITUDEMPLEADOFK" Association="Self.SOLICITUDEMPLEADOFK">
+                <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+                <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+            </AssociationSet>
+            <AssociationSet Name="SOLICITUDESTADOFK" Association="Self.SOLICITUDESTADOFK">
+                <End Role="ESTADO" EntitySet="ESTADO" />
+                <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+            </AssociationSet>
+            <AssociationSet Name="SOLICITUDTIPOPERMISOFK" Association="Self.SOLICITUDTIPOPERMISOFK">
+                <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+                <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+            </AssociationSet>
+            <AssociationSet Name="TIPOPERMISOESTADOFK" Association="Self.TIPOPERMISOESTADOFK">
+                <End Role="ESTADO" EntitySet="ESTADO" />
+                <End Role="TIPOPERMISO" EntitySet="TIPOPERMISO" />
+            </AssociationSet>
+            <AssociationSet Name="UNIDADMUNICIPALIDADFK" Association="Self.UNIDADMUNICIPALIDADFK">
+                <End Role="MUNICIPALIDAD" EntitySet="MUNICIPALIDAD" />
+                <End Role="UNIDAD" EntitySet="UNIDAD" />
+            </AssociationSet>
+            <AssociationSet Name="FK_ESTADO" Association="Self.FK_ESTADO">
+                <End Role="ESTADO" EntitySet="ESTADO" />
+                <End Role="UNIDAD" EntitySet="UNIDAD" />
+            </AssociationSet>
+            <AssociationSet Name="FK_MOTIVO" Association="Self.FK_MOTIVO">
+                <End Role="MOTIVO" EntitySet="MOTIVO" />
+                <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+            </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -561,6 +582,7 @@
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IDTIPOPERMISO" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="TIPOPERMISO" Relationship="Self.MOTIVOTIPOPERMISOFK" FromRole="MOTIVO" ToRole="TIPOPERMISO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Model.MOTIVOSOLICITUD" FromRole="MOTIVO" ToRole="SOLICITUD" />
         </EntityType>
         <EntityType Name="MUNICIPALIDAD">
           <Key>
@@ -618,6 +640,8 @@
           <NavigationProperty Name="EMPLEADO" Relationship="Self.SOLICITUDEMPLEADOFK" FromRole="SOLICITUD" ToRole="EMPLEADO" />
           <NavigationProperty Name="ESTADO" Relationship="Self.SOLICITUDESTADOFK" FromRole="SOLICITUD" ToRole="ESTADO" />
           <NavigationProperty Name="TIPOPERMISO" Relationship="Self.SOLICITUDTIPOPERMISOFK" FromRole="SOLICITUD" ToRole="TIPOPERMISO" />
+          <NavigationProperty Name="MOTIVO" Relationship="Model.MOTIVOSOLICITUD" FromRole="SOLICITUD" ToRole="MOTIVO" />
+          <Property Name="IDMOTIVO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="TIPOCONTRATO">
           <Key>
@@ -958,6 +982,10 @@
             <End Role="ESTADO" EntitySet="ESTADO" />
             <End Role="UNIDAD" EntitySet="UNIDAD" />
           </AssociationSet>
+          <AssociationSet Name="MOTIVOSOLICITUD" Association="Model.MOTIVOSOLICITUD">
+            <End Role="MOTIVO" EntitySet="MOTIVO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="IDUNIDAD">
           <End Type="Model.ESTADO" Role="ESTADO" Multiplicity="1" />
@@ -968,6 +996,18 @@
             </Principal>
             <Dependent Role="UNIDAD">
               <PropertyRef Name="IDESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MOTIVOSOLICITUD">
+          <End Type="Model.MOTIVO" Role="MOTIVO" Multiplicity="1" />
+          <End Type="Model.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MOTIVO">
+              <PropertyRef Name="IDMOTIVO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="IDMOTIVO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1094,18 +1134,19 @@
           </EntitySetMapping>
           <EntitySetMapping Name="SOLICITUD">
             <EntityTypeMapping TypeName="Model.SOLICITUD">
-              <MappingFragment StoreEntitySet="SOLICITUD">
-                <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
-                <ScalarProperty Name="CODIGODOCUMENTO" ColumnName="CODIGODOCUMENTO" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-                <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />
-                <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
-                <ScalarProperty Name="FECHATERMINO" ColumnName="FECHATERMINO" />
-                <ScalarProperty Name="IDTIPOPERMISO" ColumnName="IDTIPOPERMISO" />
-                <ScalarProperty Name="RUT" ColumnName="RUT" />
-                <ScalarProperty Name="AUTORIZADOR" ColumnName="AUTORIZADOR" />
-                <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
-              </MappingFragment>
+                <MappingFragment StoreEntitySet="SOLICITUD">
+                    <ScalarProperty Name="IDSOLICITUD" ColumnName="IDSOLICITUD" />
+                    <ScalarProperty Name="CODIGODOCUMENTO" ColumnName="CODIGODOCUMENTO" />
+                    <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                    <ScalarProperty Name="FECHASOLICITUD" ColumnName="FECHASOLICITUD" />
+                    <ScalarProperty Name="FECHAINICIO" ColumnName="FECHAINICIO" />
+                    <ScalarProperty Name="FECHATERMINO" ColumnName="FECHATERMINO" />
+                    <ScalarProperty Name="IDTIPOPERMISO" ColumnName="IDTIPOPERMISO" />
+                    <ScalarProperty Name="RUT" ColumnName="RUT" />
+                    <ScalarProperty Name="AUTORIZADOR" ColumnName="AUTORIZADOR" />
+                    <ScalarProperty Name="IDESTADO" ColumnName="IDESTADO" />
+                    <ScalarProperty Name="IDMOTIVO" ColumnName="IDMOTIVO" />
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPOCONTRATO">

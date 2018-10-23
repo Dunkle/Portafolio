@@ -12,7 +12,7 @@ namespace GestionDePermisos.Views.Alcalde
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            tablaEstadoPermisos.Attributes["OnClick"] = "TableClick()";
         }
 
         protected void btnConsulta_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace GestionDePermisos.Views.Alcalde
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
                 estado.Text = retornarEstado(item.idEstado);
-                accion.Text = "<asp:Button CssClass='btn btn-danger' runat='server' name='btnAccion' /><em class='fa fa-search-plus'></em>";
+                accion.Text = "<asp:Button CssClass='btn btn-danger' runat='server' name='btnAccion' ID='"+idSolicitud.Text+ "' OnClick='TableClick ' /><em class='fa fa-search-plus'></em>";                
                 
 
                 tableRow.Cells.Add(idSolicitud);
@@ -104,6 +104,20 @@ namespace GestionDePermisos.Views.Alcalde
         private void cargarMensaje()
         {
             error.Attributes.Remove("hidden");
+        }
+        protected void TableClick(object sender, EventArgs e)
+        {
+            int id = 0;
+            foreach (TableRow item in tablaEstadoPermisos.Rows)
+            {
+                foreach (TableCell cell in item.Cells)
+                {
+                    Button btn = (Button)cell.FindControl("btnAccion");
+                    id = Convert.ToInt32(btn.ID);
+                }
+            }
+            string message = id.ToString();
+            string script = "alert(\""+message+"\");";            
         }
     }
 }

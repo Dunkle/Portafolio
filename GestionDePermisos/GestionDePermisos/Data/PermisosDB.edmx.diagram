@@ -39,6 +39,7 @@
         <AssociationConnector Association="Model.PROVINCIAREGIONFK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.SOLICITUDTIPOPERMISOFK" ManuallyRouted="false" />
         <AssociationConnector Association="Model.IDUNIDAD" />
+        <AssociationConnector Association="Model.MOTIVOSOLICITUD" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

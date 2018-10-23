@@ -14,11 +14,19 @@ namespace GestionDePermisos.Data
     
     public partial class MOTIVO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MOTIVO()
+        {
+            this.SOLICITUD = new HashSet<SOLICITUD>();
+        }
+    
         public decimal IDMOTIVO { get; set; }
         public string NOMBREMOTIVO { get; set; }
         public string DESCRIPCION { get; set; }
         public Nullable<decimal> IDTIPOPERMISO { get; set; }
     
         public virtual TIPOPERMISO TIPOPERMISO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
     }
 }

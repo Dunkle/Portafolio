@@ -18,6 +18,7 @@ namespace GestionDePermisos.Controllers
         public string rutSolicitante { set; get; }
         public string rutAutorizante { set; get; }
         public int idEstado { set; get; }
+        public int idMotivo { set; get; }
         public IList<ControllerSolicitud> coleccionSolicitudes { get; set; }
 
 
@@ -33,6 +34,7 @@ namespace GestionDePermisos.Controllers
             rutSolicitante = string.Empty;
             rutAutorizante = string.Empty;
             idEstado = default(int);
+            idMotivo = default(int);
         }
 
         public bool readAll()
@@ -53,6 +55,7 @@ namespace GestionDePermisos.Controllers
                     solicitud.rutSolicitante = tmp.RUT;
                     solicitud.rutAutorizante = tmp.AUTORIZADOR;
                     solicitud.idEstado = Convert.ToInt32(tmp.IDESTADO);
+                    solicitud.idMotivo = Convert.ToInt32(tmp.IDMOTIVO);
 
                     this.coleccionSolicitudes.Add(solicitud);
                 }
@@ -78,6 +81,7 @@ namespace GestionDePermisos.Controllers
                 solicitud.RUT = this.rutSolicitante;
                 solicitud.AUTORIZADOR = this.rutAutorizante;
                 solicitud.IDESTADO = this.idEstado;
+                solicitud.IDMOTIVO = this.idMotivo;
 
                 Conexion.entities.SOLICITUD.Add(solicitud);
                 
@@ -107,6 +111,7 @@ namespace GestionDePermisos.Controllers
                 solicitud.RUT = this.rutSolicitante;
                 solicitud.AUTORIZADOR = this.rutAutorizante;
                 solicitud.IDESTADO = this.idEstado;
+                solicitud.IDMOTIVO = this.idMotivo;
 
                 Conexion.entities.SaveChanges();
                 return true;
@@ -134,6 +139,7 @@ namespace GestionDePermisos.Controllers
                 this.rutSolicitante = solicitud.RUT;
                 this.rutAutorizante = solicitud.AUTORIZADOR;
                 this.idEstado = Convert.ToInt32(solicitud.IDESTADO);
+                this.idMotivo = Convert.ToInt32(solicitud.IDMOTIVO);
 
                 return true;
 

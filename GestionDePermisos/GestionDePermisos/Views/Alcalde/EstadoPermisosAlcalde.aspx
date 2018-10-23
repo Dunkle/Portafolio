@@ -53,4 +53,10 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function TableClick() {
+            document.getElementsByName("btnAccion");
+            alert($(this).attr("id"));
+        }
+    </script>
 </asp:Content>
