@@ -150,8 +150,8 @@
           <Property Name="IDESTADO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <Association Name="FK_MOTIVO">
-            <End Role="MOTIVO" Type="Self.ESTADO" Multiplicity="0..1" />
-            <End Role="SOLICITUD" Type="Self.UNIDAD" Multiplicity="*" />
+            <End Role="MOTIVO" Type="Self.MOTIVO" Multiplicity="0..1" />
+            <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
             <ReferentialConstraint>
                 <Principal Role="MOTIVO">
                     <PropertyRef Name="IDMOTIVO" />
@@ -481,10 +481,6 @@
                 <End Role="ESTADO" EntitySet="ESTADO" />
                 <End Role="UNIDAD" EntitySet="UNIDAD" />
             </AssociationSet>
-            <AssociationSet Name="FK_MOTIVO" Association="Self.FK_MOTIVO">
-                <End Role="MOTIVO" EntitySet="MOTIVO" />
-                <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-            </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -637,11 +633,11 @@
           <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="AUTORIZADOR" Type="String" />
           <Property Name="IDESTADO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IDMOTIVO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.SOLICITUDEMPLEADOFK" FromRole="SOLICITUD" ToRole="EMPLEADO" />
           <NavigationProperty Name="ESTADO" Relationship="Self.SOLICITUDESTADOFK" FromRole="SOLICITUD" ToRole="ESTADO" />
           <NavigationProperty Name="TIPOPERMISO" Relationship="Self.SOLICITUDTIPOPERMISOFK" FromRole="SOLICITUD" ToRole="TIPOPERMISO" />
-          <NavigationProperty Name="MOTIVO" Relationship="Model.MOTIVOSOLICITUD" FromRole="SOLICITUD" ToRole="MOTIVO" />
-          <Property Name="IDMOTIVO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <NavigationProperty Name="MOTIVO" Relationship="Model.MOTIVOSOLICITUD" FromRole="SOLICITUD" ToRole="MOTIVO" />          
         </EntityType>
         <EntityType Name="TIPOCONTRATO">
           <Key>
