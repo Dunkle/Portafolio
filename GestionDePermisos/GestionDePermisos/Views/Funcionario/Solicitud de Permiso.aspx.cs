@@ -25,8 +25,7 @@ namespace GestionDePermisos.Views.Funcionario
 
             string script = @"<script type='text/javascript'>
                        $(document).ready(function () {
-                            $('#mostrarmodal').modal('show');
-
+                            $('#mostrarmodal').modal('show'); 
                         });
                   </script>";
             
@@ -47,12 +46,19 @@ namespace GestionDePermisos.Views.Funcionario
             }
             else
             {
+                
                 if (txtCod.Text == "")
                 {
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                    txtCod.Text = "null";
                 }
 
-                if(txtCod.Text == "null")
+                if (txtCod.Text != "" || txtCod.Text != "null")
+                {
+                    txtCod.Text = string.Empty;
+                }
+
+                if (txtCod.Text == "null")
                 {
                     if (txtCod.Text != "" || txtCod.Text != "null")
                     {
@@ -60,10 +66,6 @@ namespace GestionDePermisos.Views.Funcionario
                     }
                 }
 
-                if (txtCod.Text != "" || txtCod.Text != "null")
-                {
-                    txtCod.Text = string.Empty;
-                }
             }
         }
 
@@ -87,6 +89,7 @@ namespace GestionDePermisos.Views.Funcionario
             newSolicitud.fechaTermino = DateTime.ParseExact(txtDate2.Text, "dd/mm/yyyy", CultureInfo.InvariantCulture);
             newSolicitud.idEstado = 4;
             newSolicitud.rutSolicitante = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(cuenta));
+            newSolicitud.idMotivo = Convert.ToInt32(cmbMotivo.SelectedItem.Value);
 
             if (negocioSolicitud.crearSolicitud(newSolicitud))
             {
@@ -124,6 +127,5 @@ namespace GestionDePermisos.Views.Funcionario
             obj_hash.Clear();
             return (Convert.ToBase64String(cadena_encrp));
         }
-        
     }
 }
