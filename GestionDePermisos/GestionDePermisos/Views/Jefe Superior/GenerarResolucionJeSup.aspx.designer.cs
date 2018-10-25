@@ -31,15 +31,6 @@ namespace GestionDePermisos.Views.Jefe_Superior {
         protected global::System.Web.UI.WebControls.Calendar fechaInicio;
         
         /// <summary>
-        /// Control txtFechaInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaInicio;
-        
-        /// <summary>
         /// Control fechaTermino.
         /// </summary>
         /// <remarks>
@@ -47,15 +38,6 @@ namespace GestionDePermisos.Views.Jefe_Superior {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar fechaTermino;
-        
-        /// <summary>
-        /// Control txtFechaTermino.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaTermino;
         
         /// <summary>
         /// Control btnGenerar.
