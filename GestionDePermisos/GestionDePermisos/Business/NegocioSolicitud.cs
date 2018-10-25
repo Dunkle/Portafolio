@@ -70,6 +70,7 @@ namespace GestionDePermisos.Business
             try
             {
                 controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f=> f.codigoDocumento == codigo);
+
                 solicitud.idSolicitud = controllerSolicitud.idSolicitud;
                 solicitud.codigoDocumento = controllerSolicitud.codigoDocumento;
                 solicitud.descripcion = controllerSolicitud.descripcion;
@@ -86,7 +87,6 @@ namespace GestionDePermisos.Business
             }
             catch (Exception e)
             {
-
                 return null ;
             }
 

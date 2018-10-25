@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using GestionDePermisos.Data;
 
 namespace GestionDePermisos.Controllers
 {
@@ -43,6 +44,23 @@ namespace GestionDePermisos.Controllers
 
                 return false;
             }           
+        }
+
+        public bool read()
+        {
+            try
+            {
+                MOTIVO tipoPermiso = Conexion.entities.MOTIVO.First(f => f.IDMOTIVO == this.idMotivo);
+                this.idMotivo = Convert.ToInt32(tipoPermiso.IDTIPOPERMISO);
+                this.nombreMotivo = tipoPermiso.NOMBREMOTIVO;
+
+                return true;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
         }
     }
 }

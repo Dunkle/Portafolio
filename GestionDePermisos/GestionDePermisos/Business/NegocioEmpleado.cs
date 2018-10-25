@@ -31,6 +31,30 @@ namespace GestionDePermisos.Business
             
         }
 
+        public string retornarNombreByRut(string rut)
+        {
+            Empleado empleado = new Empleado();
+            empleado.readAll();
+            try
+            {
+                empleado = empleado.empleados.First(f => f.rut == rut);
+                if (empleado != null)
+                {
+                    return empleado.nombres;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            catch (Exception e)
+            {
+
+                return string.Empty; ;
+            }
+
+        }
+
         public IList<Empleado> listado()
         {
             Empleado solicitud = new Empleado();

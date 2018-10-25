@@ -23,6 +23,19 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+        public string nameByID(int id)
+        {
+            Motivo motivo = new Motivo();
+            motivo.idMotivo = id;
+            if (motivo.read())
+            {
+                return motivo.nombreMotivo;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
 
         public IList<Motivo> retornarListaFiltrada(int index)
         {
