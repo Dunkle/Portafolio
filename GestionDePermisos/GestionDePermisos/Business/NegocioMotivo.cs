@@ -7,7 +7,7 @@ using GestionDePermisos.Controllers;
 namespace GestionDePermisos.Business
 {
     public class NegocioMotivo
-    {        
+    {
 
         public IList<Motivo> retornarLista()
         {
@@ -48,7 +48,7 @@ namespace GestionDePermisos.Business
                     if (item.idTipoPermiso == index)
                     {
                         lista.Add(item);
-                    }                   
+                    }
                 }
                 return lista;
             }
@@ -56,3 +56,6 @@ namespace GestionDePermisos.Business
         }
     }
 }
+
+
+

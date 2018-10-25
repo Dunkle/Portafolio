@@ -9,7 +9,7 @@ namespace GestionDePermisos.Controllers
     public class Motivo
     {
         public int idMotivo { get; set; }
-        public string nombreMotivo { get; set; } 
+        public string nombreMotivo { get; set; }
         public string descripcion { get; set; }
         public int idTipoPermiso { get; set; }
         public IList<Motivo> motivos { get; set; }
@@ -43,7 +43,7 @@ namespace GestionDePermisos.Controllers
             {
 
                 return false;
-            }           
+            }
         }
 
         public bool read()
@@ -64,3 +64,5 @@ namespace GestionDePermisos.Controllers
         }
     }
 }
+
+

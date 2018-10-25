@@ -8,7 +8,8 @@ namespace GestionDePermisos.Business
 {
     public class NegocioEmpleado
     {
-        public string retornarRutByCuentaID(int idCuenta) {
+        public string retornarRutByCuentaID(int idCuenta)
+        {
             Empleado empleado = new Empleado();
             empleado.readAll();
             try
@@ -26,9 +27,9 @@ namespace GestionDePermisos.Business
             catch (Exception e)
             {
 
-                return string.Empty;;
+                return string.Empty; ;
             }
-            
+
         }
 
         public string retornarNombreByRut(string rut)
@@ -71,3 +72,4 @@ namespace GestionDePermisos.Business
         }
     }
 }
+

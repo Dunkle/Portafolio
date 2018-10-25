@@ -20,7 +20,7 @@ namespace GestionDePermisos.Views.Funcionario
                 Response.Redirect("../../Default.aspx");
             }
 
-            
+
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -42,7 +42,7 @@ namespace GestionDePermisos.Views.Funcionario
             }
             else
             {
-               
+
             }
         }
         private void cargarTabla(string codigo)
@@ -57,7 +57,7 @@ namespace GestionDePermisos.Views.Funcionario
             Solicitud solicitud = new Solicitud();
 
             solicitud = negocioSolicitud.retornarSolicitudByCodigoDocumento(codigo);
-            
+
             codSolicitud.Text = solicitud.codigoDocumento;
             rutSolicitante.Text = solicitud.rutSolicitante;
             nombreSolicitante.Text = negocioEmpleado.retornarNombreByRut(solicitud.rutSolicitante);
@@ -65,9 +65,9 @@ namespace GestionDePermisos.Views.Funcionario
             tipoSolicitud.Text = tipo.nameByID(solicitud.idTipoPermiso);
             motivoSolicitud.Text = motivo.nameByID(solicitud.idMotivo);
             autorizadorSolicitud.Text = solicitud.rutAutorizante;
-            estadoSolicitud.Text = estado.nameByID( solicitud.idEstado);
+            estadoSolicitud.Text = estado.nameByID(solicitud.idEstado);
 
-            if(solicitud.rutAutorizante != null)
+            if (solicitud.rutAutorizante != null)
             {
                 tdAutorizador.Visible = true;
             }
