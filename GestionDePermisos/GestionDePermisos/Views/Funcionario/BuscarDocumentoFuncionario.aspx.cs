@@ -24,15 +24,7 @@ namespace GestionDePermisos.Views.Funcionario
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
-        {/*
-            Solicitud solicitud = new Solicitud();
-            NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
-            string codigo = txtCodigoDocumento.Text;
-            if (!string.IsNullOrEmpty(codigo))
-            {
-                solicitud = negocioSolicitud.retornarSolicitudByCodigoDocumento(codigo);
-            }*/
-
+        {
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
             string codigo = txtCodigoDocumento.Text;
 
@@ -42,7 +34,14 @@ namespace GestionDePermisos.Views.Funcionario
             }
             else
             {
+                string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
 
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                txtCodigoDocumento.Text = "";
             }
         }
         private void cargarTabla(string codigo)
@@ -67,22 +66,24 @@ namespace GestionDePermisos.Views.Funcionario
             autorizadorSolicitud.Text = solicitud.rutAutorizante;
             estadoSolicitud.Text = estado.nameByID(solicitud.idEstado);
 
-            if (solicitud.rutAutorizante != null)
+            if (solicitud.rutAutorizante != null || solicitud.rutAutorizante == "")
             {
                 tdAutorizador.Visible = true;
             }
+
             string script = @"<script type='text/javascript'>
                        $(document).ready(function () {
-                            $('#mostrarmodal').modal('show'); 
+                            $('#mostrarmodal').modal('show');
                         });
                   </script>";
 
             ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+            txtCodigoDocumento.Text = "";
 
         }
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-
+            txtCodigoDocumento.Text = "";
         }
     }
 }

@@ -23,6 +23,7 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+
         public bool crearSolicitud(Solicitud solicitud)
         {
             ControllerSolicitud controllerSolicitud = new ControllerSolicitud();

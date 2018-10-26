@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaFuncionario.Master" AutoEventWireup="true" CodeBehind="BuscarDocumentoFuncionario.aspx.cs" Inherits="GestionDePermisos.Views.Funcionario.BuscarDocumentoFuncionario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script type="text/javascript" src="../../Scripts/operation.js"></script>
+    <script type="text/javascript" src="../../Scripts/operation.js"></script>
+    <link rel="stylesheet" href="../../Content/Permisos.css" />
+    <link rel="stylesheet" href="../../Content/estiloValidacionSolicitud.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -23,6 +27,7 @@
         </div>
     </form>
 
+    <!-- Modal Documento -->
     <div class="modal fade screen" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -30,7 +35,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
                 </div>
                 <div class="modal-body">
-                    <div class="table-responsive printable" >
+                    <div class="table-responsive printable">
                         <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">
                             <asp:TableRow TableSection="TableHeader">
                                 <asp:TableHeaderCell>Cod Solicitud:</asp:TableHeaderCell>
@@ -66,7 +71,7 @@
                             </asp:TableRow>
                             <asp:TableFooterRow>
                                 <asp:TableHeaderCell>
-                                <button type="button" class="btn btn-default prev-step btn-lg" id="btnImprimir">Imprimir</button>
+                                <button type="button" class="btn btn-default prev-step btn-lg" id="btnImprimir">Descargar</button>
                                 </asp:TableHeaderCell>
                             </asp:TableFooterRow>
                         </asp:Table>
@@ -75,4 +80,26 @@
             </div>
         </div>
     </div>
+    <!-- Modal De Error -->
+    <div class="modal fade screen" id="modalerror" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+                        <span class="swal2-x-mark">
+                            <span class="swal2-x-mark-line-left"></span>
+                            <span class="swal2-x-mark-line-right"></span>
+                        </span>
+                    </div>
+                     <h1 style="text-align: center">Ups!</h1>
+                     <p style="text-align: center">No se ha encontrado este documento</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </asp:Content>
