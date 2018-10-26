@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaAdmin.Master" AutoEventWireup="true" CodeBehind="BuscarDocumentoJefeSup.aspx.cs" Inherits="GestionDePermisos.Views.Jefe_Superior.BuscarDocumentoJefeSup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaJefeSuperior.Master" AutoEventWireup="true" CodeBehind="BuscarDocumentoJefeSup.aspx.cs" Inherits="GestionDePermisos.Views.Jefe_Superior.BuscarDocumentoJefeSup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="../../Scripts/operation.js"></script>
