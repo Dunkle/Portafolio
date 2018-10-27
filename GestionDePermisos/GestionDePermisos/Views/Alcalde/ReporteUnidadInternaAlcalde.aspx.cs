@@ -18,7 +18,7 @@ namespace GestionDePermisos.Views.Alcalde
         protected void btnConsulta_Click(object sender, EventArgs e)
         {
             Reportes reportes = new Reportes();
-            foreach (var item in reportes.reporteDelAlcalde())
+            foreach (var item in reportes.reporteCantidadTipoPermisoUnidad())
             {
                 TableRow tableRow = new TableRow();
                 TableCell nombreUnidad = new TableCell();

@@ -211,7 +211,9 @@
     </Content>
     <Content Include="Views\Alcalde\InicioAlcalde.aspx" />
     <Content Include="Views\Alcalde\ReporteTipoPermisoAlcalde.aspx" />
-    <Content Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx" />
+    <Content Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx">
+      <BrowseToURL>../Views/Alcalde/ReporteUnidadInternaAlcalde</BrowseToURL>
+    </Content>
     <Content Include="Views\Alcalde\ValidarDocumentoAlcalde.aspx" />
     <Content Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx" />
     <Content Include="Views\Funcionario\EstadoPermisosFuncionario.aspx">
@@ -365,6 +367,7 @@
       <DependentUpon>MaJefeSuperior.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\ReporteAlcalde.cs" />
+    <Compile Include="Models\Resolucion.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
