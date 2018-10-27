@@ -64,7 +64,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
             autorizadorSolicitud.Text = solicitud.rutAutorizante;
             estadoSolicitud.Text = estado.nameByID(solicitud.idEstado);
 
-            if (solicitud.rutAutorizante != null || solicitud.rutAutorizante == "")
+            if (solicitud.rutAutorizante != null)
             {
                 tdAutorizador.Visible = true;
             }
@@ -74,6 +74,13 @@ namespace GestionDePermisos.Views.Jefe_Interno
                             $('#mostrarmodal').modal('show');
                         });
                   </script>";
+
+            certSolicitante.Text = nombreSolicitante.Text;
+            cetInicio.Text = solicitud.fechaInicio.ToShortDateString();
+            certFin.Text = solicitud.fechaTermino.ToShortDateString();
+            cetPermiso.Text = tipoSolicitud.Text;
+            certMotivo.Text = motivoSolicitud.Text;
+            certDias.Text = (solicitud.fechaTermino.Date - solicitud.fechaInicio.Date).TotalDays.ToString();
 
             ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
             txtCodigoDocumento.Text = "";

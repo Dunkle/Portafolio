@@ -77,6 +77,13 @@ namespace GestionDePermisos.Views.Jefe_Superior
                         });
                   </script>";
 
+            certSolicitante.Text = nombreSolicitante.Text;
+            cetInicio.Text = solicitud.fechaInicio.ToShortDateString();
+            certFin.Text = solicitud.fechaTermino.ToShortDateString();
+            cetPermiso.Text = tipoSolicitud.Text;
+            certMotivo.Text = motivoSolicitud.Text;
+            certDias.Text = (solicitud.fechaTermino.Date - solicitud.fechaInicio.Date).TotalDays.ToString();
+
             ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
             txtCodigoDocumento.Text = "";
 
