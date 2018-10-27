@@ -175,6 +175,8 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\images\certificado.jpg" />
+    <Content Include="Scripts\images\Escudo_de_Vista_Hermosa.png" />
     <Content Include="Scripts\images\icons\favicon.ico" />
     <Content Include="Scripts\images\icons\faviconMunicipal.ico" />
     <Content Include="Scripts\images\img-01.png" />
