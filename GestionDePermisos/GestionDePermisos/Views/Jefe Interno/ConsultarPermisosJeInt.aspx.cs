@@ -18,21 +18,23 @@ namespace GestionDePermisos.Views.Jefe_Interno
         protected void btnConsulta_Click(object sender, EventArgs e)
         {
             string consultaRut = txtCodSolicitud.Text;
-            NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
-            TableCell idSolicitud = new TableCell();
-            TableCell descripcion = new TableCell();
-            TableCell fechaSolicitud = new TableCell();
-            TableCell fechaInicio = new TableCell();
-            TableCell fechaTermino = new TableCell();
-            TableCell tipoPermiso = new TableCell();
-            TableCell rutAutorizador = new TableCell();
-            TableCell rutSolicitante = new TableCell();
-            TableCell estado = new TableCell();
+            NegocioSolicitud negocioSolicitud = new NegocioSolicitud();            
 
             foreach (var item in negocioSolicitud.listadoFiltradoByID(consultaRut))
             {
                 TableRow tableRow = new TableRow();
+                TableCell idSolicitud = new TableCell();
+                TableCell descripcion = new TableCell();
+                TableCell fechaSolicitud = new TableCell();
+                TableCell fechaInicio = new TableCell();
+                TableCell fechaTermino = new TableCell();
+                TableCell tipoPermiso = new TableCell();
+                TableCell rutAutorizador = new TableCell();
+                TableCell rutSolicitante = new TableCell();
+                TableCell estado = new TableCell();
+
                 tablaEstadoPermisos.Rows.Add(tableRow);
+
                 idSolicitud.Text = item.idSolicitud.ToString();
                 descripcion.Text = item.descripcion;
                 fechaSolicitud.Text = item.fechaSolicitud.ToString("dd/MM/yyyy");
@@ -40,11 +42,14 @@ namespace GestionDePermisos.Views.Jefe_Interno
                 fechaTermino.Text = item.fechaTermino.ToString("dd/MM/yyyy");
                 tipoPermiso.Text = retornarTipoPermiso(item.idTipoPermiso);
                 rutSolicitante.Text = item.rutSolicitante.ToString();
-                if (item.rutAutorizante != null)
+                if (item.rutAutorizante == null)
+                {
+                    rutAutorizador.Text = "Sin asignar";
+                }
+                else
                 {
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
-                
                 estado.Text = retornarEstado(item.idEstado);
 
                 tableRow.Cells.Add(idSolicitud);

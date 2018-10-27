@@ -13,6 +13,15 @@ namespace GestionDePermisos.Views.Jefe_Superior {
     public partial class GenerarResolucionJeSup {
         
         /// <summary>
+        /// Control formularioResolucion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm formularioResolucion;
+        
+        /// <summary>
         /// Control cmbUnidad.
         /// </summary>
         /// <remarks>
@@ -22,22 +31,22 @@ namespace GestionDePermisos.Views.Jefe_Superior {
         protected global::System.Web.UI.WebControls.DropDownList cmbUnidad;
         
         /// <summary>
-        /// Control fechaInicio.
+        /// Control cmbAño.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar fechaInicio;
+        protected global::System.Web.UI.WebControls.DropDownList cmbAño;
         
         /// <summary>
-        /// Control fechaTermino.
+        /// Control cmbMes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar fechaTermino;
+        protected global::System.Web.UI.WebControls.DropDownList cmbMes;
         
         /// <summary>
         /// Control btnGenerar.
@@ -47,5 +56,23 @@ namespace GestionDePermisos.Views.Jefe_Superior {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGenerar;
+        
+        /// <summary>
+        /// Control containerTabla.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl containerTabla;
+        
+        /// <summary>
+        /// Control tablaEstadoPermisos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tablaEstadoPermisos;
     }
 }
