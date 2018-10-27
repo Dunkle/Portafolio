@@ -40,7 +40,11 @@ namespace GestionDePermisos.Views.Jefe_Interno
                 fechaTermino.Text = item.fechaTermino.ToString("dd/MM/yyyy");
                 tipoPermiso.Text = retornarTipoPermiso(item.idTipoPermiso);
                 rutSolicitante.Text = item.rutSolicitante.ToString();
-                rutAutorizador.Text = item.rutAutorizante.ToString();
+                if (item.rutAutorizante != null)
+                {
+                    rutAutorizador.Text = item.rutAutorizante.ToString();
+                }
+                
                 estado.Text = retornarEstado(item.idEstado);
 
                 tableRow.Cells.Add(idSolicitud);
