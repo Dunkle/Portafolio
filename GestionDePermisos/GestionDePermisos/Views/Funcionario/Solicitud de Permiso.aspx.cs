@@ -85,8 +85,8 @@ namespace GestionDePermisos.Views.Funcionario
             newSolicitud.idTipoPermiso = Convert.ToInt32(cmbTipoPermiso.SelectedItem.Value);
             newSolicitud.descripcion = txtDetalleSolicitud.Text;
             newSolicitud.fechaSolicitud = DateTime.Today;
-            newSolicitud.fechaInicio = DateTime.ParseExact(txtDate1.Text, "dd/mm/yyyy", CultureInfo.InvariantCulture);
-            newSolicitud.fechaTermino = DateTime.ParseExact(txtDate2.Text, "dd/mm/yyyy", CultureInfo.InvariantCulture);
+            newSolicitud.fechaInicio = Convert.ToDateTime(txtDate1.Text,CultureInfo.CurrentCulture);
+            newSolicitud.fechaTermino = Convert.ToDateTime(txtDate2.Text, CultureInfo.InvariantCulture);
             newSolicitud.idEstado = 4;
             newSolicitud.rutAutorizante = "";
             newSolicitud.rutSolicitante = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(cuenta));
