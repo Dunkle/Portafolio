@@ -33,7 +33,7 @@
                         <br />
                         <div class="table-responsive">
                             <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
-                                <asp:TableRow TableSection="TableHeader">                                    
+                                <asp:TableRow TableSection="TableHeader">
                                     <asp:TableHeaderCell>Codigo Documento</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Fecha Solicitud</asp:TableHeaderCell>
@@ -94,7 +94,7 @@
                                 <td id="estadoSolicitud"></td>
                             </tr>
                         </table>
-                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">                                                                                                                                           
+                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">
                         </asp:Table>
                     </div>
                     <%--<a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>--%>
@@ -102,24 +102,19 @@
             </div>
         </div>
     </div>
-    
-    <script type="text/javascript">
-        $(function () {
-            $("table tr").click(function (e) {
-                
-                $(this).each(function (index, element) {
-                    document.getElementById("codSolicitud").innerText = $(element).find("td").eq(0).html();
-                    document.getElementById("rutSolicitante").innerText = $(element).find("td").eq(7).html();
-                    document.getElementById("nombreSolicitante").innerText = $(element).find("td").eq(10).html();
-                    document.getElementById("fechaSolicitud").innerText = $(element).find("td").eq(2).html();
-                    document.getElementById("tipoSolicitud").innerText = $(element).find("td").eq(5).html();
-                    document.getElementById("motivoSolicitud").innerText = $(element).find("td").eq(6).html();
-                    document.getElementById("autorizadorSolicitud").innerText = $(element).find("td").eq(8).html();
-                    document.getElementById("estadoSolicitud").innerText = $(element).find("td").eq(9).html();
-                })
-                $('#mostrarmodal').modal('show');                
 
-            });
-        });
+    <script type="text/javascript">
+        function modalTabla(id) {                        
+            var fila = document.getElementById(id);
+            document.getElementById("codSolicitud").innerText = fila.children[0].innerHTML;
+            document.getElementById("rutSolicitante").innerText = fila.children[7].innerHTML;
+            document.getElementById("nombreSolicitante").innerText = fila.children[10].innerHTML;
+            document.getElementById("fechaSolicitud").innerText = fila.children[2].innerHTML;
+            document.getElementById("tipoSolicitud").innerText = fila.children[5].innerHTML;
+            document.getElementById("motivoSolicitud").innerText = fila.children[6].innerHTML;
+            document.getElementById("autorizadorSolicitud").innerText = fila.children[8].innerHTML;
+            document.getElementById("estadoSolicitud").innerText = fila.children[9].innerHTML;
+            $('#mostrarmodal').modal('show');
+        };
     </script>
 </asp:Content>

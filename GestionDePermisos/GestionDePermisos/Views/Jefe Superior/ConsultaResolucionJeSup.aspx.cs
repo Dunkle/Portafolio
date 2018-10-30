@@ -59,4 +59,3 @@ namespace GestionDePermisos.Views.Jefe_Superior
         }
     }
 }
-}

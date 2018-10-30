@@ -94,6 +94,8 @@ namespace GestionDePermisos.Views.Funcionario
                 motivo.Text = retornarMotivo(item.idMotivo);
                 nombre.Text = retornarNombreByRut(item.rutSolicitante);
                 nombre.Attributes.Add("hidden", "true");
+                tableRow.ID = item.idSolicitud.ToString();
+                tableRow.Attributes.Add("onClick", "modalTabla(this.id)");
 
                 tableRow.Cells.Add(codigoDocumento);
                 tableRow.Cells.Add(descripcion);
