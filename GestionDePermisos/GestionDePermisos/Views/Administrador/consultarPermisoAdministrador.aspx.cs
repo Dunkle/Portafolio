@@ -12,7 +12,6 @@ namespace GestionDePermisos.Views.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnConsulta_Click(object sender, EventArgs e)
@@ -24,19 +23,20 @@ namespace GestionDePermisos.Views.Administrador
                 error.Attributes.Add("hidden", "true");
                 cargarTabla(rut);
             }
-            else {
+            else
+            {
                 error.Attributes.Remove("hidden");
             }
         }
-        private void cargarTabla(string rut) {
-            
+        private void cargarTabla(string rut)
+        {
+
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
-            
+
 
             foreach (var item in negocioSolicitud.listadoFiltradoByID(rut))
             {
                 TableRow tableRow = new TableRow();
-                TableCell idSolicitud = new TableCell();
                 TableCell codigoDocumento = new TableCell();
                 TableCell descripcion = new TableCell();
                 TableCell fechaSolicitud = new TableCell();
@@ -46,8 +46,9 @@ namespace GestionDePermisos.Views.Administrador
                 TableCell rutAutorizador = new TableCell();
                 TableCell rutSolicitante = new TableCell();
                 TableCell estado = new TableCell();
+                TableCell motivo = new TableCell();
+                TableCell nombre = new TableCell();
                 tablaEstadoPermisos.Rows.Add(tableRow);
-                idSolicitud.Text = item.idSolicitud.ToString();
                 codigoDocumento.Text = item.codigoDocumento;
                 descripcion.Text = item.descripcion;
                 fechaSolicitud.Text = item.fechaSolicitud.ToString("dd/MM/yyyy");
@@ -64,17 +65,21 @@ namespace GestionDePermisos.Views.Administrador
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
                 estado.Text = retornarEstado(item.idEstado);
+                motivo.Text = retornarMotivo(item.idMotivo);
+                nombre.Text = retornarNombreByRut(item.rutSolicitante);
+                nombre.Attributes.Add("hidden", "true");
 
-                tableRow.Cells.Add(idSolicitud);
                 tableRow.Cells.Add(codigoDocumento);
                 tableRow.Cells.Add(descripcion);
                 tableRow.Cells.Add(fechaSolicitud);
                 tableRow.Cells.Add(fechaInicio);
                 tableRow.Cells.Add(fechaTermino);
                 tableRow.Cells.Add(tipoPermiso);
+                tableRow.Cells.Add(motivo);
                 tableRow.Cells.Add(rutSolicitante);
                 tableRow.Cells.Add(rutAutorizador);
                 tableRow.Cells.Add(estado);
+                tableRow.Cells.Add(nombre);
             }
 
             this.containerTabla.Attributes.Remove("hidden");
@@ -95,8 +100,29 @@ namespace GestionDePermisos.Views.Administrador
             NegocioTipoPermiso negocioTipoPermiso = new NegocioTipoPermiso();
             return negocioTipoPermiso.nameByID(id);
         }
-        private void cargarMensaje() {
+        private void cargarMensaje()
+        {
             error.Attributes.Remove("hidden");
+        }
+        protected void modal()
+        {
+            string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
+
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+        }
+        private string retornarMotivo(int id)
+        {
+            NegocioMotivo negocio = new NegocioMotivo();
+            return negocio.nameByID(id);
+        }
+        private string retornarNombreByRut(string rut)
+        {
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            return negocioEmpleado.retornarNombreByRut(rut);
         }
     }
 }

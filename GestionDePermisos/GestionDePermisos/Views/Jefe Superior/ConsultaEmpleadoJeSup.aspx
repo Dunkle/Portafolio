@@ -33,8 +33,7 @@
                     <br />                    
                     <div class="table-responsive">
                         <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
-                            <asp:TableRow TableSection="TableHeader">
-                                <asp:TableHeaderCell>ID Solicitud</asp:TableHeaderCell>
+                            <asp:TableRow TableSection="TableHeader">                                
                                 <asp:TableHeaderCell>Codigo Documento</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Fecha Solicitud</asp:TableHeaderCell>
@@ -52,5 +51,75 @@
             </div>
         </div>
     </div>
+     <div class="modal fade screen" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive printable">
+                        <table class="table table-bordred table-striped">
+                            <tr>
+                                <td>Cod Solicitud:</td>
+                                <td id="codSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Rut Solicitante:</td>
+                                <td id="rutSolicitante"></td>
+                            </tr>
+                            <tr>
+                                <td>Nombre Solicitante:</td>
+                                <td id="nombreSolicitante"></td>
+                            </tr>
+                            <tr>
+                                <td>Fecha Solicitud:</td>
+                                <td id="fechaSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Tipo Solicitud:</td>
+                                <td id="tipoSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Motivo Solicitud</td>
+                                <td id="motivoSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Autorizador Solicitud</td>
+                                <td id="autorizadorSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Estado Solicitud</td>
+                                <td id="estadoSolicitud"></td>
+                            </tr>
+                        </table>
+                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">                                                                                                                                           
+                        </asp:Table>
+                    </div>
+                    <%--<a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>--%>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        $(function () {
+            $("table tr").click(function (e) {
+                
+                $(this).each(function (index, element) {
+                    document.getElementById("codSolicitud").innerText = $(element).find("td").eq(0).html();
+                    document.getElementById("rutSolicitante").innerText = $(element).find("td").eq(7).html();
+                    document.getElementById("nombreSolicitante").innerText = $(element).find("td").eq(10).html();
+                    document.getElementById("fechaSolicitud").innerText = $(element).find("td").eq(2).html();
+                    document.getElementById("tipoSolicitud").innerText = $(element).find("td").eq(5).html();
+                    document.getElementById("motivoSolicitud").innerText = $(element).find("td").eq(6).html();
+                    document.getElementById("autorizadorSolicitud").innerText = $(element).find("td").eq(8).html();
+                    document.getElementById("estadoSolicitud").innerText = $(element).find("td").eq(9).html();
+                })
+                $('#mostrarmodal').modal('show');                
+
+            });
+        });
+    </script>
 
 </asp:Content>

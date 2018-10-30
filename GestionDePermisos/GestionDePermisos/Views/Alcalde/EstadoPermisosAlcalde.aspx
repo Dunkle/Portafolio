@@ -33,18 +33,17 @@
                         <br />
                         <div class="table-responsive">
                             <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
-                                <asp:TableRow TableSection="TableHeader">
-                                    <asp:TableHeaderCell>ID Solicitud</asp:TableHeaderCell>
+                                <asp:TableRow TableSection="TableHeader">                                    
                                     <asp:TableHeaderCell>Codigo Documento</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Fecha Solicitud</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Fecha Inicio</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Fecha Termino</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Tipo Permiso</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>Motivo</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Rut Solicitante</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Rut Autorizador</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Estado</asp:TableHeaderCell>
-                                    <asp:TableHeaderCell><em class="fa fa-cog"></em></asp:TableHeaderCell>
                                 </asp:TableRow>
                             </asp:Table>
                         </div>
@@ -53,28 +52,74 @@
             </div>
         </div>
     </form>
-    <div class="modal fade screen" id="modalerror" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal fade screen" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
                 </div>
                 <div class="modal-body">
-
-                    <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
-                        <span class="swal2-x-mark">
-                            <span class="swal2-x-mark-line-left"></span>
-                            <span class="swal2-x-mark-line-right"></span>
-                        </span>
+                    <div class="table-responsive printable">
+                        <table class="table table-bordred table-striped">
+                            <tr>
+                                <td>Cod Solicitud:</td>
+                                <td id="codSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Rut Solicitante:</td>
+                                <td id="rutSolicitante"></td>
+                            </tr>
+                            <tr>
+                                <td>Nombre Solicitante:</td>
+                                <td id="nombreSolicitante"></td>
+                            </tr>
+                            <tr>
+                                <td>Fecha Solicitud:</td>
+                                <td id="fechaSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Tipo Solicitud:</td>
+                                <td id="tipoSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Motivo Solicitud</td>
+                                <td id="motivoSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Autorizador Solicitud</td>
+                                <td id="autorizadorSolicitud"></td>
+                            </tr>
+                            <tr>
+                                <td>Estado Solicitud</td>
+                                <td id="estadoSolicitud"></td>
+                            </tr>
+                        </table>
+                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">                                                                                                                                           
+                        </asp:Table>
                     </div>
-                    <h1 style="text-align: center">Ups!</h1>
-                    <p style="text-align: center">No se ha encontrado este documento</p>
+                    <%--<a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>--%>
                 </div>
             </div>
         </div>
     </div>
+    
     <script type="text/javascript">
-        function TableClick() {
-        }
+        $(function () {
+            $("table tr").click(function (e) {
+                
+                $(this).each(function (index, element) {
+                    document.getElementById("codSolicitud").innerText = $(element).find("td").eq(0).html();
+                    document.getElementById("rutSolicitante").innerText = $(element).find("td").eq(7).html();
+                    document.getElementById("nombreSolicitante").innerText = $(element).find("td").eq(10).html();
+                    document.getElementById("fechaSolicitud").innerText = $(element).find("td").eq(2).html();
+                    document.getElementById("tipoSolicitud").innerText = $(element).find("td").eq(5).html();
+                    document.getElementById("motivoSolicitud").innerText = $(element).find("td").eq(6).html();
+                    document.getElementById("autorizadorSolicitud").innerText = $(element).find("td").eq(8).html();
+                    document.getElementById("estadoSolicitud").innerText = $(element).find("td").eq(9).html();
+                })
+                $('#mostrarmodal').modal('show');                
+
+            });
+        });
     </script>
 </asp:Content>

@@ -63,7 +63,6 @@ namespace GestionDePermisos.Views.Funcionario
             foreach (var item in negocioSolicitud.listadoFiltradoByID(rut))
             {
                 TableRow tableRow = new TableRow();
-                TableCell idSolicitud = new TableCell();
                 TableCell codigoDocumento = new TableCell();
                 TableCell descripcion = new TableCell();
                 TableCell fechaSolicitud = new TableCell();
@@ -73,8 +72,9 @@ namespace GestionDePermisos.Views.Funcionario
                 TableCell rutAutorizador = new TableCell();
                 TableCell rutSolicitante = new TableCell();
                 TableCell estado = new TableCell();
+                TableCell motivo = new TableCell();
+                TableCell nombre = new TableCell();
                 tablaEstadoPermisos.Rows.Add(tableRow);
-                idSolicitud.Text = item.idSolicitud.ToString();
                 codigoDocumento.Text = item.codigoDocumento;
                 descripcion.Text = item.descripcion;
                 fechaSolicitud.Text = item.fechaSolicitud.ToString("dd/MM/yyyy");
@@ -91,23 +91,36 @@ namespace GestionDePermisos.Views.Funcionario
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
                 estado.Text = retornarEstado(item.idEstado);
+                motivo.Text = retornarMotivo(item.idMotivo);
+                nombre.Text = retornarNombreByRut(item.rutSolicitante);
+                nombre.Attributes.Add("hidden", "true");
 
-                tableRow.Cells.Add(idSolicitud);
                 tableRow.Cells.Add(codigoDocumento);
                 tableRow.Cells.Add(descripcion);
                 tableRow.Cells.Add(fechaSolicitud);
                 tableRow.Cells.Add(fechaInicio);
                 tableRow.Cells.Add(fechaTermino);
                 tableRow.Cells.Add(tipoPermiso);
+                tableRow.Cells.Add(motivo);
                 tableRow.Cells.Add(rutSolicitante);
                 tableRow.Cells.Add(rutAutorizador);
                 tableRow.Cells.Add(estado);
-
+                tableRow.Cells.Add(nombre);
             }
         }
         private void cargarDialogo()
         {
             this.errorBuscaSolicitud.Attributes.Remove("hidden");
+        }
+        private string retornarMotivo(int id)
+        {
+            NegocioMotivo negocio = new NegocioMotivo();
+            return negocio.nameByID(id);
+        }
+        private string retornarNombreByRut(string rut)
+        {
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            return negocioEmpleado.retornarNombreByRut(rut);
         }
     }
 }

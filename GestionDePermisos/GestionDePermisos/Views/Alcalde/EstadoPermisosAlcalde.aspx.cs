@@ -11,8 +11,7 @@ namespace GestionDePermisos.Views.Alcalde
     public partial class EstadoPermisosAlcalde : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            tablaEstadoPermisos.Attributes["OnClick"] = "TableClick()";
+        {            
         }
 
         protected void btnConsulta_Click(object sender, EventArgs e)
@@ -37,8 +36,7 @@ namespace GestionDePermisos.Views.Alcalde
 
             foreach (var item in negocioSolicitud.listadoFiltradoByID(rut))
             {
-                TableRow tableRow = new TableRow();
-                TableCell idSolicitud = new TableCell();
+                TableRow tableRow = new TableRow();                
                 TableCell codigoDocumento = new TableCell();
                 TableCell descripcion = new TableCell();
                 TableCell fechaSolicitud = new TableCell();
@@ -48,10 +46,9 @@ namespace GestionDePermisos.Views.Alcalde
                 TableCell rutAutorizador = new TableCell();
                 TableCell rutSolicitante = new TableCell();
                 TableCell estado = new TableCell();
-                TableCell accion = new TableCell();
-                Button button = new Button();
+                TableCell motivo = new TableCell();
+                TableCell nombre = new TableCell();
                 tablaEstadoPermisos.Rows.Add(tableRow);
-                idSolicitud.Text = item.idSolicitud.ToString();
                 codigoDocumento.Text = item.codigoDocumento;
                 descripcion.Text = item.descripcion;
                 fechaSolicitud.Text = item.fechaSolicitud.ToString("dd/MM/yyyy");
@@ -68,24 +65,21 @@ namespace GestionDePermisos.Views.Alcalde
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
                 estado.Text = retornarEstado(item.idEstado);
-                button.ID = idSolicitud.Text;                
-                button.Attributes.Add("Data-toggle","modal");
-                button.Attributes.Add("data-target", "modalCarga");
-                button.Text = "a";
-                accion.Controls.Add(button);
-                accion.Text = "<em class='fa fa-search-plus'></em>";
-
-                tableRow.Cells.Add(idSolicitud);
+                motivo.Text = retornarMotivo(item.idMotivo);
+                nombre.Text = retornarNombreByRut(item.rutSolicitante);
+                nombre.Attributes.Add("hidden","true");
+                
                 tableRow.Cells.Add(codigoDocumento);
                 tableRow.Cells.Add(descripcion);
                 tableRow.Cells.Add(fechaSolicitud);
                 tableRow.Cells.Add(fechaInicio);
                 tableRow.Cells.Add(fechaTermino);
                 tableRow.Cells.Add(tipoPermiso);
+                tableRow.Cells.Add(motivo);
                 tableRow.Cells.Add(rutSolicitante);
                 tableRow.Cells.Add(rutAutorizador);
                 tableRow.Cells.Add(estado);
-                tableRow.Cells.Add(accion);
+                tableRow.Cells.Add(nombre);
             }
 
             this.containerTabla.Attributes.Remove("hidden");
@@ -110,7 +104,7 @@ namespace GestionDePermisos.Views.Alcalde
         {
             error.Attributes.Remove("hidden");
         }
-        protected void TableClick()
+        protected void modal()
         {
             string script = @"<script type='text/javascript'>
                        $(document).ready(function () {
@@ -119,6 +113,14 @@ namespace GestionDePermisos.Views.Alcalde
                   </script>";
 
             ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);            
+        }
+        private string retornarMotivo(int id) {
+            NegocioMotivo negocio = new NegocioMotivo();
+            return negocio.nameByID(id);
+        }
+        private string retornarNombreByRut(string rut) {
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            return negocioEmpleado.retornarNombreByRut(rut);
         }
     }
 }

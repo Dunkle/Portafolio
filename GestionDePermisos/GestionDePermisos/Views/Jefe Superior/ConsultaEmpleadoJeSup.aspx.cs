@@ -12,7 +12,6 @@ namespace GestionDePermisos.Views.Jefe_Superior
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            tablaEstadoPermisos.Attributes["OnClick"] = "TableClick()";
         }
 
         protected void btnConsulta_Click(object sender, EventArgs e)
@@ -38,7 +37,6 @@ namespace GestionDePermisos.Views.Jefe_Superior
             foreach (var item in negocioSolicitud.listadoFiltradoByID(rut))
             {
                 TableRow tableRow = new TableRow();
-                TableCell idSolicitud = new TableCell();
                 TableCell codigoDocumento = new TableCell();
                 TableCell descripcion = new TableCell();
                 TableCell fechaSolicitud = new TableCell();
@@ -48,9 +46,9 @@ namespace GestionDePermisos.Views.Jefe_Superior
                 TableCell rutAutorizador = new TableCell();
                 TableCell rutSolicitante = new TableCell();
                 TableCell estado = new TableCell();
-                TableCell accion = new TableCell();
+                TableCell motivo = new TableCell();
+                TableCell nombre = new TableCell();
                 tablaEstadoPermisos.Rows.Add(tableRow);
-                idSolicitud.Text = item.idSolicitud.ToString();
                 codigoDocumento.Text = item.codigoDocumento;
                 descripcion.Text = item.descripcion;
                 fechaSolicitud.Text = item.fechaSolicitud.ToString("dd/MM/yyyy");
@@ -67,20 +65,21 @@ namespace GestionDePermisos.Views.Jefe_Superior
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
                 estado.Text = retornarEstado(item.idEstado);
-                accion.Text = "<asp:Button CssClass='btn btn-danger' runat='server' name='btnAccion' ID='" + idSolicitud.Text + "' OnClick='TableClick ' /><em class='fa fa-search-plus'></em>";
+                motivo.Text = retornarMotivo(item.idMotivo);
+                nombre.Text = retornarNombreByRut(item.rutSolicitante);
+                nombre.Attributes.Add("hidden", "true");
 
-
-                tableRow.Cells.Add(idSolicitud);
                 tableRow.Cells.Add(codigoDocumento);
                 tableRow.Cells.Add(descripcion);
                 tableRow.Cells.Add(fechaSolicitud);
                 tableRow.Cells.Add(fechaInicio);
                 tableRow.Cells.Add(fechaTermino);
                 tableRow.Cells.Add(tipoPermiso);
+                tableRow.Cells.Add(motivo);
                 tableRow.Cells.Add(rutSolicitante);
                 tableRow.Cells.Add(rutAutorizador);
                 tableRow.Cells.Add(estado);
-                tableRow.Cells.Add(accion);
+                tableRow.Cells.Add(nombre);
             }
 
             this.containerTabla.Attributes.Remove("hidden");
@@ -105,19 +104,25 @@ namespace GestionDePermisos.Views.Jefe_Superior
         {
             error.Attributes.Remove("hidden");
         }
-        protected void TableClick(object sender, EventArgs e)
+        protected void modal()
         {
-            int id = 0;
-            foreach (TableRow item in tablaEstadoPermisos.Rows)
-            {
-                foreach (TableCell cell in item.Cells)
-                {
-                    Button btn = (Button)cell.FindControl("btnAccion");
-                    id = Convert.ToInt32(btn.ID);
-                }
-            }
-            string message = id.ToString();
-            string script = "alert(\"" + message + "\");";
+            string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
+
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+        }
+        private string retornarMotivo(int id)
+        {
+            NegocioMotivo negocio = new NegocioMotivo();
+            return negocio.nameByID(id);
+        }
+        private string retornarNombreByRut(string rut)
+        {
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            return negocioEmpleado.retornarNombreByRut(rut);
         }
     }
 }

@@ -40,6 +40,15 @@ namespace GestionDePermisos.Views.Jefe_Interno {
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
         
         /// <summary>
+        /// Control error.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl error;
+        
+        /// <summary>
         /// Control containerTabla.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace GestionDePermisos.Views.Jefe_Interno {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table tablaEstadoPermisos;
+        
+        /// <summary>
+        /// Control tablaConsultaPermisos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tablaConsultaPermisos;
     }
 }
