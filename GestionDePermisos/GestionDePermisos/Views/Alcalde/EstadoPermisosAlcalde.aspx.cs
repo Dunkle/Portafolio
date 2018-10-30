@@ -49,6 +49,7 @@ namespace GestionDePermisos.Views.Alcalde
                 TableCell rutSolicitante = new TableCell();
                 TableCell estado = new TableCell();
                 TableCell accion = new TableCell();
+                Button button = new Button();
                 tablaEstadoPermisos.Rows.Add(tableRow);
                 idSolicitud.Text = item.idSolicitud.ToString();
                 codigoDocumento.Text = item.codigoDocumento;
@@ -67,8 +68,12 @@ namespace GestionDePermisos.Views.Alcalde
                     rutAutorizador.Text = item.rutAutorizante.ToString();
                 }
                 estado.Text = retornarEstado(item.idEstado);
-                accion.Text = "<asp:Button CssClass='btn btn-danger' runat='server' name='btnAccion' ID='"+idSolicitud.Text+ "' OnClick='TableClick ' /><em class='fa fa-search-plus'></em>";                
-                
+                button.ID = idSolicitud.Text;                
+                button.Attributes.Add("Data-toggle","modal");
+                button.Attributes.Add("data-target", "modalCarga");
+                button.Text = "a";
+                accion.Controls.Add(button);
+                accion.Text = "<em class='fa fa-search-plus'></em>";
 
                 tableRow.Cells.Add(idSolicitud);
                 tableRow.Cells.Add(codigoDocumento);
@@ -105,19 +110,15 @@ namespace GestionDePermisos.Views.Alcalde
         {
             error.Attributes.Remove("hidden");
         }
-        protected void TableClick(object sender, EventArgs e)
+        protected void TableClick()
         {
-            int id = 0;
-            foreach (TableRow item in tablaEstadoPermisos.Rows)
-            {
-                foreach (TableCell cell in item.Cells)
-                {
-                    Button btn = (Button)cell.FindControl("btnAccion");
-                    id = Convert.ToInt32(btn.ID);
-                }
-            }
-            string message = id.ToString();
-            string script = "alert(\""+message+"\");";            
+            string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
+
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);            
         }
     }
 }

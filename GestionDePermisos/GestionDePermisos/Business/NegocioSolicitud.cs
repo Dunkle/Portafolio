@@ -92,5 +92,22 @@ namespace GestionDePermisos.Business
             }
 
         }
+        public IList<ControllerSolicitud> listadoFiltradoByEstado(int estado)
+        {
+            ControllerSolicitud solicitud = new ControllerSolicitud();
+            IList<ControllerSolicitud> lista = new List<ControllerSolicitud>();
+            if (solicitud.readAll())
+            {
+                foreach (var item in solicitud.coleccionSolicitudes)
+                {
+                    if (item.idEstado == estado)
+                    {
+                        lista.Add(item);
+                    }
+                }
+                return lista;
+            }
+            else { return null; }
+        }
     }
 }
