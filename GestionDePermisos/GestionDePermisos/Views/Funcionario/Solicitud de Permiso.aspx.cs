@@ -81,11 +81,12 @@ namespace GestionDePermisos.Views.Funcionario
 
             var codigo = string.Concat(DateTime.Now.ToString("yyyyMMdd"), newSolicitud.idSolicitud);
 
+
             newSolicitud.codigoDocumento = string.Concat(DateTime.Now.ToString("yyyyMMdd"), newSolicitud.idSolicitud);
             newSolicitud.idTipoPermiso = Convert.ToInt32(cmbTipoPermiso.SelectedItem.Value);
             newSolicitud.descripcion = txtDetalleSolicitud.Text;
             newSolicitud.fechaSolicitud = DateTime.Today;
-            newSolicitud.fechaInicio = Convert.ToDateTime(txtDate1.Text,CultureInfo.CurrentCulture);
+            newSolicitud.fechaInicio = Convert.ToDateTime(txtDate1.Text, CultureInfo.InvariantCulture);
             newSolicitud.fechaTermino = Convert.ToDateTime(txtDate2.Text, CultureInfo.InvariantCulture);
             newSolicitud.idEstado = 4;
             newSolicitud.rutAutorizante = "";

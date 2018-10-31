@@ -82,7 +82,7 @@ namespace GestionDePermisos.Views.Funcionario
                 fechaTermino.Text = item.fechaTermino.ToString("dd/MM/yyyy");
                 tipoPermiso.Text = retornarTipoPermiso(item.idTipoPermiso);
                 rutSolicitante.Text = item.rutSolicitante.ToString();
-                if (item.rutAutorizante == null)
+                if (item.rutAutorizante == null || item.rutAutorizante.ToString() == "")
                 {
                     rutAutorizador.Text = "Sin asignar";
                 }

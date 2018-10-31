@@ -66,12 +66,16 @@ namespace GestionDePermisos.Views.Funcionario
             motivoSolicitud.Text = motivo.nameByID(solicitud.idMotivo);
             autorizadorSolicitud.Text = solicitud.rutAutorizante;
             estadoSolicitud.Text = estado.nameByID(solicitud.idEstado);
-
-            if (solicitud.rutAutorizante != null)
+            if (solicitud.rutAutorizante == null || solicitud.rutAutorizante.ToString() == "")
+            {
+                tdAutorizador.Visible = false;
+            }
+            else
             {
                 tdAutorizador.Visible = true;
             }
 
+            
             string script = @"<script type='text/javascript'>
                        $(document).ready(function () {
                             $('#mostrarmodal').modal('show');
