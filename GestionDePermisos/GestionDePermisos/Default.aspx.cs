@@ -18,7 +18,10 @@ namespace GestionDePermisos
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Session.RemoveAll();
+            }
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
