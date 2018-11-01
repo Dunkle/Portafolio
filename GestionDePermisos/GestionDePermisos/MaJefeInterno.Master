@@ -89,15 +89,14 @@
                 <div class="panel panel-warning">
                     <div class="panel-heading" role="tab" id="headingThree">
                         <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Permisos <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Consultas <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
                             </a>
                         </h4>
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="../Jefe Interno/ConsultarPermisosJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>
-                                <a href="../Jefe Interno/ConsultarDocumentoJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Validar Documenno </a>
+                                <a href="../Jefe Interno/ConsultarPermisosJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>                                
                             </div>
                         </div>
                     </div>
@@ -113,6 +112,21 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <a href="../Jefe Interno/ReportePermisosJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Reporte cuantitativo de permisos </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Validar Documento <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive" aria-expanded="false">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="../Jefe Interno/ConsultarDocumentoJeInt.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Buscar Documenno </a>
                             </div>
                         </div>
                     </div>

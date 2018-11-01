@@ -14,11 +14,14 @@ namespace GestionDePermisos.Views.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["admin"] == null)
+            if (!IsPostBack)
             {
-                FormsAuthentication.SignOut();
-                Response.Redirect("../../Default.aspx");
-            }
+                if (Session["admin"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                }
+            }            
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)

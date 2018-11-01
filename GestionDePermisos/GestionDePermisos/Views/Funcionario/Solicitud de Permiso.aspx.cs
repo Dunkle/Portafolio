@@ -15,21 +15,12 @@ namespace GestionDePermisos.Views.Funcionario
     public partial class Solicitud_de_Permiso : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-            if (Session["funcionario"] == null)
-            {
-                FormsAuthentication.SignOut();
-                Response.Redirect("../../Default.aspx");
-            }
-
+        {      
             string script = @"<script type='text/javascript'>
                        $(document).ready(function () {
                             $('#mostrarmodal').modal('show'); 
                         });
-                  </script>";
-            
-
+                  </script>";            
             if (!IsPostBack)
             {
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
@@ -42,6 +33,11 @@ namespace GestionDePermisos.Views.Funcionario
                     {
                         cmbTipoPermiso.Items.Add(new ListItem() { Value = tmp.idTipoPermiso.ToString(), Text = tmp.nombreTipoPermiso });
                     }
+                }
+                if (Session["funcionario"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
                 }
             }
             else

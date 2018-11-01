@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Business;
@@ -12,6 +13,14 @@ namespace GestionDePermisos.Views.Administrador
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["admin"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                }
+            }
         }
 
         protected void btnConsulta_Click(object sender, EventArgs e)
@@ -27,6 +36,7 @@ namespace GestionDePermisos.Views.Administrador
             {
                 error.Attributes.Remove("hidden");
             }
+
         }
         private void cargarTabla(string rut)
         {

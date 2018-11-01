@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Business;
@@ -14,6 +15,11 @@ namespace GestionDePermisos.Views.Jefe_Superior
         {
             if (!IsPostBack)
             {
+                if (Session["jefeSuperior"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                }
                 NegocioUnidad negocioUnidad = new NegocioUnidad();
                 cmbUnidad.Items.Add(new ListItem { Value ="0", Text="- Seleccione -"});
                 cmbAño.Items.Add(new ListItem { Value = "0", Text = "- Seleccione -" });

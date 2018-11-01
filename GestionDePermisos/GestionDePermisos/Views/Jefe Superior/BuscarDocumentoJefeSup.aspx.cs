@@ -15,10 +15,13 @@ namespace GestionDePermisos.Views.Jefe_Superior
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["JefeSuperior"] == null)
+            if (!IsPostBack)
             {
-                FormsAuthentication.SignOut();
-                Response.Redirect("../../Default.aspx");
+                if (Session["jefeSuperior"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                }
             }
         }
 

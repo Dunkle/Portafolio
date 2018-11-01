@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -25,6 +26,11 @@ namespace GestionDePermisos.Views.Alcalde
                 {
                     int año = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
                     cmbAño.Items.Add(new ListItem { Value = (año - i).ToString(), Text = (año - i).ToString() });
+                }
+                if (Session["alcalde"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
                 }
             }
         }

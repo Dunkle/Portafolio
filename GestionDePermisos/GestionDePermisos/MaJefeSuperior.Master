@@ -82,8 +82,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <a href="../Jefe Superior/ConsultaEmpleadoJeSup.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Empleado </a>
-                                <a href="../Jefe Superior/ConsultaResolucionJeSup.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Resolucion </a>
-                                <a href="../Jefe Superior/ConsultarUnidadInternaJeSup.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Unidad Interna </a>
+                                <a href="../Jefe Superior/ConsultaResolucionJeSup.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Resolucion </a>                                
                             </div>
                         </div>
                     </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,7 +17,12 @@ namespace GestionDePermisos
                 if (Session["usuario"]!=null)
                 {
                     lblAlcalde.Text = Session["usuario"].ToString();
-                }                
+                }
+                if (Session["alcalde"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                }
             }
         }
     }

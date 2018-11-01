@@ -15,10 +15,13 @@ namespace GestionDePermisos.Views.Funcionario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["funcionario"] == null)
+            if (!IsPostBack)
             {
-                FormsAuthentication.SignOut();
-                Response.Redirect("../../Default.aspx");
+                if (Session["funcionario"] == null)
+                {
+                    FormsAuthentication.SignOut();
+                    Response.Redirect("../../Default.aspx");
+                }
             }
 
 

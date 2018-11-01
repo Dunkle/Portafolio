@@ -15,7 +15,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
         {
             if (!IsPostBack)
             {
-                if (Session["JefeInterno"] == null)
+                if (Session["jefeInterno"] == null)
                 {
                     FormsAuthentication.SignOut();
                     Response.Redirect("../../Default.aspx");

@@ -204,9 +204,8 @@
     <Content Include="Views\Administrador\InicioAdmin.aspx">
       <BrowseToURL>../Views/Administrador/InicioAdmin</BrowseToURL>
     </Content>
-    <Content Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx" />
     <Content Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx" />
-    <Content Include="Views\Alcalde\EstadoPermisosAlcalde.aspx">
+    <Content Include="Views\Alcalde\ConsultaPermisosAlcalde.aspx">
       <BrowseToURL>../Views/Alcalde/EstadoPermisosAlcalde</BrowseToURL>
     </Content>
     <Content Include="Views\Alcalde\InicioAlcalde.aspx" />
@@ -231,7 +230,6 @@
     <Content Include="Views\Jefe Superior\BuscarDocumentoJefeSup.aspx" />
     <Content Include="Views\Jefe Superior\ConsultaEmpleadoJeSup.aspx" />
     <Content Include="Views\Jefe Superior\ConsultaResolucionJeSup.aspx" />
-    <Content Include="Views\Jefe Superior\ConsultarUnidadInternaJeSup.aspx" />
     <Content Include="Views\Jefe Superior\GenerarResolucionJeSup.aspx" />
     <Content Include="Views\Jefe Superior\InicioJefeSuperior.aspx" />
     <Content Include="Web.config">
@@ -405,13 +403,6 @@
     <Compile Include="Views\Administrador\InicioAdmin.aspx.designer.cs">
       <DependentUpon>InicioAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx.cs">
-      <DependentUpon>ConsultarPermisosAlcalde.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Alcalde\ConsultarPermisosAlcalde.aspx.designer.cs">
-      <DependentUpon>ConsultarPermisosAlcalde.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx.cs">
       <DependentUpon>ConsultarResolucionAlcalde.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -419,12 +410,12 @@
     <Compile Include="Views\Alcalde\ConsultarResolucionAlcalde.aspx.designer.cs">
       <DependentUpon>ConsultarResolucionAlcalde.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Alcalde\EstadoPermisosAlcalde.aspx.cs">
-      <DependentUpon>EstadoPermisosAlcalde.aspx</DependentUpon>
+    <Compile Include="Views\Alcalde\ConsultaPermisosAlcalde.aspx.cs">
+      <DependentUpon>ConsultaPermisosAlcalde.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Alcalde\EstadoPermisosAlcalde.aspx.designer.cs">
-      <DependentUpon>EstadoPermisosAlcalde.aspx</DependentUpon>
+    <Compile Include="Views\Alcalde\ConsultaPermisosAlcalde.aspx.designer.cs">
+      <DependentUpon>ConsultaPermisosAlcalde.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Alcalde\InicioAlcalde.aspx.cs">
       <DependentUpon>InicioAlcalde.aspx</DependentUpon>
@@ -537,13 +528,6 @@
     </Compile>
     <Compile Include="Views\Jefe Superior\ConsultaResolucionJeSup.aspx.designer.cs">
       <DependentUpon>ConsultaResolucionJeSup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Jefe Superior\ConsultarUnidadInternaJeSup.aspx.cs">
-      <DependentUpon>ConsultarUnidadInternaJeSup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Jefe Superior\ConsultarUnidadInternaJeSup.aspx.designer.cs">
-      <DependentUpon>ConsultarUnidadInternaJeSup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Jefe Superior\GenerarResolucionJeSup.aspx.cs">
       <DependentUpon>GenerarResolucionJeSup.aspx</DependentUpon>
