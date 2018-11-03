@@ -159,8 +159,8 @@
     <Content Include="Content\util.css" />
     <Content Include="Data\PermisosDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PermisosDB.edmx</DependentUpon>
       <LastGenOutput>PermisosDB.Context.cs</LastGenOutput>
+      <DependentUpon>PermisosDB.edmx</DependentUpon>
     </Content>
     <Content Include="Data\PermisosDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -181,6 +181,13 @@
     <Content Include="Scripts\images\icons\faviconMunicipal.ico" />
     <Content Include="Scripts\images\img-01.png" />
     <Content Include="Scripts\images\login_portafolio.jpg" />
+    <EntityDeploy Include="Data\PermisosDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PermisosDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\PermisosDB.edmx.diagram">
+      <DependentUpon>PermisosDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -558,13 +565,6 @@
     <Content Include="fonts\Poppins-Medium.ttf" />
     <Content Include="fonts\Poppins-Bold.ttf" />
     <Content Include="fonts\Poppins-Regular.ttf" />
-    <EntityDeploy Include="Data\PermisosDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PermisosDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Data\PermisosDB.edmx.diagram">
-      <DependentUpon>PermisosDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
