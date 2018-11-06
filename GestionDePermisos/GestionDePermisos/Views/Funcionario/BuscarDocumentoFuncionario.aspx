@@ -8,7 +8,9 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script>
+
         function pruebaDivAPdf() {
+            
             var pdf = new jsPDF('1', 'pt', 'a4');
             source = $('#imprimir')[0];
 
@@ -28,7 +30,6 @@
                 var doc = new jsPDF();
                 doc.addImage(img, 'png', 10, 50);
             });
-
             pdf.fromHTML(
                 source,
                 margins.left, // x coord
@@ -36,9 +37,9 @@
                     'width': margins.width,
                     'elementHandlers': specialElementHandlers
                 },
-
+                
                 function (dispose) {
-                    pdf.save('Prueba.pdf');
+                    pdf.save($('#<%=nombreSolicitante.ClientID%>').text() +'_' + $('#<%=codSolicitud.ClientID%>').text() + '.pdf');
                 }, margins
             );
         }
@@ -108,7 +109,7 @@
                             </asp:TableRow>
                         </asp:Table>
                     </div>
-                    <a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>
+                    <a style="margin-left: 170px" visible="false" href="javascript:pruebaDivAPdf()" class="button" id="btnDescarga" runat="server">Descargar Solicitud en PDF</a>
                 </div>
             </div>
         </div>

@@ -72,10 +72,12 @@ namespace GestionDePermisos.Views.Funcionario
             if (solicitud.rutAutorizante == null || solicitud.rutAutorizante.ToString() == "")
             {
                 tdAutorizador.Visible = false;
+                btnDescarga.Visible = false;
             }
             else
             {
                 tdAutorizador.Visible = true;
+                btnDescarga.Visible = true;
             }
 
             

@@ -11,27 +11,27 @@
     <div class="container" id="containerTabla" runat="server" hidden>
         <div class="panel">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="table-responsive">
-                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
-                            <asp:TableRow TableSection="TableHeader">                                
-                                <asp:TableHeaderCell>Codigo Documento</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Fecha Solicitud</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Fecha Inicio</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Fecha Termino</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Tipo Permiso</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Rut Solicitante</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Rut Autorizador</asp:TableHeaderCell>
-                                <asp:TableHeaderCell>Estado</asp:TableHeaderCell>
-                            </asp:TableRow>
-                        </asp:Table>
-                    </div>
+                <div class="table-responsive">
+                    <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
+                        <asp:TableRow TableSection="TableHeader">
+                            <asp:TableHeaderCell>Codigo Documento</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Fecha Solicitud</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Fecha Inicio</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Fecha Termino</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Tipo Permiso</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Tipo Motivo</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Rut Solicitante</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Rut Autorizador</asp:TableHeaderCell>
+                            <asp:TableHeaderCell>Estado</asp:TableHeaderCell>
+                        </asp:TableRow>
+                    </asp:Table>
                 </div>
             </div>
         </div>
     </div>
-     <div class="modal fade screen" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+
+    <div class="modal fade screen" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -73,7 +73,7 @@
                                 <td id="estadoSolicitud"></td>
                             </tr>
                         </table>
-                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">                                                                                                                                           
+                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">
                         </asp:Table>
                     </div>
                     <%--<a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>--%>
@@ -81,9 +81,9 @@
             </div>
         </div>
     </div>
-    
+
     <script type="text/javascript">
-        function modalTabla(id) {                        
+        function modalTabla(id) {
             var fila = document.getElementById(id);
             document.getElementById("codSolicitud").innerText = fila.children[0].innerHTML;
             document.getElementById("rutSolicitante").innerText = fila.children[7].innerHTML;

@@ -20,10 +20,10 @@
 
 
                 $val1 = $(this).val();
-                if ($val1.length > 3) {
+                if ($val1.length > 3 && $('[id*=cmbTipoPermiso]').val() > 0) {
                     $('#paso1').removeAttr("disabled");
                 }
-                if ($val1.length < 3) {
+                if ($val1.length < 3 && $('[id*=cmbTipoPermiso]').val() > 0) { 
                     $('#paso1').attr("disabled", "disabled");
                 }
 
