@@ -221,7 +221,9 @@
       <BrowseToURL>../Views/Alcalde/ReporteUnidadInternaAlcalde</BrowseToURL>
     </Content>
     <Content Include="Views\Alcalde\ValidarDocumentoAlcalde.aspx" />
-    <Content Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx" />
+    <Content Include="Views\Funcionario\BuscarDocumentoFuncionario.aspx">
+      <BrowseToURL>../Views/Funcionario/BuscarDocumentoFuncionario</BrowseToURL>
+    </Content>
     <Content Include="Views\Funcionario\EstadoPermisosFuncionario.aspx">
       <BrowseToURL>../Views/Funcionario/EstadoPermisosFuncionario</BrowseToURL>
     </Content>

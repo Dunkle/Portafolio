@@ -38,7 +38,7 @@
                 },
 
                 function (dispose) {
-                    pdf.save('Prueba.pdf');
+                    pdf.save($('#<%=nombreSolicitante.ClientID%>').text() +'_' + $('#<%=codSolicitud.ClientID%>').text() + '.pdf');
                 }, margins
             );
         }
@@ -107,7 +107,7 @@
                             </asp:TableRow>
                         </asp:Table>
                     </div>
-                    <a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>
+                    <button style="margin-left: 170px" visible="false"  class="btn btn-success" id="btnDescarga" runat="server" onclick="pruebaDivAPdf()">Descargar Solicitud en PDF</button>
                 </div>
             </div>
         </div>

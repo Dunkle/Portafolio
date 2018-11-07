@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaFuncionario.Master" AutoEventWireup="true" CodeBehind="BuscarDocumentoFuncionario.aspx.cs" Inherits="GestionDePermisos.Views.Funcionario.BuscarDocumentoFuncionario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="../../Scripts/operation.js"></script>
     <link rel="stylesheet" href="../../Content/Permisos.css" />
     <link rel="stylesheet" href="../../Content/estiloValidacionSolicitud.css" />
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
@@ -109,7 +108,7 @@
                             </asp:TableRow>
                         </asp:Table>
                     </div>
-                    <a style="margin-left: 170px" visible="false" href="javascript:pruebaDivAPdf()" class="button" id="btnDescarga" runat="server">Descargar Solicitud en PDF</a>
+                    <button style="margin-left: 170px" visible="false"  class="btn btn-success" id="btnDescarga" runat="server" onclick="pruebaDivAPdf()">Descargar Solicitud en PDF</button>
                 </div>
             </div>
         </div>

@@ -64,9 +64,15 @@ namespace GestionDePermisos.Views.Jefe_Interno
             autorizadorSolicitud.Text = solicitud.rutAutorizante;
             estadoSolicitud.Text = estado.nameByID(solicitud.idEstado);
 
-            if (solicitud.rutAutorizante != null)
+            if (solicitud.rutAutorizante == null || solicitud.rutAutorizante.ToString() == "")
+            {
+                tdAutorizador.Visible = false;
+                btnDescarga.Visible = false;
+            }
+            else
             {
                 tdAutorizador.Visible = true;
+                btnDescarga.Visible = true;
             }
 
             string script = @"<script type='text/javascript'>
