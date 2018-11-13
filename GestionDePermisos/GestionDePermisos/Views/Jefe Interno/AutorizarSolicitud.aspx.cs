@@ -16,6 +16,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
         {
             
             ClientScript.GetPostBackEventReference(this, "");
+
             if (!IsPostBack)
             {
                 if (Session["jefeInterno"] == null)
