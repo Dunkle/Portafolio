@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="container" id="containerTabla" runat="server" hidden>
+                    <div class="container" id="containerTabla" runat="server">
                         <div class="panel">
                             <div class="col-md-12">
                                 <div class="table-responsive">

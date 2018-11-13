@@ -11,6 +11,7 @@ namespace GestionDePermisos.Models
         public string rut { get; set; }
         public string nombreTipoPermiso { get; set; }
         public bool utilizado { get; set; }
+        public string departamento { get; set; }
 
         public Resolucion()
         {
@@ -18,6 +19,7 @@ namespace GestionDePermisos.Models
             rut = string.Empty;
             nombreTipoPermiso = string.Empty;
             utilizado = default(bool);
+            departamento = string.Empty;
         }
     }
 }

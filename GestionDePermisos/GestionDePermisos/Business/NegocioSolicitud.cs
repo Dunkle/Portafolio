@@ -50,24 +50,19 @@ namespace GestionDePermisos.Business
         public bool updateSolicitud(Solicitud solicitud)
         {
             ControllerSolicitud controllerSolicitud = new ControllerSolicitud();
-            Solicitud oldSolicitud = new Solicitud();
-
             controllerSolicitud.readAll();
+            controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f=> f.codigoDocumento == solicitud.codigoDocumento);
+            controllerSolicitud.idEstado = solicitud.idEstado;
+            controllerSolicitud.rutAutorizante = solicitud.rutAutorizante;
 
-            try
+            if (controllerSolicitud.update())
             {
-                controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f => f.codigoDocumento == solicitud.codigoDocumento);
-                controllerSolicitud.idEstado = solicitud.idEstado;
-
-                controllerSolicitud.update();
-
                 return true;
             }
-            catch(Exception e)
+            else
             {
                 return false;
             }
-            
         }
 
         public IList<ControllerSolicitud> listadoFiltradoByID(string rut)
@@ -81,7 +76,7 @@ namespace GestionDePermisos.Business
                     if (item.rutSolicitante == rut)
                     {
                         lista.Add(item);
-                    }                    
+                    }
                 }
                 return lista;
             }
@@ -94,7 +89,7 @@ namespace GestionDePermisos.Business
             controllerSolicitud.readAll();
             try
             {
-                controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f=> f.codigoDocumento == codigo);
+                controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f => f.codigoDocumento == codigo);
                 solicitud.idSolicitud = controllerSolicitud.idSolicitud;
                 solicitud.codigoDocumento = controllerSolicitud.codigoDocumento;
                 solicitud.descripcion = controllerSolicitud.descripcion;
@@ -112,7 +107,7 @@ namespace GestionDePermisos.Business
             catch (Exception e)
             {
 
-                return null ;
+                return null;
             }
 
         }

@@ -22,5 +22,12 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+        public int retornarUnidadByDepartamento(int id)
+        {
+            Departamento departamento = new Departamento();
+            departamento.readAll();
+            departamento = departamento.departamentos.First(f=>f.idDepartamento == id);
+            return departamento.idUnidad;
+        }
     }
 }

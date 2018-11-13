@@ -101,11 +101,12 @@ namespace GestionDePermisos.Business
                         join d in departamentos
                         on e.idDepartamento equals d.idDepartamento
                         where d.idUnidad == unidad && s.idEstado == 3 && s.fechaSolicitud.Year == año && s.fechaSolicitud.Month == mes
-                        group s by new { e.rut, t.nombreTipoPermiso, s.fechaInicio, s.fechaTermino } into r
+                        group s by new { e.rut, t.nombreTipoPermiso, d.nombreDepartamento, s.fechaInicio, s.fechaTermino } into r
                         select new
                         {
                             rut = r.Key.rut,
                             nombrePermiso = r.Key.nombreTipoPermiso,
+                            departamento = r.Key.nombreDepartamento,
                             dias = r.Key.fechaTermino - r.Key.fechaInicio
                         };
             foreach (var item in query)
@@ -114,6 +115,7 @@ namespace GestionDePermisos.Business
                 resolucion.dias = item.dias.Days;
                 resolucion.nombreTipoPermiso = item.nombrePermiso;
                 resolucion.rut = item.rut;
+                resolucion.departamento = item.departamento;
 
                 reportes.Add(resolucion);
             }

@@ -32,14 +32,30 @@ namespace GestionDePermisos.Views.Jefe_Interno
             }
             else
             {
-                string script = @"<script type='text/javascript'>
+                if (string.IsNullOrEmpty(codigo))
+                {
+                    string script = @"<script type='text/javascript'>
                        $(document).ready(function () {
                             $('#modalerror').modal('show');
                         });
                   </script>";
 
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
-                txtCodigoDocumento.Text = "";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                    txtCodigoDocumento.Text = "";
+                    lblError.Text = "Ingrese codigo de documento";
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
+
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                    txtCodigoDocumento.Text = "";
+                    lblError.Text = "No se a encontrado este documento";
+                }
             }
         }
         private void cargarTabla(string codigo)

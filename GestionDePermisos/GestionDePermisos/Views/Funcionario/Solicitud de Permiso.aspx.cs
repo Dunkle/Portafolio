@@ -14,9 +14,10 @@ namespace GestionDePermisos.Views.Funcionario
 {
     public partial class Solicitud_de_Permiso : System.Web.UI.Page
     {
+        string script;
         protected void Page_Load(object sender, EventArgs e)
         {      
-            string script = @"<script type='text/javascript'>
+            script = @"<script type='text/javascript'>
                        $(document).ready(function () {
                             $('#mostrarmodal').modal('show'); 
                         });
@@ -45,7 +46,7 @@ namespace GestionDePermisos.Views.Funcionario
                 
                 if (txtCod.Text == "")
                 {
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                    //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
                     txtCod.Text = "null";
                 }
 
@@ -95,6 +96,7 @@ namespace GestionDePermisos.Views.Funcionario
             }
 
             txtCod.Text = codigo;
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
         }
 
         private void limpiarFormulario()

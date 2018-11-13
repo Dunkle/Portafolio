@@ -73,8 +73,6 @@
                                 <td id="estadoSolicitud"></td>
                             </tr>
                         </table>
-                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">
-                        </asp:Table>
                     </div>
                     <%--<a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>--%>
                 </div>

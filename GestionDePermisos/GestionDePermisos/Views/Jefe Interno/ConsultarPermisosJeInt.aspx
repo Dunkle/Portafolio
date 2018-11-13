@@ -42,6 +42,7 @@
                                 <asp:TableHeaderCell>Fecha Inicio</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Fecha Termino</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Tipo Permiso</asp:TableHeaderCell>
+                                <asp:TableHeaderCell>Motivo</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Rut Solicitante</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Rut Autorizador</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Estado</asp:TableHeaderCell>

@@ -84,7 +84,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="panel">
                 <section>
@@ -142,7 +142,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="control-label" id="comentario">Ingrese comentarios de la solicitud </label>
-                                            <asp:TextBox runat="server" ID="txtDetalleSolicitud" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtDetalleSolicitud" CssClass="form-control" MaxLength="20"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">

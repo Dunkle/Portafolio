@@ -70,6 +70,13 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+        public int retornarDepartamentoByRut(string rut)
+        {
+            Empleado empleado = new Empleado();
+            empleado.readAll();
+            empleado = empleado.empleados.First(f => f.rut == rut);
+            return empleado.idDepartamento;
+        }
     }
 }
 

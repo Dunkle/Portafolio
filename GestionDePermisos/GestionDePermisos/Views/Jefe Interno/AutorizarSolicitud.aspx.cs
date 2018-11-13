@@ -22,10 +22,10 @@ namespace GestionDePermisos.Views.Jefe_Interno
                 if (Session["jefeInterno"] == null)
                 {
                     FormsAuthentication.SignOut();
-                    Response.Redirect("../../Default.aspx");
-                }                
-            }
-            
+                    Response.Redirect("../../Default.aspx");                    
+                }
+                cargarListadoCompleto();
+            }            
             if (Request["__EVENTTARGET"] == "aprobar")
             {
                 aprobarSolicitud();
@@ -92,9 +92,11 @@ namespace GestionDePermisos.Views.Jefe_Interno
 
                 Motivo.Text = negocioMotivo.nameByID(item.idMotivo);
                 estado.Text = retornarEstado(item.idEstado);
-                
-                
-                
+                tableRow.ID = item.codigoDocumento.ToString();
+                tableRow.Attributes.Add("onClick", "modalTabla(this.id)");
+
+
+
                 tableRow.Cells.Add(codigoDocumento);
                 tableRow.Cells.Add(descripcion);
                 tableRow.Cells.Add(nombreSolicitante);
@@ -109,13 +111,6 @@ namespace GestionDePermisos.Views.Jefe_Interno
                 rutAutorizador.Attributes.Add("hidden", "");
                 tableRow.Cells.Add(Motivo);
                 tableRow.Cells.Add(estado);
-                estado.Visible = true;
-                //tableRow.Attributes.Add("runat", "server");
-                //tableRow.Attributes.Add("onClick", "cargarDialogo('"+ item.codigoDocumento +"')");
-                tableRow.Attributes.Add("id", item.codigoDocumento);
-                tableRow.Attributes.Add("runat", "server");
-                tableRow.Attributes.Add("OnClick", "modalTabla('" + item.codigoDocumento + "')");
-
             }
         }
         private void cargarTablaPorEstado(int valor)
@@ -125,7 +120,6 @@ namespace GestionDePermisos.Views.Jefe_Interno
             NegocioCuenta negocioCuenta = new NegocioCuenta();
             NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             NegocioMotivo negocioMotivo = new NegocioMotivo();
-
             foreach (var item in negocioSolicitud.listadoFiltradoByEstado(valor))
             {
                 TableRow tableRow = new TableRow();
@@ -162,7 +156,8 @@ namespace GestionDePermisos.Views.Jefe_Interno
 
                 Motivo.Text = negocioMotivo.nameByID(item.idMotivo);
                 estado.Text = retornarEstado(item.idEstado);
-
+                tableRow.ID = item.codigoDocumento.ToString();
+                tableRow.Attributes.Add("onClick", "modalTabla(this.id)");
 
 
                 tableRow.Cells.Add(codigoDocumento);
@@ -178,14 +173,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
                 tableRow.Cells.Add(rutAutorizador);
                 rutAutorizador.Attributes.Add("hidden", "");
                 tableRow.Cells.Add(Motivo);
-                tableRow.Cells.Add(estado);
-                estado.Attributes.Add("hidden", "");
-                //tableRow.Attributes.Add("runat", "server");
-                //tableRow.Attributes.Add("onClick", "cargarDialogo('"+ item.codigoDocumento +"')");
-                tableRow.Attributes.Add("id", item.codigoDocumento);
-                tableRow.Attributes.Add("runat", "server");
-                tableRow.Attributes.Add("OnClick", "modalTabla('" + item.codigoDocumento + "')");
-
+                tableRow.Cells.Add(estado);            
             }
         }
         
@@ -201,8 +189,10 @@ namespace GestionDePermisos.Views.Jefe_Interno
             Solicitud newSolicitud = new Solicitud();
             var solicitud = Request["__EVENTARGUMENT"].ToString();
             newSolicitud.codigoDocumento = solicitud;
+            newSolicitud.rutAutorizante = retornarRutAutorizador();
             newSolicitud.idEstado = 3;
             negocioSolicitud.updateSolicitud(newSolicitud);
+            cargarListadoCompleto();
         }
 
 
@@ -212,8 +202,10 @@ namespace GestionDePermisos.Views.Jefe_Interno
             Solicitud newSolicitud = new Solicitud();
             var solicitud = Request["__EVENTARGUMENT"].ToString();
             newSolicitud.codigoDocumento = solicitud;
+            newSolicitud.rutAutorizante = retornarRutAutorizador();
             newSolicitud.idEstado = 5;
             negocioSolicitud.updateSolicitud(newSolicitud);
+            cargarListadoCompleto();
         }
 
         protected void btnPendientes_Click(object sender, EventArgs e)
@@ -230,6 +222,15 @@ namespace GestionDePermisos.Views.Jefe_Interno
         {
             cargarListadoCompleto();    
             containerTabla.Attributes.Remove("hidden");
+        }
+        private string retornarRutAutorizador()
+        {
+            string rut = string.Empty;
+            string usuario = Session["usuario"].ToString();
+            NegocioCuenta negocioCuenta = new NegocioCuenta();
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
+            return rut;
         }
     }
 }

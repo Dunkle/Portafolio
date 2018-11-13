@@ -52,7 +52,7 @@
                 <div class="col-md-7">
                     <div class="input-group">
                         <div class="form-group  has-feedback">
-                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCodigoDocumento" placeholder="Ingrese aquí el documento que desea validar"></asp:TextBox>
+                            <asp:TextBox runat="server" CssClass="form-control" ID="txtCodigoDocumento" placeholder="Ingrese aquí el codigo a validar" MaxLength="12"></asp:TextBox>
                         </div>
                         <span class="input-group-btn">
                             <asp:Button CssClass="btn btn-success" Text="Buscar" ID="btnBuscar" runat="server" ClientIDMode="Static" Data-toggle="modal" data-target="modalCarga" OnClick="btnBuscar_Click" />
@@ -129,7 +129,7 @@
                         </span>
                     </div>
                     <h1 style="text-align: center">Ups!</h1>
-                    <p style="text-align: center">No se ha encontrado este documento</p>
+                    <p style="text-align: center"><asp:label ID="lblError" runat="server"></asp:label></p>
                 </div>
             </div>
         </div>
