@@ -231,7 +231,9 @@
       <BrowseToURL>~/Views/Funcionario/InicioFuncionario</BrowseToURL>
     </Content>
     <Content Include="Views\Funcionario\Solicitud de Permiso.aspx" />
-    <Content Include="Views\Jefe Interno\AutorizarSolicitud.aspx" />
+    <Content Include="Views\Jefe Interno\AutorizarSolicitud.aspx">
+      <BrowseToURL>~/Views/Jefe Interno/AutorizarSolicitud.aspx</BrowseToURL>
+    </Content>
     <Content Include="Views\Jefe Interno\ConsultarDocumentoJeInt.aspx" />
     <Content Include="Views\Jefe Interno\ConsultarPermisosJeInt.aspx" />
     <Content Include="Views\Jefe Interno\InicioJefeInterno.aspx" />

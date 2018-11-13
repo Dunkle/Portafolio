@@ -46,6 +46,30 @@ namespace GestionDePermisos.Business
                 return false;
             }
         }
+
+        public bool updateSolicitud(Solicitud solicitud)
+        {
+            ControllerSolicitud controllerSolicitud = new ControllerSolicitud();
+            Solicitud oldSolicitud = new Solicitud();
+
+            controllerSolicitud.readAll();
+
+            try
+            {
+                controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f => f.codigoDocumento == solicitud.codigoDocumento);
+                controllerSolicitud.idEstado = solicitud.idEstado;
+
+                controllerSolicitud.update();
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+            
+        }
+
         public IList<ControllerSolicitud> listadoFiltradoByID(string rut)
         {
             ControllerSolicitud solicitud = new ControllerSolicitud();

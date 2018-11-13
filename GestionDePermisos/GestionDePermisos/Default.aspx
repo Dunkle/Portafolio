@@ -42,7 +42,7 @@
                     <span class="login100-form-title">Member Login
                     </span>
                     <div class="wrap-input100 validate-input" data-validate="El usuario es requerido: ex@abc.xyz">
-                        <asp:TextBox runat="server" class="input100" type="text" name="email" placeholder="Ingrese Usuario" ID="txtUsuario" ClientIDMode="Static"></asp:TextBox>
+                        <asp:TextBox runat="server" class="input100" type="text" name="email" MaxLength="15"  placeholder="Ingrese Usuario" ID="txtUsuario" ClientIDMode="Static"></asp:TextBox>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="La contraseña es requerida">
-                        <asp:TextBox runat="server" class="input100" type="password" name="pass" ID="txtContraseña" placeholder="Contraseña"></asp:TextBox>
+                        <asp:TextBox runat="server" class="input100" type="password" name="pass" MaxLength="15" ID="txtContraseña" placeholder="Contraseña"></asp:TextBox>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>
