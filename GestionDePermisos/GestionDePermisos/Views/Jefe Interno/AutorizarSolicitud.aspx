@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaJefeInterno.Master" AutoEventWireup="true" CodeBehind="AutorizarSolicitud.aspx.cs" Inherits="GestionDePermisos.Views.Jefe_Interno.AutorizarSolicitud" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <!--<script src="../../Scripts/operation.js"></script>-->
     <script>
         $(document).ready(function () {
@@ -24,7 +25,42 @@
             //    }
             //});
 
+
         });
+        function pruebaDivAPdf() {
+
+            var pdf = new jsPDF('1', 'pt', 'a4');
+            source = $('#imprimir')[0];
+
+            specialElementHandlers = {
+                '#bypassme': function (element, renderer) {
+                    return true
+                }
+            };
+            margins = {
+                top: 80,
+                bottom: 60,
+                left: 40,
+                width: 500
+            };
+            var img = new Image();
+            img.addEventListener('load', function () {
+                var doc = new jsPDF();
+                doc.addImage(img, 'png', 10, 50);
+            });
+            pdf.fromHTML(
+                source,
+                margins.left, // x coord
+                margins.top, { // y coord
+                    'width': margins.width,
+                    'elementHandlers': specialElementHandlers
+                },
+
+                function (dispose) {
+                    pdf.save($('#<%=nombreSolicitante.ClientID%>').text() + '_' + $('#<%=codSolicitud.ClientID%>').text() + '.pdf');
+                }, margins
+            );
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -115,10 +151,51 @@
                             </asp:TableRow>
                         </asp:Table>
                     </div>
-                    <asp:Label ID="btnAutorizar" CssClass="btn btn-success" runat="server" Text="Autorizar" onclick="postbackAprobar()" />
-                    <asp:Label ID="btnRechazar" CssClass="btn btn-danger" runat="server" Text="Rechazar" onclick="postbackRechazar()" />                    
+                    <button id="btnAutorizar" visible="true" class="btn btn-success" runat="server" onclick="postbackAprobar()">Autorizar</button>
+                    <button id="btnRechazar" visible="true" class="btn btn-danger" runat="server" onclick="postbackRechazar()">Rechazar</button>
+                    <button style="margin-left: 170px" visible="true" class="btn btn-success" id="btnDescarga" runat="server" onclick="pruebaDivAPdf()">Descargar Solicitud en PDF</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="imprimir" hidden="hidden">
+        <div style="text-align: right">
+            <!--<asp:Image ID="Image2" runat="server" Height="40px" ImageUrl="~/Scripts/images/Escudo_de_Vista_Hermosa.png" Width="40px" AlternateText="Imagen no disponible" />-->
+        </div>
+
+        <header style="text-align: left">
+            <strong style="text-align: center">CERTIFICADO DE SOLICITUD
+            </strong>
+        </header>
+        <div>
+            <div style="text-align: left">
+            </div>
+            <div>
+                <h1 style="text-align: right">Certificado de Solicitud</h1>
+            </div>
+            <br>
+            <br>
+            <div>
+
+
+                <asp:Label runat="server" Text="Se hace entrega del siguiente certificado a don "></asp:Label><asp:Label runat="server" ID="certSolicitante" Text=""></asp:Label><asp:Label runat="server" Text=", que con fecha de inicio "></asp:Label><asp:Label runat="server" ID="cetInicio" Text=""></asp:Label>
+                <asp:Label runat="server" Text=" y con fecha de termino "></asp:Label><asp:Label runat="server" ID="certFin" Text=""></asp:Label><asp:Label runat="server" Text=", se le ha otorgado segun su solicitud, "></asp:Label>
+                <asp:Label runat="server" Text="el permiso: "></asp:Label><asp:Label runat="server" Text="" ID="cetPermiso"></asp:Label><asp:Label runat="server" Text=" con motivo de "></asp:Label>
+                <asp:Label runat="server" ID="certMotivo" Text=""></asp:Label><asp:Label runat="server" Text=" durante "></asp:Label><asp:Label runat="server" Text="" ID="certDias"></asp:Label><asp:Label runat="server" Text=" dias."></asp:Label>
+
+
+            </div>
+            <div>
+                <asp:Image ID="Image1" runat="server" Height="300px" mageAlign="right" ImageUrl="~/Scripts/images/certificado.jpg" Width="300px" AlternateText="Imagen no disponible" ImageAlign="TextTop" />
+            </div>
+            <footer>
+                <div style="top: 300px">
+                    <p>
+                        <asp:Label runat="server" Text="Autoriza el siguiente documento el Sr.|Sra. "></asp:Label><asp:Label runat="server" ID="certAutorizador" Text="Jefe Interno"></asp:Label><asp:Label runat="server" Text=" de la Iluste Municipalidad de Vista Hermosa"></asp:Label>
+                    </p>
+                </div>
+            </footer>
         </div>
     </div>
 
@@ -136,9 +213,9 @@
             __doPostBack('rechazar', '' + cod + '');
 
         }
+
         function modalTabla(id) {
             var fila = document.getElementById(id);
-
             document.getElementById('<%=codSolicitud.ClientID%>').innerText = fila.children[0].innerHTML;
             document.getElementById('<%=rutSolicitante.ClientID%>').innerText = fila.children[7].innerHTML;
             document.getElementById('<%=nombreSolicitante.ClientID%>').innerText = fila.children[2].innerHTML;
@@ -147,6 +224,53 @@
             document.getElementById('<%=motivoSolicitud.ClientID%>').innerText = fila.children[9].innerHTML;
             document.getElementById('<%=autorizadorSolicitud.ClientID%>').innerText = fila.children[8].innerHTML;
             document.getElementById('<%=estadoSolicitud.ClientID%>').innerText = fila.children[10].innerHTML;
+
+            console.log(fila.children[0].innerHTML);
+            console.log(fila.children[1].innerHTML);
+            console.log(fila.children[2].innerHTML);
+            console.log(fila.children[3].innerHTML);
+            console.log(fila.children[4].innerHTML);
+            console.log(fila.children[5].innerHTML);
+            console.log(fila.children[6].innerHTML);
+            console.log(fila.children[7].innerHTML);
+            console.log(fila.children[8].innerHTML);
+
+
+            //llenado del certificado
+            var estado = fila.children[10].innerHTML;
+            var nombre = fila.children[2].innerHTML;
+            var inicio = fila.children[4].innerHTML;
+            var fin = fila.children[5].innerHTML;
+            var permiso = fila.children[6].innerHTML;
+            var motivo = fila.children[9].innerHTML;
+            var dias = (parseInt(fin) - parseInt(inicio));
+
+            console.log(dias);
+
+            document.getElementById('<%=certSolicitante.ClientID%>').innerText = nombre;
+            document.getElementById('<%=cetInicio.ClientID%>').innerText = inicio;
+            document.getElementById('<%=certFin.ClientID%>').innerText = fin;
+            document.getElementById('<%=cetPermiso.ClientID%>').innerText = permiso;
+            document.getElementById('<%=certMotivo.ClientID%>').innerText = motivo;
+            document.getElementById('<%=certDias.ClientID%>').innerText = dias;
+
+
+            if (estado == 'En proceso') {
+                document.getElementById('<%=btnAutorizar.ClientID%>').style.display = 'unset';
+                document.getElementById('<%=btnRechazar.ClientID%>').style.display = 'unset';
+                document.getElementById('<%=btnDescarga.ClientID%>').style.display = 'none';
+            }
+            else if (estado == 'Autorizado') {
+                document.getElementById('<%=btnAutorizar.ClientID%>').style.display = 'none';
+                document.getElementById('<%=btnRechazar.ClientID%>').style.display = 'none';
+                document.getElementById('<%=btnDescarga.ClientID%>').style.display = 'unset';
+
+            }
+            else {
+                document.getElementById('<%=btnAutorizar.ClientID%>').style.display = 'none';
+                document.getElementById('<%=btnRechazar.ClientID%>').style.display = 'none';
+                document.getElementById('<%=btnDescarga.ClientID%>').style.display = 'none';
+            }
 
             $('#mostrarmodal').modal('show');
         };
