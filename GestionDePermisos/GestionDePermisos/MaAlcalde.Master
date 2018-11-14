@@ -81,7 +81,7 @@
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="../Alcalde/ConsultaPermisosAlcalde.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Estado Permisos </a>                                
+                                <a href="../Alcalde/ConsultaPermisosAlcalde.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>                                
                                 <a href="../Alcalde/ConsultarResolucionAlcalde.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Resolucion </a>
                             </div>
                         </div>

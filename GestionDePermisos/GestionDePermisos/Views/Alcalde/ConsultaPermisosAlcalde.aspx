@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaAlcalde.Master" AutoEventWireup="true" CodeBehind="ConsultaPermisosAlcalde.aspx.cs" Inherits="GestionDePermisos.Views.Alcalde.EstadoPermisosAlcalde" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="../../Content/estiloValidacionSolicitud.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
@@ -98,6 +99,30 @@
                         </asp:Table>
                     </div>
                     <%--<a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>--%>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de error -->
+    <div class="modal fade screen" id="modalerror" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+                        <span class="swal2-x-mark">
+                            <span class="swal2-x-mark-line-left"></span>
+                            <span class="swal2-x-mark-line-right"></span>
+                        </span>
+                    </div>
+                    <h1 style="text-align: center">Ups!</h1>
+                    <p style="text-align: center">
+                        <asp:Label runat="server" ID="lblError"></asp:Label>
+                    </p>
                 </div>
             </div>
         </div>

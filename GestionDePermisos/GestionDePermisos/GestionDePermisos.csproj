@@ -215,7 +215,9 @@
     <Content Include="Views\Alcalde\ConsultaPermisosAlcalde.aspx">
       <BrowseToURL>../Views/Alcalde/EstadoPermisosAlcalde</BrowseToURL>
     </Content>
-    <Content Include="Views\Alcalde\InicioAlcalde.aspx" />
+    <Content Include="Views\Alcalde\InicioAlcalde.aspx">
+      <BrowseToURL>../Alcalde/InicioAlcalde</BrowseToURL>
+    </Content>
     <Content Include="Views\Alcalde\ReporteTipoPermisoAlcalde.aspx" />
     <Content Include="Views\Alcalde\ReporteUnidadInternaAlcalde.aspx">
       <BrowseToURL>../Views/Alcalde/ReporteUnidadInternaAlcalde</BrowseToURL>
@@ -236,7 +238,9 @@
     </Content>
     <Content Include="Views\Jefe Interno\ConsultarDocumentoJeInt.aspx" />
     <Content Include="Views\Jefe Interno\ConsultarPermisosJeInt.aspx" />
-    <Content Include="Views\Jefe Interno\InicioJefeInterno.aspx" />
+    <Content Include="Views\Jefe Interno\InicioJefeInterno.aspx">
+      <BrowseToURL>../Views/Jefe Interno/InicioJefeInterno.aspx</BrowseToURL>
+    </Content>
     <Content Include="Views\Jefe Interno\ReportePermisosJeInt.aspx" />
     <Content Include="Views\Jefe Superior\BuscarDocumentoJefeSup.aspx" />
     <Content Include="Views\Jefe Superior\ConsultaEmpleadoJeSup.aspx" />

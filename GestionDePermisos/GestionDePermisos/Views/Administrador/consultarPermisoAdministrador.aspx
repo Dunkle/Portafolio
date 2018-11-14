@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaAdmin.Master" AutoEventWireup="true" CodeBehind="consultarPermisoAdministrador.aspx.cs" Inherits="GestionDePermisos.Views.Administrador.consultarPermisoAdministrador" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="../../Content/estiloValidacionSolicitud.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
@@ -33,7 +34,7 @@
                         <br />
                         <div class="table-responsive">
                             <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
-                                <asp:TableRow TableSection="TableHeader">                                    
+                                <asp:TableRow TableSection="TableHeader">
                                     <asp:TableHeaderCell>Codigo Documento</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Descripcion</asp:TableHeaderCell>
                                     <asp:TableHeaderCell>Fecha Solicitud</asp:TableHeaderCell>
@@ -94,7 +95,7 @@
                                 <td id="estadoSolicitud"></td>
                             </tr>
                         </table>
-                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">                                                                                                                                           
+                        <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaConsultaPermisos">
                         </asp:Table>
                     </div>
                     <%--<a style="margin-left: 170px" href="javascript:pruebaDivAPdf()" class="button">Descargar Solicitud en PDF</a>--%>
@@ -102,9 +103,31 @@
             </div>
         </div>
     </div>
-    
+    <!-- Modal De Error -->
+    <div class="modal fade screen" id="modalerror" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label=""><span>×</span></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;">
+                        <span class="swal2-x-mark">
+                            <span class="swal2-x-mark-line-left"></span>
+                            <span class="swal2-x-mark-line-right"></span>
+                        </span>
+                    </div>
+                    <h1 style="text-align: center">Ups!</h1>
+                    <p style="text-align: center">
+                        <asp:Label runat="server" ID="lblError"></asp:Label></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
-        function modalTabla(id) {                        
+        function modalTabla(id) {
             var fila = document.getElementById(id);
             document.getElementById("codSolicitud").innerText = fila.children[0].innerHTML;
             document.getElementById("rutSolicitante").innerText = fila.children[7].innerHTML;

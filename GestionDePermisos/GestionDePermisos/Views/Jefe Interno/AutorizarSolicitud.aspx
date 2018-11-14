@@ -71,9 +71,9 @@
                     <form runat="server">
                         <div class="pull-right">
                             <div class="btn-group">
-                                <asp:Button runat="server" CssClass="btn btn-success btn-filter" OnClick="btnAprobados_Click" Text="Aprobado" />
+                                <asp:Button runat="server" CssClass="btn btn-success btn-filter" OnClick="btnAprobados_Click" Text="Autorizado" />
                                 <asp:Button runat="server" CssClass="btn btn-warning btn-filter" OnClick="btnPendientes_Click" Text="Pendiente" />
-                                <asp:Button runat="server" CssClass="btn btn-danger btn-filter" OnClick="btnRechazados_Click" Text="Rechado" />
+                                <asp:Button runat="server" CssClass="btn btn-danger btn-filter" OnClick="btnRechazados_Click" Text="Rechazado" />
                                 <asp:Button runat="server" CssClass="btn btn-default btn-filter" OnClick="btnTodos_Click" Text="Todos" />
                             </div>
                         </div>
@@ -224,17 +224,6 @@
             document.getElementById('<%=motivoSolicitud.ClientID%>').innerText = fila.children[9].innerHTML;
             document.getElementById('<%=autorizadorSolicitud.ClientID%>').innerText = fila.children[8].innerHTML;
             document.getElementById('<%=estadoSolicitud.ClientID%>').innerText = fila.children[10].innerHTML;
-
-            console.log(fila.children[0].innerHTML);
-            console.log(fila.children[1].innerHTML);
-            console.log(fila.children[2].innerHTML);
-            console.log(fila.children[3].innerHTML);
-            console.log(fila.children[4].innerHTML);
-            console.log(fila.children[5].innerHTML);
-            console.log(fila.children[6].innerHTML);
-            console.log(fila.children[7].innerHTML);
-            console.log(fila.children[8].innerHTML);
-
 
             //llenado del certificado
             var estado = fila.children[10].innerHTML;

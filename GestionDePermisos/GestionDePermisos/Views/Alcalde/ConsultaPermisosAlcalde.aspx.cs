@@ -34,7 +34,30 @@ namespace GestionDePermisos.Views.Alcalde
             }
             else
             {
-                error.Attributes.Remove("hidden");
+                if (string.IsNullOrEmpty(rut))
+                {
+                    string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
+
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                    txtCodSolicitud.Text = "";
+                    lblError.Text = "Debe ingresar rut. Ej. 12345678-9";
+                }
+                else
+                {
+                    string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
+
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                    txtCodSolicitud.Text = "";
+                    lblError.Text = "El rut que busca no ha sido encontrado";
+                }
             }
         }
         private void cargarTabla(string rut)

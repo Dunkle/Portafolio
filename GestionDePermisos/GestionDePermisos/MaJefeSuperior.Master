@@ -81,7 +81,7 @@
                     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="../Jefe Superior/ConsultaEmpleadoJeSup.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Empleado </a>
+                                <a href="../Jefe Superior/ConsultaEmpleadoJeSup.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Permisos </a>
                                 <a href="../Jefe Superior/ConsultaResolucionJeSup.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Consultar Resolucion </a>                                
                             </div>
                         </div>
