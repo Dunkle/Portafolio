@@ -76,6 +76,24 @@ namespace GestionDePermisos.Views.Jefe_Superior {
         protected global::System.Web.UI.WebControls.Table tablaEstadoPermisos;
         
         /// <summary>
+        /// Control btnDescarga.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnDescarga;
+        
+        /// <summary>
+        /// Control btnLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnLimpiar;
+        
+        /// <summary>
         /// Control lblError.
         /// </summary>
         /// <remarks>

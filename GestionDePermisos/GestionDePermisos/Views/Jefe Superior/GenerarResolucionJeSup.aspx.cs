@@ -13,6 +13,7 @@ namespace GestionDePermisos.Views.Jefe_Superior
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClientScript.GetPostBackEventReference(this, "");
             if (!IsPostBack)
             {
                 if (Session["jefeSuperior"] == null)
@@ -20,6 +21,7 @@ namespace GestionDePermisos.Views.Jefe_Superior
                     FormsAuthentication.SignOut();
                     Response.Redirect("../../Default.aspx");
                 }
+
                 NegocioDepartamento negocioDepartamento = new NegocioDepartamento();
                 NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
                 NegocioCuenta negocioCuenta = new NegocioCuenta();
@@ -37,6 +39,11 @@ namespace GestionDePermisos.Views.Jefe_Superior
                         cmbUnidad.Items.Add(new ListItem { Value = item.idUnidad.ToString(), Text = item.nombreUnidad });
                     }
                 }
+            }
+
+            if (Request["__EVENTTARGET"] == "limpiar")
+            {
+                limpiar();
             }
         }
 
@@ -121,6 +128,9 @@ namespace GestionDePermisos.Views.Jefe_Superior
             cmbAño.SelectedIndex = 0;
             cmbMes.SelectedIndex = 0;
             cmbUnidad.SelectedIndex = 0;
+            
+            this.containerTabla.Attributes.Add("hidden", "true");
+            this.formularioResolucion.Attributes.Remove("hidden");
         }
     }
 }
