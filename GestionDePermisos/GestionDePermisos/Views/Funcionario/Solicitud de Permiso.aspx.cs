@@ -127,5 +127,21 @@ namespace GestionDePermisos.Views.Funcionario
             obj_hash.Clear();
             return (Convert.ToBase64String(cadena_encrp));
         }
+        private string retornarRutAutorizador()
+        {
+            string rut = string.Empty;
+            string usuario = Session["usuario"].ToString();
+            NegocioCuenta negocioCuenta = new NegocioCuenta();
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
+            return rut;
+        }
+        private int retornarDepartamento(string rut)
+        {
+            int departamento = default(int);
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            departamento = negocioEmpleado.retornarDepartamentoByRut(rut);
+            return departamento;
+        }
     }
 }

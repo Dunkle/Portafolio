@@ -23,6 +23,44 @@ namespace GestionDePermisos.Business
             }
             else { return null; }
         }
+        public IList<ControllerSolicitud> listadoConDepartamento(int departamento)
+        {
+            ControllerSolicitud solicitud = new ControllerSolicitud();
+            IList<ControllerSolicitud> lista = new List<ControllerSolicitud>();
+            Empleado empleado = new Empleado();
+            Departamento departament = new Departamento();
+
+            if (departament.readAll())
+            {
+                foreach (var itemdepartament in departament.departamentos)
+                {
+                    if (itemdepartament.idDepartamento == departamento)
+                    {
+                        if (empleado.readAll())
+                        {
+                            foreach (var itemEmpleado in empleado.empleados)
+                            {
+                                if (itemEmpleado.idDepartamento == departamento)
+                                {
+                                    if (solicitud.readAll())
+                                    {
+                                        foreach (var item in solicitud.coleccionSolicitudes)
+                                        {
+                                            if (item.rutSolicitante == itemEmpleado.rut)
+                                            {
+                                                lista.Add(item);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return lista;
+            }
+            else { return null; }
+        }
 
         public bool crearSolicitud(Solicitud solicitud)
         {
@@ -51,7 +89,7 @@ namespace GestionDePermisos.Business
         {
             ControllerSolicitud controllerSolicitud = new ControllerSolicitud();
             controllerSolicitud.readAll();
-            controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f=> f.codigoDocumento == solicitud.codigoDocumento);
+            controllerSolicitud = controllerSolicitud.coleccionSolicitudes.First(f => f.codigoDocumento == solicitud.codigoDocumento);
             controllerSolicitud.idEstado = solicitud.idEstado;
             controllerSolicitud.rutAutorizante = solicitud.rutAutorizante;
 
@@ -127,6 +165,54 @@ namespace GestionDePermisos.Business
                 return lista;
             }
             else { return null; }
+        }
+
+        public IList<ControllerSolicitud> listadoFiltradoByDepartamento(int departamento, int estado)
+        {
+            ControllerSolicitud solicitud = new ControllerSolicitud();
+            IList<ControllerSolicitud> lista = new List<ControllerSolicitud>();
+            Empleado empleado = new Empleado();
+            Departamento departament = new Departamento();
+
+            if (departament.readAll())
+            {
+                foreach (var itemdepartament in departament.departamentos)
+                {
+                    if (itemdepartament.idDepartamento == departamento)
+                    {
+                        if (empleado.readAll())
+                        {
+                            foreach (var itemEmpleado in empleado.empleados)
+                            {
+                                if (itemEmpleado.idDepartamento == departamento)
+                                {
+                                    if (solicitud.readAll())
+                                    {
+                                        foreach (var item in solicitud.coleccionSolicitudes)
+                                        {
+                                            if (item.rutSolicitante == itemEmpleado.rut)
+                                            {
+
+                                                if (item.idEstado == estado)
+                                                {
+                                                    lista.Add(item);
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return lista;
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }

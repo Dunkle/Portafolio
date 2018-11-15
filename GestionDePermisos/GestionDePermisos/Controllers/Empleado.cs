@@ -79,9 +79,10 @@ namespace GestionDePermisos.Controllers
 
         public bool readAll()
         {
-            this.empleados = new List<Empleado>();
             try
             {
+
+                this.empleados = new List<Empleado>();
                 foreach (var item in Conexion.entities.EMPLEADO.ToList())
                 {
                     Empleado empleado = new Empleado();

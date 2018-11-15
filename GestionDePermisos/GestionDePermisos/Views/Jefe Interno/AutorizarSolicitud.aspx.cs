@@ -56,7 +56,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
             NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             NegocioMotivo negocioMotivo = new NegocioMotivo();
             tituloEstado.Visible = true;
-            foreach (var item in negocioSolicitud.listado())
+            foreach (var item in negocioSolicitud.listadoConDepartamento(retornarDepartamento(retornarRutAutorizador())))
             {
                 TableRow tableRow = new TableRow();
                 TableCell codigoDocumento = new TableCell();
@@ -120,7 +120,7 @@ namespace GestionDePermisos.Views.Jefe_Interno
             NegocioCuenta negocioCuenta = new NegocioCuenta();
             NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             NegocioMotivo negocioMotivo = new NegocioMotivo();
-            foreach (var item in negocioSolicitud.listadoFiltradoByEstado(valor))
+            foreach (var item in negocioSolicitud.listadoFiltradoByDepartamento(retornarDepartamento(retornarRutAutorizador()), valor))
             {
                 TableRow tableRow = new TableRow();
                 TableCell codigoDocumento = new TableCell();
@@ -231,6 +231,13 @@ namespace GestionDePermisos.Views.Jefe_Interno
             NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(usuario));
             return rut;
+        }
+        private int retornarDepartamento(string rut)
+        {
+            int departamento = default(int);
+            NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+            departamento = negocioEmpleado.retornarDepartamentoByRut(rut);
+            return departamento;
         }
     }
 }
