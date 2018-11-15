@@ -47,7 +47,7 @@
         <div class="col-md-offset-2">
             <div class="col-md-6">
                 <div class="form-group">
-                    <asp:Button runat="server" ID="btnGenerar" CssClass="btn btn-primary btn-lg btn-block" Text="Generar" OnClick="btnGenerar_Click" />
+                    <asp:Button runat="server" ID="btnGenerar" CssClass="btn btn-primary btn-lg btn-block" Text="Buscar" OnClick="btnGenerar_Click" />
                 </div>
             </div>
         </div>
