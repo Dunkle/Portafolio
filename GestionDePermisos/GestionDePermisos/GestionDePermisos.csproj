@@ -379,7 +379,7 @@
     <Compile Include="MaJefeSuperior.Master.designer.cs">
       <DependentUpon>MaJefeSuperior.Master</DependentUpon>
     </Compile>
-    <Compile Include="Models\ReporteAlcalde.cs" />
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\Resolucion.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

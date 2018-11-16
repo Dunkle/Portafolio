@@ -5,7 +5,7 @@ using System.Web;
 
 namespace GestionDePermisos.Models
 {
-    public class ReporteAlcalde
+    public class Reporte
     {
         public string nombreUnidad { get; set; }
         public string nombreTipoPermiso { get; set; }

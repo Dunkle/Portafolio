@@ -23,7 +23,7 @@
                     <div class="table-responsive">
                         <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
                             <asp:TableRow TableSection="TableHeader">
-                                <asp:TableHeaderCell>Nombre Unidad</asp:TableHeaderCell>
+                                <asp:TableHeaderCell>Nombre Unidad Interna</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Tipo de Permiso</asp:TableHeaderCell>
                                 <asp:TableHeaderCell>Cantidad</asp:TableHeaderCell>
                             </asp:TableRow>

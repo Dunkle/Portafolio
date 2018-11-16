@@ -15,9 +15,9 @@ namespace GestionDePermisos.Business
         IList<Empleado> empleados { get; set; }
         IList<TipoPermiso> listTipoPermiso { get; set; }
 
-        public IList<ReporteAlcalde> reporteCantidadTipoPermisoUnidad()
+        public IList<Reporte> reporteCantidadTipoPermisoUnidad()
         {
-            IList<ReporteAlcalde> reportes = new List<ReporteAlcalde>();
+            IList<Reporte> reportes = new List<Reporte>();
             unidades = new NegocioUnidad().listado();
             solicitudes = new NegocioSolicitud().listado();
             departamentos = new NegocioDepartamento().listado();
@@ -30,19 +30,17 @@ namespace GestionDePermisos.Business
                         join e in empleados
                         on s.rutSolicitante equals e.rut
                         join d in departamentos
-                        on e.idDepartamento equals d.idDepartamento
-                        join u in unidades
-                        on d.idUnidad equals u.idUnidad
-                        group s by new { u.nombreUnidad, t.nombreTipoPermiso} into r
+                        on e.idDepartamento equals d.idDepartamento                        
+                        group s by new { d.nombreDepartamento, t.nombreTipoPermiso} into r
                         select new
                         {
-                            unidad = r.Key.nombreUnidad,
+                            unidad = r.Key.nombreDepartamento,
                             tipoPermiso = r.Key.nombreTipoPermiso,
                             cantidad = r.Count(c => c.idSolicitud != null)
                         };
             foreach (var item in query)
             {
-                ReporteAlcalde nuevo = new ReporteAlcalde();
+                Reporte nuevo = new Reporte();
                 nuevo.nombreUnidad = item.unidad;
                 nuevo.nombreTipoPermiso = item.tipoPermiso;
                 nuevo.cantidadPermisos = item.cantidad;
@@ -54,9 +52,9 @@ namespace GestionDePermisos.Business
 
         }
 
-        public IList<ReporteAlcalde> reportePorTipoPermiso()
+        public IList<Reporte> reportePorTipoPermiso()
         {
-            IList<ReporteAlcalde> reportes = new List<ReporteAlcalde>();
+            IList<Reporte> reportes = new List<Reporte>();
             unidades = new NegocioUnidad().listado();
             solicitudes = new NegocioSolicitud().listado();
             departamentos = new NegocioDepartamento().listado();
@@ -74,7 +72,7 @@ namespace GestionDePermisos.Business
                         };
             foreach (var item in query)
             {
-                ReporteAlcalde nuevo = new ReporteAlcalde();
+                Reporte nuevo = new Reporte();
                 nuevo.nombreUnidad = string.Empty;
                 nuevo.nombreTipoPermiso = item.tipoPermiso;
                 nuevo.cantidadPermisos = item.cantidad;
@@ -118,6 +116,42 @@ namespace GestionDePermisos.Business
                 resolucion.departamento = item.departamento;
 
                 reportes.Add(resolucion);
+            }
+
+            return reportes;
+        }
+        public IList<Reporte> reportePorTipoPermisoDeUnidadInterna(int idUnidad)
+        {
+            IList<Reporte> reportes = new List<Reporte>();
+            unidades = new NegocioUnidad().listado();
+            solicitudes = new NegocioSolicitud().listado();
+            departamentos = new NegocioDepartamento().listado();
+            empleados = new NegocioEmpleado().listado();
+            listTipoPermiso = new NegocioTipoPermiso().listado();
+
+            var query = from s in solicitudes
+                        join t in listTipoPermiso
+                        on s.idTipoPermiso equals t.idTipoPermiso
+                        join e in empleados
+                        on s.rutAutorizante equals e.rut
+                        join d in departamentos
+                        on e.idDepartamento equals d.idDepartamento
+                        where e.idDepartamento == idUnidad
+                        group s by new { t.nombreTipoPermiso, d.nombreDepartamento } into r                        
+                        select new
+                        {
+                            nombreDepartamento = r.Key.nombreDepartamento,
+                            tipoPermiso = r.Key.nombreTipoPermiso,
+                            cantidad = r.Count(c => c.idSolicitud != null)
+                        };
+            foreach (var item in query)
+            {
+                Reporte nuevo = new Reporte();
+                nuevo.nombreUnidad = item.nombreDepartamento;
+                nuevo.nombreTipoPermiso = item.tipoPermiso;
+                nuevo.cantidadPermisos = item.cantidad;
+
+                reportes.Add(nuevo);
             }
 
             return reportes;

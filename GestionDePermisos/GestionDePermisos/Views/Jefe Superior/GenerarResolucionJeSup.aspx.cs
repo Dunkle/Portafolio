@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -29,14 +30,16 @@ namespace GestionDePermisos.Views.Jefe_Superior
                 string user = Session["usuario"].ToString();
                 cmbUnidad.Items.Add(new ListItem { Value = "0", Text = "- Seleccione -" });
                 cmbAño.Items.Add(new ListItem { Value = "0", Text = "- Seleccione -" });
+                cmbMes.Items.Add(new ListItem { Value = "0", Text = "- Seleccione -" });
+                cmbMes.Items.Add(new ListItem { Value = DateTime.Now.AddMonths(-1).ToString("MM"), Text = DateTime.Now.AddMonths(-1).ToString("MMMM", CultureInfo.CurrentUICulture) });
                 int año = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
                 cmbAño.Items.Add(new ListItem { Value = (año).ToString(), Text = (año).ToString() });
                 int unidad = negocioDepartamento.retornarUnidadByDepartamento(negocioEmpleado.retornarDepartamentoByRut(negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(user))));
-                foreach (var item in negocioUnidad.listado())
+                foreach (var item in negocioDepartamento.listado())
                 {
                     if (item.idUnidad == unidad)
                     {
-                        cmbUnidad.Items.Add(new ListItem { Value = item.idUnidad.ToString(), Text = item.nombreUnidad });
+                        cmbUnidad.Items.Add(new ListItem { Value = item.idDepartamento.ToString(), Text = item.nombreDepartamento });
                     }
                 }
             }

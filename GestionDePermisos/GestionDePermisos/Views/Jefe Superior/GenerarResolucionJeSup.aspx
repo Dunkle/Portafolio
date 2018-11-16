@@ -53,7 +53,7 @@
                         <div class="col-md-offset-2">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Seleccione Unidad</label>
+                                    <label class="control-label">Seleccione Unidad Interna</label>
                                     <asp:DropDownList runat="server" ID="cmbUnidad" CssClass="form-control">
                                     </asp:DropDownList>
                                 </div>
@@ -72,19 +72,6 @@
                                 <div class="form-group">
                                     <label class="control-label">Seleccione Mes</label>
                                     <asp:DropDownList runat="server" ID="cmbMes" CssClass="form-control">
-                                        <asp:ListItem Value="0" Text="- Seleccione -"></asp:ListItem>
-                                        <asp:ListItem Value="1" Text=" Enero "></asp:ListItem>
-                                        <asp:ListItem Value="2" Text=" Febrero "></asp:ListItem>
-                                        <asp:ListItem Value="3" Text=" Marzo "></asp:ListItem>
-                                        <asp:ListItem Value="4" Text=" Abril "></asp:ListItem>
-                                        <asp:ListItem Value="5" Text=" Mayo "></asp:ListItem>
-                                        <asp:ListItem Value="6" Text=" Junio "></asp:ListItem>
-                                        <asp:ListItem Value="7" Text=" Julio "></asp:ListItem>
-                                        <asp:ListItem Value="8" Text=" Agosto "></asp:ListItem>
-                                        <asp:ListItem Value="9" Text=" Septiembre "></asp:ListItem>
-                                        <asp:ListItem Value="10" Text=" Octubre "></asp:ListItem>
-                                        <asp:ListItem Value="11" Text=" Noviembre "></asp:ListItem>
-                                        <asp:ListItem Value="12" Text=" Diciembre "></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
                             </div>
