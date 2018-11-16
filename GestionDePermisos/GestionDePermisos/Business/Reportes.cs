@@ -98,19 +98,19 @@ namespace GestionDePermisos.Business
                         on s.rutSolicitante equals e.rut
                         join d in departamentos
                         on e.idDepartamento equals d.idDepartamento
-                        where d.idUnidad == unidad && s.idEstado == 3 && s.fechaSolicitud.Year == año && s.fechaSolicitud.Month == mes
-                        group s by new { e.rut, t.nombreTipoPermiso, d.nombreDepartamento, s.fechaInicio, s.fechaTermino } into r
+                        where d.idDepartamento == unidad && s.idEstado == 3 && s.fechaSolicitud.Year == año && s.fechaSolicitud.Month == mes
+                        group s by new { e.rut, t.nombreTipoPermiso, d.nombreDepartamento } into r
                         select new
                         {
                             rut = r.Key.rut,
                             nombrePermiso = r.Key.nombreTipoPermiso,
                             departamento = r.Key.nombreDepartamento,
-                            dias = r.Key.fechaTermino - r.Key.fechaInicio
+                            cantidad = r.Count(c => c.idSolicitud != null)
                         };
             foreach (var item in query)
             {
                 Resolucion resolucion = new Resolucion();
-                resolucion.dias = item.dias.Days;
+                resolucion.cantidadPermisos = item.cantidad;
                 resolucion.nombreTipoPermiso = item.nombrePermiso;
                 resolucion.rut = item.rut;
                 resolucion.departamento = item.departamento;

@@ -66,7 +66,7 @@ namespace GestionDePermisos.Views.Alcalde
                 tablaEstadoPermisos.Rows.Add(tableRow);
                 rut.Text = item.rut;
                 tipoPermiso.Text = item.nombreTipoPermiso;
-                dias.Text = item.dias.ToString();
+                dias.Text = item.cantidadPermisos.ToString();
                 departamento.Text = item.departamento;
 
                 tableRow.Cells.Add(departamento);

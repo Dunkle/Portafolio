@@ -65,7 +65,7 @@ namespace GestionDePermisos.Views.Jefe_Superior
                 tablaEstadoPermisos.Rows.Add(tableRow);
                 rut.Text = item.rut;
                 tipoPermiso.Text = item.nombreTipoPermiso;
-                dias.Text = item.dias.ToString();
+                dias.Text = item.cantidadPermisos.ToString();
 
                 tableRow.Cells.Add(rut);
                 tableRow.Cells.Add(tipoPermiso);
