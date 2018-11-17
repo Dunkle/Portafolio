@@ -153,14 +153,10 @@
             <br>
             <br>
             <div>
-
-
                 <asp:Label runat="server" Text="Se hace entrega del siguiente certificado a don "></asp:Label><asp:Label runat="server" ID="certSolicitante" Text="Sebastian Salinas Salinas"></asp:Label><asp:Label runat="server" Text=", que con fecha de inicio "></asp:Label><asp:Label runat="server" ID="cetInicio" Text="20/07/2018"></asp:Label>
                 <asp:Label runat="server" Text=" y con fecha de termino "></asp:Label><asp:Label runat="server" ID="certFin" Text="25/07/2018"></asp:Label><asp:Label runat="server" Text=", se le ha otorgado segun su solicitud, "></asp:Label>
                 <asp:Label runat="server" Text="el permiso: "></asp:Label><asp:Label runat="server" Text="Administrativo" ID="cetPermiso"></asp:Label><asp:Label runat="server" Text=" con motivo de "></asp:Label>
                 <asp:Label runat="server" ID="certMotivo" Text="Tramite PErsonal"></asp:Label><asp:Label runat="server" Text=" durante "></asp:Label><asp:Label runat="server" Text="5" ID="certDias"></asp:Label><asp:Label runat="server" Text=" dias."></asp:Label>
-                       
-
             </div>
             <div>
                 <asp:Image ID="Image1" runat="server" Height="300px" mageAlign="right" ImageUrl="~/Scripts/images/certificado.jpg" Width="300px" AlternateText="Imagen no disponible" ImageAlign="TextTop" />

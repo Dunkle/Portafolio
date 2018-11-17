@@ -21,5 +21,10 @@ namespace GestionDePermisos.Views.Administrador
                 }
             }
         }
+
+        protected void btnGenerarXML_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
