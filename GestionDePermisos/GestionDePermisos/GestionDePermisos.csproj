@@ -568,7 +568,9 @@
     <Content Include="MaJefeInterno.Master" />
     <Content Include="MaJefeSuperior.Master" />
     <Content Include="MaAlcalde.Master" />
-    <Content Include="MaAdmin.Master" />
+    <Content Include="MaAdmin.Master">
+      <BrowseToURL>../Views/MaAdmin.Master</BrowseToURL>
+    </Content>
     <Content Include="fonts\Montserrat-Bold.ttf" />
     <Content Include="fonts\Poppins-Medium.ttf" />
     <Content Include="fonts\Poppins-Bold.ttf" />
