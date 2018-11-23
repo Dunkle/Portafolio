@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionDePermisos.Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,12 @@ namespace GestionDePermisos.Views.Jefe_Interno
                 }
             }
 
+        }
+
+        protected void Unnamed1_Click(object sender, EventArgs e)
+        {
+            ConsumirWS ws = new ConsumirWS();
+            ws.ConsultaAntiguedad("19");
         }
     }
 }
