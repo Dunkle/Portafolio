@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web.Security;
+using System.Web.UI;
 using System.Xml.Linq;
 
 namespace GestionDePermisos.Views.Administrador
@@ -27,40 +28,65 @@ namespace GestionDePermisos.Views.Administrador
         {
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
 
-            XElement root = new XElement("Permiso");
-
-
-            var filename = "Permisos.xml";
-            var currentDirectory = @"C:\Users\Sebastian Salinas\Documents";
-            //File.Create(currentDirectory + filename);
-            var purchaseOrderFilepath = Path.Combine(currentDirectory, filename);
-
-            XElement collection = new XElement(root);
-            foreach (var item in negocioSolicitud.listado())
+            try
             {
-                var parts = item.rutSolicitante.Split('-');
-                
-                var dias = (item.fechaTermino - item.fechaInicio).Days;
-                XElement permiso =
-                    new XElement("Permiso",
-                        new XElement("Funcionario",
-                            new XElement("Nombre", retornarNombreByRut(item.rutSolicitante)),
-                            new XElement("Run", parts[0]),
-                            new XElement("Dvrun", parts[1])
-                            ),
-                        new XElement("Detalle",
-                            new XElement("Fecha_inicio", item.fechaInicio),
-                            new XElement("Fecha_fin", item.fechaTermino),
-                            new XElement("Fecha_fin", dias),
-                            new XElement("Fecha_fin", retornaNombreMotivo(item.idTipoPermiso))
-                        )
-                    );
+                string Username = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
+                var profile = Username.Split('\\');
+                var filename = "Permisos.xml";
+                var currentDirectory = @"C:\Users\" + profile[1] + "\\Downloads";
+                var purchaseOrderFilepath = Path.Combine(currentDirectory, filename);
 
-                collection.Add(permiso);
-                
+                string internalSubset = @"MENSAJE SYSTEM 'define_permiso.dtd'";
+                XDocument xDoc = new XDocument(
+                    new XDeclaration("1.0", "utf-8", null),
+                    new XDocumentType("Permisos", null, null, internalSubset));
+                XElement xEle = new XElement("Permisos");
+                xDoc.Add(xEle);
+                foreach (var item in negocioSolicitud.listado())
+                {
+                    var parts = item.rutSolicitante.Split('-');
+                    var dias = (item.fechaTermino - item.fechaInicio).Days;
+
+                    XElement permiso = new XElement("Permiso",
+                            new XElement("Funcionario",
+                                new XElement("Nombre", retornarNombreByRut(item.rutSolicitante)),
+                                new XElement("Run", parts[0]),
+                                new XElement("Dvrun", parts[1])
+                                ),
+                            new XElement("Detalle",
+                                new XElement("Fecha_inicio", item.fechaInicio),
+                                new XElement("Fecha_fin", item.fechaTermino),
+                                new XElement("Fecha_fin", dias),
+                                new XElement("Fecha_fin", retornaNombreMotivo(item.idTipoPermiso))
+                            )
+                    );
+                    xEle.Add(permiso);
+                }
+                xDoc.Save(purchaseOrderFilepath);
+
+                string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#mostrarmodal').modal('show');
+                        });
+                  </script>";
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+                txtCod.Text = "Ruta descarga " + purchaseOrderFilepath;
             }
-            collection.Add();
-            collection.Save(purchaseOrderFilepath);
+            catch(Exception ex)
+            {
+                string script = @"<script type='text/javascript'>
+                       $(document).ready(function () {
+                            $('#modalerror').modal('show');
+                        });
+                  </script>";
+
+
+                lblError.Text = "Se ha producido un error. Cosulte con el administrador del sistema "+ex;
+
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
+            }
+
         }
         private string retornarNombreByRut(string rut)
         {
