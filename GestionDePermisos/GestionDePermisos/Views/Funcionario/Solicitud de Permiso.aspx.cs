@@ -21,9 +21,14 @@ namespace GestionDePermisos.Views.Funcionario
                        $(document).ready(function () {
                             $('#mostrarmodal').modal('show'); 
                         });
-                  </script>";            
+                  </script>";                        
             if (!IsPostBack)
             {
+                ConsumirWS ws = new ConsumirWS();
+                NegocioCuenta negocioCuenta = new NegocioCuenta();
+                NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
+                string rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(Session["usuario"].ToString()));
+                cantDias.InnerText = ws.cantidadDias(rut).ToString();
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
                 NegocioMotivo negocioMotivo = new NegocioMotivo();
                 cmbMotivo.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });

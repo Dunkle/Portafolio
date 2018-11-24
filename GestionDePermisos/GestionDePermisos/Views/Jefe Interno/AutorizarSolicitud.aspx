@@ -78,8 +78,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="container" id="containerTabla" runat="server">
-                        <div class="panel">
+                    <div class="container-fluid" id="containerTabla" runat="server">                        
                             <div class="col-md-12">
                                 <div class="table-responsive">
                                     <asp:Table runat="server" CssClass="table table-bordred table-striped" ID="tablaEstadoPermisos">
@@ -99,8 +98,7 @@
                                     </asp:Table>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>                    
                 </div>
             </div>
         </div>

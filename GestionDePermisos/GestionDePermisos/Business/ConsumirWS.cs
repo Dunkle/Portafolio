@@ -27,5 +27,23 @@ namespace GestionDePermisos.Business
 
             return empleado.antiguedad;
         }
+
+        public int cantidadDias(string rut) {
+            int cantidad = ConsultaAntiguedad(rut);
+            if (cantidad >= 1 && cantidad < 15)
+            {
+                return 15;
+            }
+            else if (cantidad >= 15 && cantidad < 20)
+            {
+                return 20;
+            }
+            else if (cantidad >= 20)
+            {
+                return 25;
+            }
+            else return 0;
+
+        }
     }
 }
