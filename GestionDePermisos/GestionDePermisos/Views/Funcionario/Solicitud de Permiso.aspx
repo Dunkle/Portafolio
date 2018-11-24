@@ -8,9 +8,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-             //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso]').val());
+            //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso]').val());
 
-             //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso] option:selected').text());
+            //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso] option:selected').text());
 
             var $val1;
             var diasDisponibles = 15;
@@ -23,14 +23,14 @@
                 if ($val1.length > 3 && $('[id*=cmbTipoPermiso]').val() > 0) {
                     $('#paso1').removeAttr("disabled");
                 }
-                if ($val1.length < 3 && $('[id*=cmbTipoPermiso]').val() > 0) { 
+                if ($val1.length < 3 && $('[id*=cmbTipoPermiso]').val() > 0) {
                     $('#paso1').attr("disabled", "disabled");
                 }
 
             });
-            
+
             $('#<%=txtDate1.ClientID%>').change(function () {
-                
+
                 var date1 = $(this).val();
                 var date2 = $('#<%=txtDate2.ClientID%>').val();
                 var parts = date1.split("/");
@@ -39,16 +39,16 @@
                 var $month = parseInt(parts[1], 10);
                 var $year = parseInt(parts[0], 10);
 
-               // var $dia = parseInt($diasDisponibles) + parseInt($day)
+                // var $dia = parseInt($diasDisponibles) + parseInt($day)
 
-                
+
                 $('#<%= txtDate2.ClientID %>').datepicker("option", "minDate", new Date('' + $year + '-' + $month + '-' + $day));
 
-                   //$('#<%= txtDate2.ClientID %>').datepicker("option", "maxDate", $day  + diasDisponibles);
-                
-                //if () {
-
-                //}
+                var diasDis = parseInt(document.getElementById("cantDias"));
+                var seleccion = $('#<%=cmbTipoPermiso%>').find('option:selected').text();
+                if (seleccion == "1") {
+                    $('#<%= txtDate2.ClientID %>').datepicker("option", "maxDate", new Date('' + $year + '-' + $month + '-' + $day + diasDis));
+                }
                 //if () {
 
                 //}
@@ -121,6 +121,7 @@
                         </div>
 
                         <form role="form" runat="server" id="formSolicitud">
+                            <label id="cantDias" runat="server" hidden="hidden"></label>
                             <div class="tab-content">
                                 <div class="tab-pane active" role="tabpanel" id="step1">
                                     <h3>Selecciona tu permiso deseado</h3>
@@ -226,7 +227,7 @@
             </div>
         </div>
     </div>
-    
+
     <script type="text/javascript">
         $(function () {
             $('#' + '<%= txtDate1.ClientID %>').datepicker(
@@ -235,7 +236,7 @@
                     changeMonth: true,
                     changeYear: true,
                     inline: true,
-                    beforeShowDay: $.datepicker.noWeekends 
+                    beforeShowDay: $.datepicker.noWeekends
                 }
 
             );

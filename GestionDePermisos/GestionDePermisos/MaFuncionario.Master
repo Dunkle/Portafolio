@@ -64,7 +64,7 @@
                     <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><asp:Label runat="server" ID="lblFuncionario"></asp:Label></a>
+                                <a href="Views/Funcionario/InicioFuncionario.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><asp:Label runat="server" ID="lblFuncionario"></asp:Label></a>
                             </div>
                         </div>
                     </div>

@@ -22,12 +22,6 @@ namespace GestionDePermisos.Views.Jefe_Interno
                 }
             }
 
-        }
-
-        protected void Unnamed1_Click(object sender, EventArgs e)
-        {
-            ConsumirWS ws = new ConsumirWS();
-            ws.ConsultaAntiguedad("19");
-        }
+        }        
     }
 }
