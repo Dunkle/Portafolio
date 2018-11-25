@@ -39,19 +39,14 @@
                 var $month = parseInt(parts[1], 10);
                 var $year = parseInt(parts[0], 10);
 
-                // var $dia = parseInt($diasDisponibles) + parseInt($day)
-
-
                 $('#<%= txtDate2.ClientID %>').datepicker("option", "minDate", new Date('' + $year + '-' + $month + '-' + $day));
 
-                var diasDis = parseInt(document.getElementById("cantDias"));
-                var seleccion = $('#<%=cmbTipoPermiso%>').find('option:selected').text();
-                if (seleccion == "1") {
-                    $('#<%= txtDate2.ClientID %>').datepicker("option", "maxDate", new Date('' + $year + '-' + $month + '-' + $day + diasDis));
-                }
-                //if () {
+                var diasDis = parseInt($('[id*=cantDias]').text());
+                var fecha = new Date(date1.toString());
+                fecha.setDate(fecha.getDate() + diasDis);
+                
+                $('#<%= txtDate2.ClientID %>').datepicker("option", "maxDate", fecha);
 
-                //}
                 if (date1.length > 8 && date2.length > 8) {
                     $('#paso2').removeAttr("disabled");
                 }

@@ -27,8 +27,9 @@ namespace GestionDePermisos.Views.Funcionario
                 ConsumirWS ws = new ConsumirWS();
                 NegocioCuenta negocioCuenta = new NegocioCuenta();
                 NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
-                string rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(Session["usuario"].ToString()));
-                cantDias.InnerText = ws.cantidadDias(rut).ToString();
+                var rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(Session["usuario"].ToString()));
+                var parts = rut.Split('-');
+                cantDias.InnerText = ws.cantidadDias(parts[0]+parts[1]).ToString();
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
                 NegocioMotivo negocioMotivo = new NegocioMotivo();
                 cmbMotivo.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
