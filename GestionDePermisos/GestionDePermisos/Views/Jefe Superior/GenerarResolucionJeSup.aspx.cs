@@ -39,7 +39,10 @@ namespace GestionDePermisos.Views.Jefe_Superior
                 {
                     if (item.idUnidad == unidad)
                     {
-                        cmbUnidad.Items.Add(new ListItem { Value = item.idDepartamento.ToString(), Text = item.nombreDepartamento });
+                        if (!item.nombreDepartamento.Equals("Solo Unidad"))
+                        {
+                            cmbUnidad.Items.Add(new ListItem { Value = item.idDepartamento.ToString(), Text = item.nombreDepartamento });
+                        }                        
                     }
                 }
             }

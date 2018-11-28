@@ -13,10 +13,12 @@
             //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso] option:selected').text());
 
             var $val1;
-            var diasDisponibles = 15;
+            var $texo = document.getElementById('<%=txtDetalleSolicitud.ClientID%>').
+            if ($texo.length > 3) {
+                $('#paso1').removeAttr("disabled");
+            }
 
             $('#<%=txtDetalleSolicitud.ClientID%>').keyup(function () {
-
 
 
                 $val1 = $(this).val();
