@@ -23,12 +23,12 @@ namespace GestionDePermisos.Views.Alcalde
                 cmbUnidad.Items.Add(new ListItem { Value = "0", Text = "- Seleccione -" });
                 cmbAño.Items.Add(new ListItem { Value = "0", Text = "- Seleccione -" });
                 int unidad = negocioDepartamento.retornarUnidadByDepartamento(negocioEmpleado.retornarDepartamentoByRut(negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(user))));
-                foreach (var item in negocioUnidad.listado())
+                foreach (var item in negocioDepartamento.listado())
                 {
-                    if (item.idUnidad == unidad)
+                    if (!item.nombreDepartamento.Equals("Solo Unidad"))
                     {
-                        cmbUnidad.Items.Add(new ListItem { Value = item.idUnidad.ToString(), Text = item.nombreUnidad });
-                    }
+                        cmbUnidad.Items.Add(new ListItem { Value = item.idDepartamento.ToString(), Text = item.nombreDepartamento });
+                    }                    
                 }
                 for (int i = 0; i < 9; i++)
                 {
@@ -125,5 +125,5 @@ namespace GestionDePermisos.Views.Alcalde
             cmbMes.SelectedIndex = 0;
             cmbUnidad.SelectedIndex = 0;
         }
-    }    
+    }
 }
