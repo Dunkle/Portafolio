@@ -25,7 +25,6 @@ namespace GestionDePermisos.Views.Jefe_Interno
                     Response.Redirect("../../Default.aspx");                    
                 }
                 cargarListadoCompleto();
-                NegocioTipoPermiso negocioTipoPermiso;
             }            
             if (Request["__EVENTTARGET"] == "aprobar")
             {

@@ -76,6 +76,15 @@ namespace GestionDePermisos.Views.Jefe_Interno {
         protected global::System.Web.UI.WebControls.Table tablaConsultaPermisos;
         
         /// <summary>
+        /// Control btnDescarga.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnDescarga;
+        
+        /// <summary>
         /// Control lblError.
         /// </summary>
         /// <remarks>

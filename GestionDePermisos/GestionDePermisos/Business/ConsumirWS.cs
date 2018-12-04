@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Web;
 using GestionDePermisos.Models;
@@ -27,7 +28,7 @@ namespace GestionDePermisos.Business
 
             return empleado.antiguedad;
         }
-
+   
         public int cantidadDias(string rut) {
             int cantidad = ConsultaAntiguedad(rut);
             if (cantidad >= 1 && cantidad < 15)
