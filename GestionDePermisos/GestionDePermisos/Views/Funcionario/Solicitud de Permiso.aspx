@@ -13,10 +13,12 @@
             //alert('Selected Value is : ' + $('[id*=cmbTipoPermiso] option:selected').text());
 
             var $val1;
-            var $texo = document.getElementById('<%=txtDetalleSolicitud.ClientID%>').
-            if ($texo.length > 3) {
-                $('#paso1').removeAttr("disabled");
+           
+            if ($('#<%=txtDetalleSolicitud.ClientID%>').val().length > 5) {
+                 $('#paso1').removeAttr("disabled");
             }
+           
+            
 
             $('#<%=txtDetalleSolicitud.ClientID%>').keyup(function () {
 
@@ -140,7 +142,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="control-label" id="comentario">Ingrese comentarios de la solicitud </label>
-                                            <asp:TextBox runat="server" ID="txtDetalleSolicitud" CssClass="form-control" MaxLength="20"></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtDetalleSolicitud" CssClass="form-control" MaxLength="55"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group">

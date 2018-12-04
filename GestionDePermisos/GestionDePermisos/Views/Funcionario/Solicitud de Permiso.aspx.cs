@@ -15,13 +15,25 @@ namespace GestionDePermisos.Views.Funcionario
     public partial class Solicitud_de_Permiso : System.Web.UI.Page
     {
         string script;
+        string validaTexto;
         protected void Page_Load(object sender, EventArgs e)
-        {      
+        {
             script = @"<script type='text/javascript'>
                        $(document).ready(function () {
                             $('#mostrarmodal').modal('show'); 
                         });
-                  </script>";                        
+                  </script>";
+            //validaTexto = @"<script type='text/javascript'>
+            //           $(document).ready(function () {
+                            
+            //            var $texo = document.getElementById('<%=txtDetalleSolicitud.ClientID%>');
+            //            if($('#<%=txtDetalleSolicitud.ClientID%>').val().length > 5){
+            //                $('#paso1').removeAttr('disabled');
+            //             }
+            //            });
+            //      </script>";
+            //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", validaTexto, false);
+
             if (!IsPostBack)
             {
                 ConsumirWS ws = new ConsumirWS();
@@ -29,7 +41,7 @@ namespace GestionDePermisos.Views.Funcionario
                 NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
                 var rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(Session["usuario"].ToString()));
                 var parts = rut.Split('-');
-                cantDias.InnerText = ws.cantidadDias(parts[0]+parts[1]).ToString();
+                cantDias.InnerText = ws.cantidadDias(parts[0] + parts[1]).ToString();
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
                 NegocioMotivo negocioMotivo = new NegocioMotivo();
                 cmbMotivo.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
@@ -49,7 +61,7 @@ namespace GestionDePermisos.Views.Funcionario
             }
             else
             {
-                
+
                 if (txtCod.Text == "")
                 {
                     //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
