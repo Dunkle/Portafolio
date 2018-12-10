@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Business;
 using GestionDePermisos.Models;
+
 
 namespace GestionDePermisos.Views.Funcionario
 {
@@ -33,7 +30,7 @@ namespace GestionDePermisos.Views.Funcionario
             //            });
             //      </script>";
             //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", validaTexto, false);
-
+            //
             if (!IsPostBack)
             {
                 ConsumirWS ws = new ConsumirWS();
@@ -90,6 +87,7 @@ namespace GestionDePermisos.Views.Funcionario
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
             NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             NegocioCuenta negocioCuenta = new NegocioCuenta();
+            
             string cuenta = Session["usuario"].ToString();
 
             newSolicitud.idSolicitud = negocioSolicitud.listado().Count + 1;
@@ -114,6 +112,7 @@ namespace GestionDePermisos.Views.Funcionario
             }
 
             txtCod.Text = codigo;
+            
             ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
         }
 

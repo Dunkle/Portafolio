@@ -17,8 +17,7 @@
             if ($('#<%=txtDetalleSolicitud.ClientID%>').val().length > 5) {
                  $('#paso1').removeAttr("disabled");
             }
-           
-            
+                       
 
             $('#<%=txtDetalleSolicitud.ClientID%>').keyup(function () {
 
