@@ -5,6 +5,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using GestionDePermisos.Business;
 using GestionDePermisos.Models;
+using GestionDePermisos.Utils;
+
 
 
 namespace GestionDePermisos.Views.Funcionario
@@ -87,7 +89,6 @@ namespace GestionDePermisos.Views.Funcionario
             NegocioSolicitud negocioSolicitud = new NegocioSolicitud();
             NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             NegocioCuenta negocioCuenta = new NegocioCuenta();
-            
             string cuenta = Session["usuario"].ToString();
 
             newSolicitud.idSolicitud = negocioSolicitud.listado().Count + 1;
@@ -112,7 +113,7 @@ namespace GestionDePermisos.Views.Funcionario
             }
 
             txtCod.Text = codigo;
-            
+            envioCorre(newSolicitud);
             ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", script, false);
         }
 
@@ -159,6 +160,28 @@ namespace GestionDePermisos.Views.Funcionario
             NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
             departamento = negocioEmpleado.retornarDepartamentoByRut(rut);
             return departamento;
+        }
+
+        private void envioCorre(Solicitud solicitud)
+        {
+            Correo correo = new Correo();
+            NegocioEmpleado empleado = new NegocioEmpleado();
+            var empleadoSolicitud = empleado.retornarEmpleado(solicitud.rutSolicitante);
+
+            var correoDest = empleadoSolicitud.correo;
+            correo.asunto = "Solicitud numero: " + solicitud.codigoDocumento;
+            var correoCuer = "Sr./Sra. " + empleadoSolicitud.nombres + " " + empleadoSolicitud.apellidoPaterno + " " + empleadoSolicitud.apellidoMaterno + "\n" +
+                "\n" +
+                "Se le comunica que con fecha: "+ solicitud.fechaSolicitud + ", su solicitud de permiso fue curzada con el numero de solicitud: " + solicitud.codigoDocumento + "\n" +
+                "\n" +
+                "Saludos. -" + "\n" +
+                "Atte." + "\n"+
+                "Ilustre Municipalidad de Vista Hermosa";
+            
+            correo.destinatario = correoDest;
+            correo.cuerpo = correoCuer;
+
+            correo.EnviarCorreo();
         }
     }
 }

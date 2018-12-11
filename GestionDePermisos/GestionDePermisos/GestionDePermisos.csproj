@@ -387,7 +387,7 @@
     <Compile Include="Models\Resolucion.cs" />
     <Compile Include="Models\Solicitud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Business\Correo.cs" />
+    <Compile Include="Utils\Correo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -567,7 +567,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="modalCod\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MaFuncionario.Master" />

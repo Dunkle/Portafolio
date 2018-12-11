@@ -77,6 +77,38 @@ namespace GestionDePermisos.Controllers
             }
         }
 
+        public Empleado readbyRut()
+        {
+
+            try
+            {
+                EMPLEADO empleado = Conexion.entities.EMPLEADO.First(f => f.RUT == this.rut);
+
+                this.rut = empleado.RUT;
+                this.nombres = empleado.NOMBRES;
+                this.apellidoMaterno = empleado.APELLIDOMATERNO;
+                this.apellidoPaterno = empleado.APELLIDOPATERNO;
+                this.fechaNacimiento = Convert.ToDateTime(empleado.FECHANACIMIENTO);
+                this.direccion = empleado.DIRECCION;
+                this.telefono = Convert.ToInt32(empleado.TELEFONO);
+                this.correo = empleado.CORREO;
+                this.fechaContratacion = Convert.ToDateTime(empleado.FECHACONTRATACION);
+                this.idEstado = Convert.ToInt32(empleado.IDESTADO);
+                this.idCargo = Convert.ToInt32(empleado.IDCARGO);
+                this.idComuna = Convert.ToInt32(empleado.IDCOMUNA);
+                this.idDepartamento = Convert.ToInt32(empleado.IDDEPARTAMENTO);
+                this.idCuenta = Convert.ToInt32(empleado.IDCUENTA);
+                this.idTipoContrato = Convert.ToInt32(empleado.TIPOCONTRATO);
+
+                return this;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
         public bool readAll()
         {
             try

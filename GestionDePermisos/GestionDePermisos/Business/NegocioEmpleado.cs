@@ -78,6 +78,18 @@ namespace GestionDePermisos.Business
             empleado = empleado.empleados.First(f => f.rut == rut);
             return empleado.idDepartamento;
         }
+
+        public Empleado retornarEmpleado(string rut)
+        {
+            Empleado empleado = new Empleado();
+
+            empleado.rut = rut;
+
+            empleado.readbyRut();
+
+            return empleado;
+
+        }
     }
 }
 
