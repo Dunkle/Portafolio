@@ -13,10 +13,16 @@ namespace GestionDePermisos.Views.Alcalde
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClientScript.GetPostBackEventReference(this, "");
             if (Session["alcalde"] == null)
             {
                 FormsAuthentication.SignOut();
                 Response.Redirect("../../Default.aspx");
+            }
+
+            if (Request["__EVENTTARGET"] == "limpiar")
+            {
+                limpiar();
             }
         }
 
@@ -40,6 +46,10 @@ namespace GestionDePermisos.Views.Alcalde
             }
 
             this.containerTabla.Attributes.Remove("hidden");
+        }
+        private void limpiar()
+        {
+            this.containerTabla.Attributes.Add("hidden", "true");
         }
     }    
 }
