@@ -98,7 +98,7 @@
                         <div class="panel-body">
                             <div class="list-group">
                                 <a href="../Alcalde/ReporteUnidadInternaAlcalde.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Total Permisos por Unidad Interna </a>
-                                <a href="../Alcalde/ReporteTipoPermisoAlcalde.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Total Permisos por Tipo de Permiso </a>
+                                <!--<a href="../Alcalde/ReporteTipoPermisoAlcalde.aspx" class="list-group-item"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>Total Permisos por Tipo de Permiso </a>-->
                             </div>
                         </div>
                     </div>
