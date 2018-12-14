@@ -85,7 +85,8 @@ namespace GestionDePermisos.Business
 
         public IList<Resolucion> generarResolucion(int unidad, int año, int mes)
         {
-            IList<Resolucion> reportes = new List<Resolucion>();            
+            IList<Resolucion> reportes = new List<Resolucion>();
+            ConsumirWS ws = new ConsumirWS();
             solicitudes = new NegocioSolicitud().listado();
             departamentos = new NegocioDepartamento().listado();
             empleados = new NegocioEmpleado().listado();
@@ -99,12 +100,14 @@ namespace GestionDePermisos.Business
                         join d in departamentos
                         on e.idDepartamento equals d.idDepartamento
                         where d.idDepartamento == unidad && s.idEstado == 3 && s.fechaSolicitud.Year == año && s.fechaSolicitud.Month == mes
-                        group s by new { e.rut, t.nombreTipoPermiso, d.nombreDepartamento } into r
+                        group s by new { e.rut, t.nombreTipoPermiso, d.nombreDepartamento,s.fechaInicio,s.fechaTermino } into r
                         select new
                         {
                             rut = r.Key.rut,
                             nombrePermiso = r.Key.nombreTipoPermiso,
                             departamento = r.Key.nombreDepartamento,
+                            fechaInicio = r.Key.fechaInicio,
+                            fechaTermino = r.Key.fechaTermino,
                             cantidad = r.Count(c => c.idSolicitud != null)
                         };
             foreach (var item in query)
@@ -114,8 +117,10 @@ namespace GestionDePermisos.Business
                 resolucion.nombreTipoPermiso = item.nombrePermiso;
                 resolucion.rut = item.rut;
                 resolucion.departamento = item.departamento;
-
-                reportes.Add(resolucion);
+                if (ws.comprobarAsistencia(item.rut,item.fechaInicio.ToString("dd/MM/yyyy"),item.fechaTermino.ToString("dd/MM/yyyy")))
+                {
+                    reportes.Add(resolucion);
+                }                
             }
 
             return reportes;

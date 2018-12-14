@@ -46,5 +46,35 @@ namespace GestionDePermisos.Business
             else return 0;
 
         }
+        public bool comprobarAsistencia(string rut, string fechaInicio, string fechaTermino)
+        {
+            string json = string.Empty;
+            string url = string.Format("http://localhost:8585/Sistema-rrhh-1.0.0/empleado/comprobar/notrabajado/{0}", json);
+
+            var syncClient = new WebClient();
+            syncClient.Headers[HttpRequestHeader.ContentType] = "application/json; charset=utf-8";
+            syncClient.Headers[HttpRequestHeader.Accept] = "application/json";
+
+            AsistenciaFuncionario asistenciaFuncionario = new AsistenciaFuncionario();
+            asistenciaFuncionario.rut = retonarRutSinGuion(rut);
+            asistenciaFuncionario.fechaInicio = fechaInicio;
+            asistenciaFuncionario.fechaTermino = fechaTermino;
+            json = JsonConvert.SerializeObject(asistenciaFuncionario);
+
+            var resp = syncClient.UploadString(url, "POST");
+            bool retorno = Convert.ToBoolean(resp);
+            return retorno;
+        }
+        private string retonarRutSinGuion(string rut)
+        {            
+            var parts = rut.Split('-');
+            string nuevoRut = string.Empty;
+            foreach (var item in parts)
+            {
+                nuevoRut = nuevoRut + item;
+            }
+
+            return nuevoRut;
+        }
     }
 }
