@@ -34,13 +34,11 @@ namespace GestionDePermisos.Views.Funcionario
             //ScriptManager.RegisterStartupScript(this, typeof(Page), "invocarfuncion", validaTexto, false);
             //
             if (!IsPostBack)
-            {
-                ConsumirWS ws = new ConsumirWS();
+            {                
                 NegocioCuenta negocioCuenta = new NegocioCuenta();
                 NegocioEmpleado negocioEmpleado = new NegocioEmpleado();
-                var rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(Session["usuario"].ToString()));
-                var parts = rut.Split('-');
-                cantDias.InnerText = ws.cantidadDias(parts[0] + parts[1]).ToString();
+                var rut = negocioEmpleado.retornarRutByCuentaID(negocioCuenta.retornarID(Session["usuario"].ToString()));                
+                cantDias.InnerText = retornarDiasDiponibles(rut);
                 NegocioTipoPermiso negocioTipo = new NegocioTipoPermiso();
                 NegocioMotivo negocioMotivo = new NegocioMotivo();
                 cmbMotivo.Items.Add(new ListItem() { Value = "0", Text = "- Seleccione -" });
@@ -81,6 +79,19 @@ namespace GestionDePermisos.Views.Funcionario
                 }
 
             }
+        }
+
+        private string retornarDiasDiponibles(string rut)
+        {
+            ConsumirWS ws = new ConsumirWS();
+            var parts = rut.Split('-');
+            string nuevoRut = string.Empty;
+            foreach (var item in parts)
+            {
+                nuevoRut = nuevoRut + item;
+            }
+
+            return ws.cantidadDias(nuevoRut).ToString();
         }
 
         protected void btnFinalizarPermiso_Click(object sender, EventArgs e)

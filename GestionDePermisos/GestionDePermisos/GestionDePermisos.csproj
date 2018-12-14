@@ -258,7 +258,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Business\ConsumirWS.cs" />
+    <Compile Include="Utils\ConsumirWS.cs" />
     <Compile Include="Business\NegocioCuenta.cs" />
     <Compile Include="Business\NegocioDepartamento.cs" />
     <Compile Include="Business\NegocioEmpleado.cs" />
